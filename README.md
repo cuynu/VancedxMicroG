@@ -1,10 +1,6 @@
 # Vanced+ MicroG
 
-[![Github All Releases](https://img.shields.io/github/downloads/cuynu/VancedxMicroG/total.svg)](https://github.com/cuynu/VancedxMicroG/releases/latest/download/microg.apk) [![Github All Releases](https://img.shields.io/github/release/cuynu/VancedxMicroG.svg)](https://github.com/cuynu/VancedxMicroG/releases)
-
-microG GmsCore is a FLOSS (Free/Libre Open Source Software) framework to allow applications designed for Google Play Services to run on systems, where Play Services is not available.
-
-This fork tweaks MicroG to be usable by applications that require Google authentication such as [YouTube Vanced+](https://github.com/cuynu/ytvancedx) or [ReVanced](https://github.com/revanced), [ReVanced Extended](https://github.com/inotia00) / [ReX](https://github.com/YT-Advanced).
+This fork tweaks MicroG to be usable by applications that require Google authentication such as [YouTube Vanced+](https://gitlab.com/cuynu/ytvancedx) or [ReVanced](https://github.com/revanced), [ReVanced Extended](https://github.com/inotia00) / [ReX](https://github.com/YT-Advanced).
 
 **[Donate this project (Not required)](#donations)**
 
