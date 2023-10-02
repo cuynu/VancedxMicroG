@@ -123,4 +123,6 @@ Hãy thử lại sau."</string>
     <string name="network_google_enabled_summary">Allow connecting to Google servers</string>
     <string name="network_google_use_tor">Requires Orbot to be installed\nNot yet supported</string>
     <string name="network_google_use_tor_summary">Connect to Google via Tor network</string>
+    <string name="fake_signature_summary">Giả mạo chữ ký của ứng dụng Vanced+ microG để đánh lừa Google và khắc phục lỗi phát video trên YouTube Vanced+</string>
+    <string name="fake_signature_title">Giả mạo chữ ký Vanced+ microG (THỬ NGHIỆM)</string>
 </resources>

@@ -55,5 +55,12 @@
         android:key="network_google_use_tor"
         android:summary="@string/network_google_use_tor"
         android:title="@string/network_google_use_tor_summary"/>
+    <SwitchPreferenceCompat
+        android:defaultValue="false"
+        android:dependency="signature"
+        android:enabled="true"
+        android:key="fake_signature"
+        android:summary="@string/fake_signature_summary"
+        android:title="@string/fake_signature_title"/>
     </PreferenceCategory>
 </PreferenceScreen>
