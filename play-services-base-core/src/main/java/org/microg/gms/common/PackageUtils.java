@@ -114,7 +114,7 @@ public class PackageUtils {
         if (packageName.equals("com.google.android.youtube.tv") || packageName.contains("youtube.tv")) {
             return "61226bdb57cc32c8a2a9ef71f7bc9548e95dcc0b";
         }
-        if (packageName.equals("com.google.android.youtube.music") || packageName.contains("youtube")) {
+        if (packageName.equals("com.google.android.youtube") || packageName.contains("youtube")) {
             return "24bb24c05e47e0aefa68a58a766179d9b613a600";
         }
         final PackageInfo info;
