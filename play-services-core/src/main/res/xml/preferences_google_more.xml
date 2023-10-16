@@ -49,13 +49,6 @@
         android:summary="@string/network_google_enabled_string"
         android:title="@string/network_google_enabled_summary"/>
     <SwitchPreferenceCompat
-        android:defaultValue="false"
-        android:dependency="network_google_enabled"
-        android:enabled="true"
-        android:key="network_google_use_tor"
-        android:summary="@string/network_google_use_tor"
-        android:title="@string/network_google_use_tor_summary"/>
-    <SwitchPreferenceCompat
         android:defaultValue="true"
         android:enabled="false"
         android:summary="@string/fake_signature_summary"
