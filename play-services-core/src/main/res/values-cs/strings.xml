@@ -122,4 +122,5 @@ Tato akce může trvat několik minut."</string>
     <string name="network_google_use_tor_summary">Connect to Google via Tor network</string>
     <string name="fake_signature_summary">Spoofs signature key of Vanced+ microG to fix YouTube Vanced+ playback buffering issue</string>
     <string name="fake_signature_title">Spoof app signature key (EXPERIMENTAL)</string>
+    <string name="build_date">Build date</string>
 </resources>

@@ -53,5 +53,10 @@
         android:enabled="false"
         android:summary="@string/fake_signature_summary"
         android:title="@string/fake_signature_title"/>
+    <Preference
+        android:selectable="false"
+        android:icon="@drawable/ic_info_outline"
+        android:title="@string/build_date"
+        android:summary="put your build date here :)"/>
     </PreferenceCategory>
 </PreferenceScreen>
