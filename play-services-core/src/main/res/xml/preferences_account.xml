@@ -15,6 +15,13 @@
                 android:action="android.intent.action.VIEW"
                 android:data="https://myactivity.google.com/product/youtube"/>
         </Preference>
+        <Preference
+            android:title="@string/your_data_in_youtube"
+            android:summary="@string/your_data_in_youtube_summary">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://myaccount.google.com/u/0/yourdata/youtube"/>
+        </Preference>
         <SwitchPreferenceCompat
             android:defaultValue="true"
             android:key="auth_manager_trust_google"
@@ -26,6 +33,12 @@
             android:summary="@string/pref_auth_visible_summary"
             android:title="@string/pref_auth_visible_title"/>
     </PreferenceCategory>
+
+    <Preference
+        android:title="@string/remove_google_account_tips"
+        android:summary="@string/remove_google_account_summary"
+        android:icon="@drawable/ic_info_outline"
+        android:selectable="false"/>
 
     <Preference
         android:selectable="false"

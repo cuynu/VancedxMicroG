@@ -126,4 +126,8 @@ Hãy thử lại sau."</string>
     <string name="fake_signature_summary">Giả mạo chữ ký của ứng dụng Vanced+ microG để đánh lừa Google và khắc phục lỗi phát video trên YouTube Vanced+</string>
     <string name="fake_signature_title">Giả mạo chữ ký Vanced+ microG (THỬ NGHIỆM)</string>
     <string name="build_date">Ngày dựng</string>
+    <string name="your_data_in_youtube">Dữ liệu của bạn trong YouTube</string>
+    <string name="your_data_in_youtube_summary">Xem hoặc xóa hoạt động của bạn trên YouTube và khám phá cách dữ liệu của bạn có thể giúp YouTube và các dịch vụ khác của Google hoạt động hiệu quả hơn cho bạn.</string>
+    <string name="remove_google_account_tips">Muốn đăng xuất hoặc gỡ tài khoản đã đăng nhập khỏi Vanced+ microG?</string>
+    <string name="remove_google_account_summary"><![CDATA[Đi đến cài đặt thiết bị -> Quản lý Tài khoản và gỡ bỏ nó.]]></string>
 </resources>
