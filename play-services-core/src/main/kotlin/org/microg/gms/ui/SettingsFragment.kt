@@ -27,7 +27,15 @@ class SettingsFragment : ResourceSettingsFragment() {
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         super.onCreatePreferences(savedInstanceState, rootKey)
 
+<<<<<<< HEAD
         findPreference<Preference>(PREF_CHECKIN)?.setOnPreferenceClickListener {
+=======
+        findPreference<Preference>(PREF_ACCOUNTS)!!.onPreferenceClickListener = Preference.OnPreferenceClickListener {
+            findNavController().navigate(requireContext(), R.id.accountManagerFragment)
+            true
+        }
+        findPreference<Preference>(PREF_CHECKIN)!!.onPreferenceClickListener = Preference.OnPreferenceClickListener {
+>>>>>>> 8c9aea55 (Introduce a new AccountsFragment to store accounts related prefs)
             findNavController().navigate(requireContext(), R.id.openCheckinSettings)
             true
         }
@@ -76,6 +84,11 @@ class SettingsFragment : ResourceSettingsFragment() {
         const val PREF_ABOUT = "pref_about"
         const val PREF_GCM = "pref_gcm"
         const val PREF_CHECKIN = "pref_checkin"
+<<<<<<< HEAD
+=======
+        const val PREF_VENDING = "pref_vending"
+        const val PREF_ACCOUNTS = "pref_accounts"
+>>>>>>> 8c9aea55 (Introduce a new AccountsFragment to store accounts related prefs)
     }
 
     init {

@@ -13,6 +13,25 @@
         <action android:id="@+id/openAbout" app:destination="@id/aboutFragment" />
     </fragment>
 
+<<<<<<< HEAD
+=======
+    <!-- Self-Check -->
+
+    <fragment
+        android:id="@+id/selfcheckFragment"
+        android:name="org.microg.gms.ui.SelfCheckFragment"
+        android:label="@string/self_check_title" />
+
+    <!-- Account -->
+
+    <fragment
+        android:id="@+id/accountManagerFragment"
+        android:name="org.microg.gms.ui.AccountsFragment"
+        android:label="@string/pref_accounts_title" />
+
+    <!-- Device registration -->
+
+>>>>>>> 8c9aea55 (Introduce a new AccountsFragment to store accounts related prefs)
     <fragment
         android:id="@+id/checkinFragment"
         android:name="org.microg.gms.ui.DeviceRegistrationFragment"

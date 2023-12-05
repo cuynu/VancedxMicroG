@@ -116,9 +116,19 @@ This can take a couple of minutes."</string>
     <string name="pref_more_settings">More</string>
 >>>>>>> 9028d03a (Auth: Allow stripping device name from requests)
 
+    <string name="pref_accounts_title">Accounts</string>
+    <string name="pref_accounts_summary">Add and manage Google accounts</string>
+    <string name="prefcat_accounts_settings_title">Settings</string>
+    <string name="prefcat_accounts_current_accounts_title">Currently signed-in accounts</string>
+    <string name="pref_accounts_manage_accounts_title">Manage accounts</string>
+    <string name="pref_accounts_manage_accounts_summary">Manage existing accounts settings</string>
     <string name="pref_add_account_title">Account</string>
     <string name="pref_add_account_summary">Add Google account</string>
+<<<<<<< HEAD
     <string name="pref_gcm_switcher_title">Receive push notifications</string>
+=======
+
+>>>>>>> 8c9aea55 (Introduce a new AccountsFragment to store accounts related prefs)
     <string name="pref_gcm_enable_mcs_summary">Cloud Messaging is a push notification provider used by many third-party applications. To use it you must enable device registration.</string>
 
     <string name="pref_about_title">About Vanced+ microG</string>

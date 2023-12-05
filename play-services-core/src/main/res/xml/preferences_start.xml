@@ -22,9 +22,22 @@
             android:title="@string/account_manager_title"
             android:summary="@string/manage_google_account_summary">
             <intent
+<<<<<<< HEAD
                 android:targetClass="org.microg.gms.ui.AccountSettingsActivity"
                 android:targetPackage="com.mgoogle.android.gms" />
         </Preference>
+=======
+                android:targetClass="org.microg.gms.ui.SelfCheckFragment$AsActivity"
+                android:targetPackage="com.google.android.gms" />
+        </Preference>
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/prefcat_google_services" android:key="prefcat_google_services">
+        <Preference
+            android:icon="@drawable/ic_add_account"
+            android:key="pref_accounts"
+            android:summary="@string/pref_accounts_summary"
+            android:title="@string/pref_accounts_title" />
+>>>>>>> 8c9aea55 (Introduce a new AccountsFragment to store accounts related prefs)
         <Preference
             android:icon="@drawable/ic_device_login"
             android:key="pref_checkin"
