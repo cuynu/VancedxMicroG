@@ -119,8 +119,8 @@ Hãy thử lại sau."</string>
     <string name="delete_account_summary">Để gỡ bỏ tài khoản Google đã đăng nhập, hãy vào Cài đặt thiết bị -> Tài khoản.</string>
     <string name="check_for_vanced_microg_updates_on_github">Kiểm tra cập nhật mới của Vanced+ microG trên GitHub</string>
     <string name="check_for_updates">Kiểm tra cập nhật mới</string>
-    <string name="network_google_enabled_string">If disabled, all connections to Google servers usually done by microG will be denied. This overrides service specific settings.</string>
-    <string name="network_google_enabled_summary">Allow connecting to Google servers</string>
+    <string name="network_google_enabled_string">Nếu vô hiệu hóa, tất cả các kết nối tới máy chủ Google thường thực hiện bởi Vanced+ microG sẽ bị từ chối. Tùy chọn này sẽ ghi đè cài đặt đó.</string>
+    <string name="network_google_enabled_summary">Cho phép kết nối tới máy chủ Google</string>
     <string name="network_google_use_tor">Requires Orbot to be installed\nNot yet supported</string>
     <string name="network_google_use_tor_summary">Connect to Google via Tor network</string>
     <string name="fake_signature_summary">Giả mạo chữ ký của ứng dụng Vanced+ microG để đánh lừa Google và khắc phục lỗi phát video trên YouTube Vanced+</string>

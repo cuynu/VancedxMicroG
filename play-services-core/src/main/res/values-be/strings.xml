@@ -119,7 +119,7 @@
     <string name="delete_account_summary">To remove signed in Google account, go to Device Settings -> Account.</string>
     <string name="check_for_vanced_microg_updates_on_github">Check for Vanced+ microG updates on GitHub</string>
     <string name="check_for_updates">Check for updates</string>
-    <string name="network_google_enabled_string">If disabled, all connections to Google servers usually done by microG will be denied. This overrides service specific settings.</string>
+    <string name="network_google_enabled_string">If disabled, all connections to Google servers usually done by Vanced+ microG will be denied. This overrides service specific settings.</string>
     <string name="network_google_enabled_summary">Allow connecting to Google servers</string>
     <string name="network_google_use_tor">Requires Orbot to be installed\nNot yet supported</string>
     <string name="network_google_use_tor_summary">Connect to Google via Tor network</string>
