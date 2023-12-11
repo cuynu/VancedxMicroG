@@ -77,4 +77,6 @@
     <string name="your_data_in_youtube_summary">Browse or delete your YouTube activity, and discover how your data makes YouTube and other Google services work better for you</string>
     <string name="remove_google_account_tips">Want to remove your Google account from Vanced+ microG?</string>
     <string name="remove_google_account_summary"><![CDATA[Go to your device settings -> Account to remove them.]]></string>
+    <string name="check_for_vanced_microg_updates_on_gitlab">Check for Vanced+ microG updates on GitLab</string>
+    <string name="view_sourcecode_gitlab">View project source code on GitLab</string>
 </resources>

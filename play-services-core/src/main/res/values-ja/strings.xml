@@ -130,4 +130,6 @@
     <string name="your_data_in_youtube_summary">YouTube のアクティビティを確認、削除できます。YouTube の利便性を向上させるために YouTube やその他の Google サービスのデータがどのように使用されているかを確認できます</string>
     <string name="remove_google_account_tips">Vanced+ microG で追加したGoogleアカウントはどうすれば削除できますか？</string>
     <string name="remove_google_account_summary">端末の設定 → アカウント に移動して該当するアカウントを選択し削除します</string>
+    <string name="check_for_vanced_microg_updates_on_gitlab">Check for Vanced+ microG updates on GitLab</string>
+    <string name="view_sourcecode_gitlab">View project source code on GitLab</string>
 </resources>

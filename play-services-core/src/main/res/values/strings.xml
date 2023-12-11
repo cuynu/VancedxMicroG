@@ -50,7 +50,7 @@ This can take a couple of minutes."</string>
     <string name="manage_yt_activities">Manage YouTube activities</string>
     <string name="manage_yt_activities_summary">Manage YouTube activities such as watch or search history</string>
     <string name="source_code">View source code</string>
-    <string name="source_code_summary">View project source code on GitHub</string>
+    <string name="source_code_summary">View project source code on GitLab</string>
 
 
     <string name="service_name_checkin">Google device registration</string>
@@ -137,13 +137,13 @@ This can take a couple of minutes."</string>
     <string name="import_profile_name">Import custom profile</string>
     <string name="import_profile_summary">Import device profile from file</string>
     <string name="serial_name">Serial</string>
-    <string name="url_link">https://github.com/cuynu/VancedxMicroG</string>
+    <string name="url_link">https://gitlab.com/cuynu/VancedxMicroG</string>
     <string name="delete_account_summary">To remove signed in Google account, go to Device Settings -> Account.</string>
     <string name="tg_groups">https://t.me/ytvancedxupdates</string>
     <string name="discord">https://discord.gg/FXAe2eE7mx</string>
     <string name="check_for_vanced_microg_updates_on_github">Check for Vanced+ microG updates on GitHub</string>
     <string name="check_for_updates">Check for updates</string>
-    <string name="checkupdate_url">https://github.com/cuynu/VancedxMicroG/releases</string>
+    <string name="checkupdate_url">https://gitlab.com/cuynu/VancedxMicroG/releases</string>
     <string name="network_google_enabled_string">If disabled, all connections to Google servers usually done by microG will be denied. This overrides service specific settings.</string>
     <string name="network_google_enabled_summary">Allow connecting to Google servers</string>
     <string name="network_google_use_tor">Requires Orbot to be installed\nNot yet supported</string>
@@ -155,4 +155,6 @@ This can take a couple of minutes."</string>
     <string name="your_data_in_youtube_summary">Browse or delete your YouTube activity, and discover how your data makes YouTube and other Google services work better for you</string>
     <string name="remove_google_account_tips">Want to remove your Google account from Vanced+ microG?</string>
     <string name="remove_google_account_summary"><![CDATA[Go to your device settings -> Account to remove them.]]></string>
+    <string name="check_for_vanced_microg_updates_on_gitlab">Check for Vanced+ microG updates on GitLab</string>
+    <string name="view_sourcecode_gitlab">View project source code on GitLab</string>
 </resources>

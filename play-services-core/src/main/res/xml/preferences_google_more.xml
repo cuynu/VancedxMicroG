@@ -21,7 +21,7 @@
         <Preference
             android:icon="@drawable/ic_device_login"
             android:title="@string/check_for_updates"
-            android:summary="@string/check_for_vanced_microg_updates_on_github">
+            android:summary="@string/check_for_vanced_microg_updates_on_gitlab">
             <intent
                 android:action="android.intent.action.VIEW"
                 android:data="@string/checkupdate_url" />
@@ -57,6 +57,6 @@
         android:selectable="false"
         android:icon="@drawable/ic_info_outline"
         android:title="@string/build_date"
-        android:summary="put your build date here :)"/>
+        android:summary="04 December 2023 - monthly"/>
     </PreferenceCategory>
 </PreferenceScreen>

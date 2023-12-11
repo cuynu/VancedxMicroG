@@ -130,4 +130,6 @@ Hãy thử lại sau."</string>
     <string name="your_data_in_youtube_summary">Xem hoặc xóa hoạt động của bạn trên YouTube và khám phá cách dữ liệu của bạn có thể giúp YouTube và các dịch vụ khác của Google hoạt động hiệu quả hơn cho bạn.</string>
     <string name="remove_google_account_tips">Muốn đăng xuất hoặc gỡ tài khoản đã đăng nhập khỏi Vanced+ microG?</string>
     <string name="remove_google_account_summary"><![CDATA[Đi đến cài đặt thiết bị -> Quản lý Tài khoản và gỡ bỏ nó.]]></string>
+    <string name="check_for_vanced_microg_updates_on_gitlab">Kiểm tra cập nhật của Vanced+ microG trên GitLab</string>
+    <string name="view_sourcecode_gitlab">Xem mã nguồn dự án trên GitLab</string>
 </resources>
