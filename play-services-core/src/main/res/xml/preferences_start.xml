@@ -19,16 +19,8 @@
     <PreferenceCategory android:title="@string/prefcat_google_services">
         <Preference
             android:icon="@drawable/ic_add_account"
-            android:summary="@string/pref_add_account_summary"
-            android:title="@string/pref_add_account_title">
-            <intent
-                android:targetClass="org.microg.gms.auth.login.LoginActivity"
-                android:targetPackage="com.mgoogle.android.gms" />
-        </Preference>
-        <Preference
-            android:icon="@drawable/ic_add_account"
             android:title="@string/account_manager_title"
-            android:summary="@string/delete_account_summary">
+            android:summary="@string/manage_google_account_summary">
             <intent
                 android:targetClass="org.microg.gms.ui.AccountSettingsActivity"
                 android:targetPackage="com.mgoogle.android.gms" />
