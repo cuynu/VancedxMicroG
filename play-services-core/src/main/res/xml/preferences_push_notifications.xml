@@ -29,6 +29,13 @@
             android:selectable="false"
             android:title="@string/prefcat_status_title"
             tools:summary="Connected since 15 minutes ago" />
+        <Preference
+            android:title="@string/check_connection"
+            android:summary="@string/check_your_device_internet_connection">
+            <intent
+                android:targetClass="com.android.settings.Settings$NetworkProviderSettingsActivity"
+                android:targetPackage="com.android.settings" />
+        </Preference>
     </PreferenceCategory>
     <PreferenceCategory android:layout="@layout/preference_category_no_label">
         <Preference

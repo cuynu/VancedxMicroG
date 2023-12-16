@@ -132,4 +132,8 @@
     <string name="remove_google_account_summary">端末の設定 → アカウント に移動して該当するアカウントを選択し削除します</string>
     <string name="check_for_vanced_microg_updates_on_gitlab">GitLab で Vanced+ microG の更新を確認する</string>
     <string name="view_sourcecode_gitlab">GitLab でプロジェクトのソースコードを表示します</string>
+    <string name="check_connection">Check connection</string>
+    <string name="check_your_device_internet_connection">Check your device internet connection</string>
+    <string name="back_to_vancedx_title">Back to YouTube Vanced+</string>
+    <string name="back_to_vancedx_summary">Tap to exit Vanced+ microG and back to YouTube Vanced</string>
 </resources>

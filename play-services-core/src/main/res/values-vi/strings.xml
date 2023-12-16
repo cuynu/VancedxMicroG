@@ -21,7 +21,7 @@
     <string name="sorry">Xin lỗi…</string>
     <string name="auth_before_connect">"Một ứng dụng nào đó trên thiết bị của bạn đang yêu cầu đăng nhập vào tài khoản Google.
 
-Nếu điều này do bạn thực hiện, hãy sử dụng nút <b>Đăng nhập</b> (hoặc <b>Huawei</b> nếu bạn có thiết bị hãng này) để kết nối đến máy chủ đăng nhập của Google. Nếu không, nhấn <b>Hủy</b> để quay lại ứng dụng khiến hộp thoại này xuất hiện."</string>
+Nếu điều này do bạn thực hiện, hãy sử dụng nút <b>Đăng nhập</b> (hoặc <b>Huawei</b> nếu bạn có thiết bị hãng này) để kết nối đến máy chủ đăng nhập của Google."</string>
     <string name="auth_sign_in">Đăng nhập</string>
     <string name="auth_connecting">"Đang thiết lập kết nối đến máy chủ của Google để đăng nhập cho bạn.
 
@@ -50,7 +50,7 @@ Hãy thử lại sau."</string>
     <string name="service_status_enabled_short">Bật</string>
     <string name="service_status_disabled_short">Tắt</string>
     <string name="menu_advanced">Nâng cao</string>
-    <string name="list_no_item_none">Trống</string>
+    <string name="list_no_item_none">Không có gì ở đây cả, thật kỳ lạ...</string>
     <string name="list_item_see_all">Xem tất cả</string>
     <string name="network_type_mobile">Mạng di động</string>
     <string name="network_type_wifi">Wi-Fi</string>
@@ -132,4 +132,9 @@ Hãy thử lại sau."</string>
     <string name="remove_google_account_summary"><![CDATA[Đi đến cài đặt thiết bị -> Quản lý Tài khoản và gỡ bỏ nó]]> hoặc nhấp vào đây.</string>
     <string name="check_for_vanced_microg_updates_on_gitlab">Kiểm tra cập nhật Vanced+ microG trên GitLab</string>
     <string name="view_sourcecode_gitlab">Xem mã nguồn dự án trên GitLab</string>
+    <string name="check_connection">Kiểm tra kết nối</string>
+    <string name="check_your_device_internet_connection">Kiểm tra kết nối mạng của thiết bị</string>
+    <string name="back_to_vancedx_title">Quay lại YouTube Vanced+</string>
+    <string name="back_to_vancedx_summary">Nhấn để thoát Vanced+ microG và quay lại YouTube Vanced+ (nếu được cài đặt)
+    </string>
 </resources>

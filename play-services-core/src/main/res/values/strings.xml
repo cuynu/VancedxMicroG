@@ -137,13 +137,9 @@ This can take a couple of minutes."</string>
     <string name="import_profile_name">Import custom profile</string>
     <string name="import_profile_summary">Import device profile from file</string>
     <string name="serial_name">Serial</string>
-    <string name="url_link">https://gitlab.com/cuynu/VancedxMicroG</string>
     <string name="delete_account_summary">To remove signed in Google account, go to Device Settings -> Account.</string>
-    <string name="tg_groups">https://t.me/ytvancedxupdates</string>
-    <string name="discord">https://discord.gg/FXAe2eE7mx</string>
     <string name="check_for_vanced_microg_updates_on_github">Check for Vanced+ microG updates on GitHub</string>
     <string name="check_for_updates">Check for updates</string>
-    <string name="checkupdate_url">https://gitlab.com/cuynu/VancedxMicroG/-/releases</string>
     <string name="network_google_enabled_string">If disabled, all connections to Google servers usually done by Vanced+ microG will be denied. This overrides service specific settings.</string>
     <string name="network_google_enabled_summary">Allow connecting to Google servers</string>
     <string name="network_google_use_tor">Requires Orbot to be installed\nNot yet supported</string>
@@ -157,4 +153,8 @@ This can take a couple of minutes."</string>
     <string name="remove_google_account_summary"><![CDATA[Go to your device settings -> Account to remove them]]> or click here.</string>
     <string name="check_for_vanced_microg_updates_on_gitlab">Check for Vanced+ microG updates on GitLab</string>
     <string name="view_sourcecode_gitlab">View project source code on GitLab</string>
+    <string name="check_connection">Check connection</string>
+    <string name="check_your_device_internet_connection">Check your device internet connection</string>
+    <string name="back_to_vancedx_title">Back to YouTube Vanced+</string>
+    <string name="back_to_vancedx_summary">Tap to exit Vanced+ microG and back to YouTube Vanced+ (if installed)</string>
 </resources>

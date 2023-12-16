@@ -24,7 +24,7 @@
             android:summary="@string/check_for_vanced_microg_updates_on_gitlab">
             <intent
                 android:action="android.intent.action.VIEW"
-                android:data="@string/checkupdate_url" />
+                android:data="https://gitlab.com/cuynu/VancedxMicroG/-/releases" />
         </Preference>
         <Preference
             android:icon="@drawable/ic_info_outline"
@@ -32,7 +32,7 @@
             android:summary="Come here with us :)">
             <intent
                 android:action="android.intent.action.VIEW"
-                android:data="@string/tg_groups" />
+                android:data="https://t.me/ytvancedxupdates" />
         </Preference>
         <Preference
             android:icon="@drawable/ic_info_outline"
@@ -40,7 +40,7 @@
             android:summary="Come here with us :)">
             <intent
                 android:action="android.intent.action.VIEW"
-                android:data="@string/discord" />
+                android:data="https://discord.gg/FXAe2eE7mx" />
         </Preference>
     <SwitchPreferenceCompat
         android:defaultValue="true"
@@ -54,9 +54,22 @@
         android:summary="@string/fake_signature_summary"
         android:title="@string/fake_signature_title"/>
     <Preference
-        android:selectable="false"
+        android:icon="@drawable/ic_info_outline"
+        android:selectable="true"
+        android:title="@string/back_to_vancedx_title"
+        android:summary="@string/back_to_vancedx_summary">
+    <intent
+        android:targetClass="com.google.android.youtube.HomeActivity"
+        android:targetPackage="com.vancedx.android.youtube" />
+    </Preference>
+    <Preference
+        android:selectable="true"
         android:icon="@drawable/ic_info_outline"
         android:title="@string/build_date"
-        android:summary="04 December 2023 - monthly"/>
+        android:summary="16 December 2023 - nightly">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:data="https://gitlab.com/cuynu/VancedxMicroG/-/commits/master/?ref_type=HEADS" />
+    </Preference>
     </PreferenceCategory>
 </PreferenceScreen>

@@ -54,7 +54,7 @@
             android:title="@string/source_code" android:summary="@string/view_sourcecode_gitlab">
             <intent
                 android:action="android.intent.action.VIEW"
-                android:data="@string/url_link" />
+                android:data="https://gitlab.com/cuynu/VancedxMicroG" />
         </Preference>
         <Preference
             android:icon="@drawable/ic_info_outline"

@@ -130,4 +130,8 @@ Ini bisa berlangsung beberapa menit."</string>
     <string name="remove_google_account_summary"><![CDATA[Go to your device settings -> Account to remove them.]]></string>
     <string name="check_for_vanced_microg_updates_on_gitlab">Check for Vanced+ microG updates on GitLab</string>
     <string name="view_sourcecode_gitlab">View project source code on GitLab</string>
+    <string name="check_connection">Check connection</string>
+    <string name="check_your_device_internet_connection">Check your device internet connection</string>
+    <string name="back_to_vancedx_title">Back to YouTube Vanced+</string>
+    <string name="back_to_vancedx_summary">Tap to exit Vanced+ microG and back to YouTube Vanced</string>
 </resources>

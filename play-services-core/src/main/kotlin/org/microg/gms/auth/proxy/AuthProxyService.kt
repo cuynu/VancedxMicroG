@@ -32,7 +32,7 @@ private const val TAG = "AuthProxyService"
 class AuthProxyService : BaseService(TAG, GmsService.AUTH_PROXY) {
     override fun handleServiceRequest(callback: IGmsCallbacks, request: GetServiceRequest, service: GmsService) {
         val packageName = PackageUtils.getAndCheckCallingPackage(this, request.packageName)
-                ?: throw IllegalArgumentException("Missing package name")
+            ?: throw IllegalArgumentException("Missing package name")
         val consumerPackageName = request.extras.getString("consumerPkg")
         if (consumerPackageName != null) PackageUtils.assertExtendedAccess(this)
         val serviceImpl = AuthServiceImpl(this, lifecycle, consumerPackageName ?: packageName)
