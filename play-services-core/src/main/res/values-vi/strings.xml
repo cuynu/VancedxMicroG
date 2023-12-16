@@ -17,7 +17,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="gms_settings_summary">Thiết lập Vanced+ microG.</string>
     <string name="just_a_sec">Hãy đợi giây lát…</string>
-    <string name="account_manager_title">Quản lý tài khoản Google</string>
+    <string name="account_manager_title">Quản lý/Thêm tài khoản Google</string>
     <string name="sorry">Xin lỗi…</string>
     <string name="auth_before_connect">"Một ứng dụng nào đó trên thiết bị của bạn đang yêu cầu đăng nhập vào tài khoản Google.
 
@@ -129,7 +129,7 @@ Hãy thử lại sau."</string>
     <string name="your_data_in_youtube">Dữ liệu của bạn trong YouTube</string>
     <string name="your_data_in_youtube_summary">Xem hoặc xóa hoạt động của bạn trên YouTube và khám phá cách dữ liệu của bạn có thể giúp YouTube và các dịch vụ khác của Google hoạt động hiệu quả hơn cho bạn.</string>
     <string name="remove_google_account_tips">Muốn đăng xuất hoặc gỡ tài khoản đã đăng nhập khỏi Vanced+ microG?</string>
-    <string name="remove_google_account_summary"><![CDATA[Đi đến cài đặt thiết bị -> Quản lý Tài khoản và gỡ bỏ nó.]]></string>
+    <string name="remove_google_account_summary"><![CDATA[Đi đến cài đặt thiết bị -> Quản lý Tài khoản và gỡ bỏ nó]]> hoặc nhấp vào đây.</string>
     <string name="check_for_vanced_microg_updates_on_gitlab">Kiểm tra cập nhật Vanced+ microG trên GitLab</string>
     <string name="view_sourcecode_gitlab">Xem mã nguồn dự án trên GitLab</string>
 </resources>
