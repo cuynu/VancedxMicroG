@@ -136,4 +136,5 @@
     <string name="check_your_device_internet_connection">Check your device internet connection</string>
     <string name="back_to_vancedx_title">Back to YouTube Vanced+</string>
     <string name="back_to_vancedx_summary">Tap to exit Vanced+ microG and back to YouTube Vanced</string>
+    <string name="package_information">Package information</string>
 </resources>

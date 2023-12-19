@@ -18,41 +18,22 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
     <PreferenceCategory
         android:title="@string/pref_more_settings">
-        <Preference
-            android:icon="@drawable/ic_device_login"
-            android:title="@string/check_for_updates"
-            android:summary="@string/check_for_vanced_microg_updates_on_gitlab">
-            <intent
-                android:action="android.intent.action.VIEW"
-                android:data="https://gitlab.com/cuynu/VancedxMicroG/-/releases" />
-        </Preference>
-        <Preference
-            android:icon="@drawable/ic_info_outline"
-            android:title="YouTube Vanced+ Telegram channel"
-            android:summary="Come here with us :)">
-            <intent
-                android:action="android.intent.action.VIEW"
-                android:data="https://t.me/ytvancedxupdates" />
-        </Preference>
-        <Preference
-            android:icon="@drawable/ic_info_outline"
-            android:title="YouTube Vanced+ Discord server"
-            android:summary="Come here with us :)">
-            <intent
-                android:action="android.intent.action.VIEW"
-                android:data="https://discord.gg/FXAe2eE7mx" />
-        </Preference>
+
+    <Preference
+        android:selectable="false"
+        android:icon="@drawable/ic_info_outline"
+        android:title="Looking for check updates?"
+        android:summary="Moved to main Vanced+ microG settings !">
+        <intent
+            android:targetClass="org.microg.gms.ui.SettingsDashboardActivity"
+            android:targetPackage="com.mgoogle.android.gms" />
+    </Preference>
     <SwitchPreferenceCompat
         android:defaultValue="true"
         android:enabled="true"
         android:key="network_google_enabled"
         android:summary="@string/network_google_enabled_string"
         android:title="@string/network_google_enabled_summary"/>
-    <SwitchPreferenceCompat
-        android:defaultValue="true"
-        android:enabled="false"
-        android:summary="@string/fake_signature_summary"
-        android:title="@string/fake_signature_title"/>
     <Preference
         android:icon="@drawable/ic_info_outline"
         android:selectable="true"
@@ -63,13 +44,21 @@
         android:targetPackage="com.vancedx.android.youtube" />
     </Preference>
     <Preference
-        android:selectable="true"
+        android:selectable="false"
         android:icon="@drawable/ic_info_outline"
-        android:title="@string/build_date"
-        android:summary="DD MM YYYY - nightly">
-        <intent
-            android:action="android.intent.action.VIEW"
-            android:data="https://gitlab.com/cuynu/VancedxMicroG/-/commits/master/?ref_type=HEADS" />
-    </Preference>
+        android:title="@string/package_information"
+        android:summary="Package name : com.mgoogle.android.gms \n Version code : 234914073
+        \n minSdk : 23 \n targetSdk : 30
+        \n GMS version : 23.49.14
+        \n build type : release" />
+        <Preference
+            android:selectable="true"
+            android:icon="@drawable/ic_info_outline"
+            android:title="@string/build_date"
+            android:summary="DD MM YYYY  - nightly">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://gitlab.com/cuynu/VancedxMicroG/-/commits/master/?ref_type=HEADS" />
+        </Preference>
     </PreferenceCategory>
 </PreferenceScreen>

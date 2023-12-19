@@ -63,5 +63,13 @@
         <intent
             android:targetClass="org.microg.gms.ui.GoogleMoreFragment$AsActivity"
             android:targetPackage="com.mgoogle.android.gms" />
+        <Preference
+            android:icon="@drawable/ic_device_login"
+            android:title="@string/check_for_updates"
+            android:summary="@string/check_for_vanced_microg_updates_on_gitlab">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://gitlab.com/cuynu/VancedxMicroG/-/releases" />
+        </Preference>
     </PreferenceCategory>
 </PreferenceScreen>
