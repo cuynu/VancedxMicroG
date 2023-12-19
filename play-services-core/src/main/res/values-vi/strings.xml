@@ -70,7 +70,7 @@ Hãy thử lại sau."</string>
     <string name="pref_auth_visible_title">Cho phép ứng dụng tìm tài khoản</string>
     <string name="pref_auth_visible_summary">Khi được bật, tất cả các ứng dụng trên thiết bị này sẽ có thể xem địa chỉ email trong Tài khoản Google của bạn mà không cần ủy quyền trước.</string>
     <string name="pref_add_account_title">Tài khoản</string>
-    <string name="pref_add_account_summary">Thêm tài khoản Google</string>
+    <string name="pref_add_account_summary">Thêm tài khoản Google mới</string>
     <string name="pref_gcm_switcher_title">Nhận thông báo đẩy</string>
     <string name="pref_gcm_enable_mcs_summary">Thông báo đẩy qua đám mây hay Cloud Messaging là một nhà cung cấp dịch vụ thông báo đẩy được nhiều ứng dụng bên thứ ba tin dùng. Để sử dụng nó, bạn phải kích hoạt Đăng ký thiết bị.</string>
     <string name="pref_about_title">Giới thiệu về Vanced+ microG</string>
@@ -138,4 +138,6 @@ Hãy thử lại sau."</string>
     <string name="back_to_vancedx_summary">Nhấn để thoát Vanced+ microG và quay lại YouTube Vanced+ (nếu được cài đặt)
     </string>
     <string name="package_information">Thông tin package</string>
+    <string name="manage_googleaccount_title">Quản lý tài khoản Google đã đăng nhập</string>
+    <string name="manage_googleaccount_summary">Điều này sẽ mở cài đặt thiết bị của bạn !</string>
 </resources>

@@ -2,8 +2,8 @@
     <PreferenceCategory
         android:title="@string/account_manager_title">
         <Preference
-            android:title="@string/remove_google_account_tips"
-            android:summary="@string/remove_google_account_summary"
+            android:title="@string/manage_googleaccount_title"
+            android:summary="@string/manage_googleaccount_summary"
             android:icon="@drawable/ic_info_outline"
             android:selectable="true">
         <intent
@@ -54,5 +54,5 @@
 
     <Preference
         android:selectable="false"
-        android:summary="@string/google_account_manager"/>
+        android:summary="@string/google_account_manager" />
 </PreferenceScreen>

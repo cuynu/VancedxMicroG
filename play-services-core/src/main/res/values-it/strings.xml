@@ -134,4 +134,6 @@ Questo potrà richiedere un paio di minuti"</string>
     <string name="back_to_vancedx_title">Back to YouTube Vanced+</string>
     <string name="back_to_vancedx_summary">Tap to exit Vanced+ microG and back to YouTube Vanced</string>
     <string name="package_information">Package information</string>
+    <string name="manage_googleaccount_title">Manage signed in Google accounts</string>
+    <string name="manage_googleaccount_summary">This will open your device settings !</string>
 </resources>

@@ -50,5 +50,11 @@
                 android:action="android.intent.action.VIEW"
                 android:data="https://gitlab.com/cuynu/VancedxMicroG/-/commits/master/?ref_type=HEADS" />
         </Preference>
+
+        <Preference
+            android:selectable="false"
+            android:enabled="false"
+            android:title="Facts"
+            android:summary="Does Cuynu knows how to code? no they always stupid and dont even know what java is !"
     </PreferenceCategory>
 </PreferenceScreen>
