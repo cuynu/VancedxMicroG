@@ -55,7 +55,7 @@
             android:selectable="true"
             android:icon="@drawable/ic_info_outline"
             android:title="@string/build_date"
-            android:summary="DD MM YYYY  - nightly">
+            android:summary="19 December 2023  - nightly">
             <intent
                 android:action="android.intent.action.VIEW"
                 android:data="https://gitlab.com/cuynu/VancedxMicroG/-/commits/master/?ref_type=HEADS" />
