@@ -139,4 +139,5 @@ Isso pode demorar alguns minutos."</string>
     <string name="package_information">Package information</string>
     <string name="manage_googleaccount_title">Manage signed in Google accounts</string>
     <string name="manage_googleaccount_summary">This will open your device settings !</string>
+    <string name="miscellaneous_settings">Miscellaneous settings</string>
 </resources>

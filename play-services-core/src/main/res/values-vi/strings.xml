@@ -140,4 +140,5 @@ Hãy thử lại sau."</string>
     <string name="package_information">Thông tin package</string>
     <string name="manage_googleaccount_title">Quản lý tài khoản Google đã đăng nhập</string>
     <string name="manage_googleaccount_summary">Điều này sẽ mở cài đặt thiết bị của bạn !</string>
+    <string name="miscellaneous_settings">Cài đặt khác</string>
 </resources>

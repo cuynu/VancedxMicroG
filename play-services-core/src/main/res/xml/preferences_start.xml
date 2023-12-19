@@ -37,6 +37,7 @@
             android:icon="@drawable/dots_horizontal"
             android:key="pref_google_more"
             android:title="@string/pref_more_settings"
+            android:summary="@string/miscellaneous_settings"
             app:isPreferenceVisible="true">
             <intent
                 android:targetClass="org.microg.gms.ui.GoogleMoreFragment$AsActivity"
