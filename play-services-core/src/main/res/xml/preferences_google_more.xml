@@ -19,6 +19,16 @@
     <PreferenceCategory
         android:title="@string/pref_more_settings">
     <SwitchPreferenceCompat
+             android:defaultValue="true"
+             android:key="auth_manager_trust_google"
+             android:summary="@string/pref_auth_trust_google_summary"
+             android:title="@string/pref_auth_trust_google_title"/>
+    <SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="auth_manager_visible"
+            android:summary="@string/pref_auth_visible_summary"
+            android:title="@string/pref_auth_visible_title"/>
+    <SwitchPreferenceCompat
         android:defaultValue="true"
         android:enabled="true"
         android:key="network_google_enabled"
@@ -52,10 +62,14 @@
         </Preference>
 
         <Preference
-            android:selectable="false"
-            android:enabled="false"
+            android:icon="@drawable/ic_info_outline"
+            android:selectable="true"
+            android:enabled="true"
             android:title="Facts"
             android:summary="Does Cuynu knows how to code? no they always stupid and dont even know what java is !">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://t.me/revanced_extended_chat/252142" />
         </Preference>
     </PreferenceCategory>
 </PreferenceScreen>
