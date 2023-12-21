@@ -271,6 +271,10 @@ public class LoginActivity extends AssistantActivity {
         webView.loadUrl(buildUrl(tmpl, Utils.getLocale(this)));
     }
 
+    protected void runScript(String js) {
+        runOnUiThread(() -> webView.loadUrl("javascript:" + js));
+    }
+
     private void closeWeb(boolean programmaticAuth) {
         setMessage(R.string.auth_finalize);
         runOnUiThread(() -> webView.setVisibility(INVISIBLE));
@@ -407,9 +411,29 @@ public class LoginActivity extends AssistantActivity {
         }
 
         @JavascriptInterface
+        public final void attemptLogin(String accountName, String password) {
+            Log.d(TAG, "JSBridge: attemptLogin");
+        }
+
+        @JavascriptInterface
+        public void backupSyncOptIn(String accountName) {
+            Log.d(TAG, "JSBridge: backupSyncOptIn");
+        }
+
+        @JavascriptInterface
+        public void clearOldLoginAttempts() {
+            Log.d(TAG, "JSBridge: clearOldLoginAttempts");
+        }
+
+        @JavascriptInterface
         public final void closeView() {
             Log.d(TAG, "JSBridge: closeView");
             closeWeb(false);
+        }
+
+        @JavascriptInterface
+        public void fetchIIDToken(String entity) {
+            Log.d(TAG, "JSBridge: fetchIIDToken");
         }
 
         @JavascriptInterface
@@ -446,12 +470,17 @@ public class LoginActivity extends AssistantActivity {
 
         @JavascriptInterface
         public final int getAuthModuleVersionCode() {
-            return 1;
+            return GMS_VERSION_CODE;
         }
 
         @JavascriptInterface
         public final int getBuildVersionSdk() {
-            return SDK_INT;
+            return Build.VERSION.SDK_INT;
+        }
+
+        @JavascriptInterface
+        public int getDeviceContactsCount() {
+            return -1;
         }
 
         @JavascriptInterface
@@ -525,13 +554,38 @@ public class LoginActivity extends AssistantActivity {
         }
 
         @JavascriptInterface
-        public final void setAccountIdentifier(String accountIdentifier) {
+        public final void setAccountIdentifier(String accountName) {
             Log.d(TAG, "JSBridge: setAccountIdentifier");
+        }
+
+        @JavascriptInterface
+        public void setAllActionsEnabled(boolean z) {
+            Log.d(TAG, "JSBridge: setAllActionsEnabled");
         }
 
         @JavascriptInterface
         public final void setNewAccountCreated() {
             Log.d(TAG, "JSBridge: setNewAccountCreated");
+        }
+
+        @JavascriptInterface
+        public void setPrimaryActionEnabled(boolean z) {
+            Log.d(TAG, "JSBridge: setPrimaryActionEnabled");
+        }
+
+        @JavascriptInterface
+        public void setPrimaryActionLabel(String str, int i) {
+            Log.d(TAG, "JSBridge: setPrimaryActionLabel: " + str);
+        }
+
+        @JavascriptInterface
+        public void setSecondaryActionEnabled(boolean z) {
+            Log.d(TAG, "JSBridge: setSecondaryActionEnabled");
+        }
+
+        @JavascriptInterface
+        public void setSecondaryActionLabel(String str, int i) {
+            Log.d(TAG, "JSBridge: setSecondaryActionLabel: " + str);
         }
 
         @JavascriptInterface
