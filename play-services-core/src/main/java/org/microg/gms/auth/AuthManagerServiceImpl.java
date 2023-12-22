@@ -48,6 +48,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+<<<<<<< HEAD
+=======
+import static android.accounts.AccountManager.*;
+import static android.os.Build.VERSION.SDK_INT;
+
+>>>>>>> 6f98f5aa (Asorted fixes https://github.com/microg/GmsCore/commit/80c1d9cf61baeec0692ec9efd3233305cda3c016)
 public class AuthManagerServiceImpl extends IAuthManagerService.Stub {
     private static final String TAG = "GmsAuthManagerSvc";
 
@@ -169,8 +175,23 @@ public class AuthManagerServiceImpl extends IAuthManagerService.Stub {
     }
 
     @Override
+<<<<<<< HEAD
     public Bundle requestGoogleAccountsAccess(String packageName) {
         Log.w(TAG, "Not implemented: requestGoogleAccountsAccess(" + packageName + ")");
+=======
+    public Bundle requestGoogleAccountsAccess(String packageName) throws RemoteException {
+        PackageUtils.assertExtendedAccess(context);
+        if (SDK_INT >= 26) {
+            for (Account account : get(context).getAccountsByType(AuthConstants.DEFAULT_ACCOUNT_TYPE)) {
+                AccountManager.get(context).setAccountVisibility(account, packageName, VISIBILITY_VISIBLE);
+            }
+            Bundle res = new Bundle();
+            res.putString("Error", "Ok");
+            return res;
+        } else {
+            Log.w(TAG, "Not implemented: requestGoogleAccountsAccess(" + packageName + ")");
+        }
+>>>>>>> 6f98f5aa (Asorted fixes https://github.com/microg/GmsCore/commit/80c1d9cf61baeec0692ec9efd3233305cda3c016)
         return null;
     }
 

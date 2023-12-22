@@ -59,5 +59,10 @@ class AuthServiceImpl(private val context: Context, private val lifecycle: Lifec
 
     override fun getLifecycle(): Lifecycle = lifecycle
 
+<<<<<<< HEAD
     override fun onTransact(code: Int, data: Parcel, reply: Parcel?, flags: Int): Boolean = warnOnTransactionIssues(code, reply, flags) { super.onTransact(code, data, reply, flags) }
 }
+=======
+    override fun onTransact(code: Int, data: Parcel, reply: Parcel?, flags: Int): Boolean = warnOnTransactionIssues(code, reply, flags, TAG) { super.onTransact(code, data, reply, flags) }
+}
+>>>>>>> 6f98f5aa (Asorted fixes https://github.com/microg/GmsCore/commit/80c1d9cf61baeec0692ec9efd3233305cda3c016)
