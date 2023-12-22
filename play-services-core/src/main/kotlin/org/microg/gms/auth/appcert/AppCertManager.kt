@@ -96,7 +96,11 @@ class AppCertManager(private val context: Context) {
                     }
 
                     override fun deliverError(error: VolleyError) {
-                        Log.d(TAG, "Error: ${Base64.encodeToString(error.networkResponse.data, 2)}")
+                        if (error.networkResponse != null) {
+                            Log.d(TAG, "Error: ${Base64.encodeToString(error.networkResponse.data, 2)}")
+                        } else {
+                            Log.d(TAG, "Error: ${error.message}")
+                        }
                         deviceKeyCacheTime = 0
                         deferredResponse.complete(null)
                     }
@@ -149,14 +153,19 @@ class AppCertManager(private val context: Context) {
             )
         } else {
             Log.d(TAG, "Using fallback spatula header based on Android ID")
+<<<<<<< HEAD
             val androidId = CheckIn.getContentUri(context)?.let {
                 getSettings(context,
                     it, arrayOf(CheckIn.ANDROID_ID, CheckIn.SECURITY_TOKEN)) { cursor: Cursor -> cursor.getLong(0) }
             }
+=======
+            val androidId = getSettings(context, CheckIn.getContentUri(context), arrayOf(CheckIn.ANDROID_ID)) { cursor: Cursor -> cursor.getLong(0) }
+>>>>>>> dc5ec8f7 (AppCert: Update for latest API https://github.com/microg/GmsCore/commit/3a42d956abb017e35d30204c556afcc29cb8a636)
             SpatulaHeaderProto(
                     packageInfo = SpatulaHeaderProto.PackageInfo(packageName, packageCertificateHash),
                     deviceId = androidId
             )
+            return null // TODO
         }
         Log.d(TAG, "Spatula Header: $proto")
         return Base64.encodeToString(proto.encode(), Base64.NO_WRAP)
