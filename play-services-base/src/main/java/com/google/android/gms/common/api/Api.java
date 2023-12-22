@@ -16,6 +16,14 @@
 
 package com.google.android.gms.common.api;
 
+<<<<<<< HEAD
+=======
+import android.accounts.Account;
+
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+
+import org.microg.gms.common.Hide;
+>>>>>>> 49892e88 (Restructure modules https://github.com/microg/GmsCore/commit/18c3a6154dc41cebe1d4aeda5592b8f23928356f)
 import org.microg.gms.common.PublicApi;
 import org.microg.gms.common.api.ApiClientBuilder;
 
@@ -67,4 +75,14 @@ public final class Api<O extends Api.ApiOptions> {
 
     }
 
+    @Hide
+    public interface Client {
+        void connect();
+
+        void disconnect();
+
+        boolean isConnected();
+
+        boolean isConnecting();
+    }
 }

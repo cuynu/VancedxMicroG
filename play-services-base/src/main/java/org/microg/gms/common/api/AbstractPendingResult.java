@@ -23,7 +23,11 @@ import com.google.android.gms.common.api.PendingResult;
 public class AbstractPendingResult implements PendingResult {
 
     public AbstractPendingResult(Looper looper) {
+<<<<<<< HEAD
         new ResultCallbackHandler<>(looper);
+=======
+        handler = new ResultCallbackHandler<R>(looper);
+>>>>>>> 49892e88 (Restructure modules https://github.com/microg/GmsCore/commit/18c3a6154dc41cebe1d4aeda5592b8f23928356f)
     }
 
 }

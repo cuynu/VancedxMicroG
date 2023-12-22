@@ -4,7 +4,13 @@
  */
 
 buildscript {
+<<<<<<< HEAD
     ext.kotlinVersion = '1.8.20'
+=======
+    ext.safeParcelVersion = '1.7.1'
+
+    ext.kotlinVersion = '1.7.21'
+>>>>>>> 49892e88 (Restructure modules https://github.com/microg/GmsCore/commit/18c3a6154dc41cebe1d4aeda5592b8f23928356f)
     ext.coroutineVersion = '1.6.4'
 
     ext.annotationVersion = '1.6.0'
@@ -65,4 +71,17 @@ subprojects {
         mavenCentral()
         google()
     }
+<<<<<<< HEAD
 }
+=======
+    afterEvaluate {
+        // Temporary hack for Android Studio
+        if (project.plugins.hasPlugin('com.android.base')) {
+            dependencies {
+                compileOnly "org.microg:safe-parcel:$safeParcelVersion"
+                testCompileOnly "org.microg:safe-parcel:$safeParcelVersion"
+            }
+        }
+    }
+}
+>>>>>>> 49892e88 (Restructure modules https://github.com/microg/GmsCore/commit/18c3a6154dc41cebe1d4aeda5592b8f23928356f)

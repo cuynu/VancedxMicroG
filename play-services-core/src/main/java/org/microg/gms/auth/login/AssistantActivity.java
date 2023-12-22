@@ -17,6 +17,7 @@
 package org.microg.gms.auth.login;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
@@ -25,11 +26,10 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.StringRes;
-import androidx.appcompat.app.AppCompatActivity;
 
 import com.mgoogle.android.gms.R;
 
-public abstract class AssistantActivity extends AppCompatActivity {
+public abstract class AssistantActivity extends Activity {
     private static final int TITLE_MIN_HEIGHT = 64;
     private static final double TITLE_WIDTH_FACTOR = (8.0 / 18.0);
 

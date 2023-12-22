@@ -19,8 +19,15 @@ package org.microg.gms.common.api;
 import android.content.Context;
 import android.os.Bundle;
 import android.os.Looper;
+
+<<<<<<< HEAD
+=======
+import androidx.fragment.app.FragmentActivity;
+
 import android.util.Log;
 
+import com.google.android.gms.common.ConnectionResult;
+>>>>>>> 49892e88 (Restructure modules https://github.com/microg/GmsCore/commit/18c3a6154dc41cebe1d4aeda5592b8f23928356f)
 import com.google.android.gms.common.api.Api;
 import com.google.android.gms.common.api.GoogleApiClient;
 
@@ -32,9 +39,48 @@ import java.util.Set;
 public class GoogleApiClientImpl implements GoogleApiClient {
     private static final String TAG = "GmsApiClientImpl";
 
+<<<<<<< HEAD
     private final Map<Api, ApiClient> apiConnections = new HashMap<>();
     private final Set<ConnectionCallbacks> connectionCallbacks = new HashSet<>();
     private final Set<OnConnectionFailedListener> connectionFailedListeners = new HashSet<>();
+=======
+    private final Context context;
+    private final Looper looper;
+    private final ApiClientSettings clientSettings;
+    private final Map<Api, Api.ApiOptions> apis = new HashMap<Api, Api.ApiOptions>();
+    private final Map<Api, Api.Client> apiConnections = new HashMap<Api, Api.Client>();
+    private final Set<ConnectionCallbacks> connectionCallbacks = new HashSet<ConnectionCallbacks>();
+    private final Set<OnConnectionFailedListener> connectionFailedListeners = new HashSet<OnConnectionFailedListener>();
+    private final int clientId;
+    private final ConnectionCallbacks baseConnectionCallbacks = new ConnectionCallbacks() {
+        @Override
+        public void onConnected(Bundle connectionHint) {
+            Log.d(TAG, "ConnectionCallbacks : onConnected()");
+            for (ConnectionCallbacks callback : connectionCallbacks) {
+                callback.onConnected(connectionHint);
+            }
+        }
+
+        @Override
+        public void onConnectionSuspended(int cause) {
+            Log.d(TAG, "ConnectionCallbacks : onConnectionSuspended()");
+            for (ConnectionCallbacks callback : connectionCallbacks) {
+                callback.onConnectionSuspended(cause);
+            }
+        }
+    };
+    private final OnConnectionFailedListener baseConnectionFailedListener = new
+            OnConnectionFailedListener() {
+                @Override
+                public void onConnectionFailed(ConnectionResult result) {
+                    Log.d(TAG, "OnConnectionFailedListener : onConnectionFailed()");
+                    for (OnConnectionFailedListener listener : connectionFailedListeners) {
+                        listener.onConnectionFailed(result);
+                    }
+                }
+            };
+    private int usageCounter = 0;
+>>>>>>> 49892e88 (Restructure modules https://github.com/microg/GmsCore/commit/18c3a6154dc41cebe1d4aeda5592b8f23928356f)
     private boolean shouldDisconnect = false;
 
     public GoogleApiClientImpl(Context context, Looper looper, ApiClientSettings clientSettings,
@@ -43,6 +89,10 @@ public class GoogleApiClientImpl implements GoogleApiClient {
                                Set<OnConnectionFailedListener> connectionFailedListeners) {
         this.connectionCallbacks.addAll(connectionCallbacks);
         this.connectionFailedListeners.addAll(connectionFailedListeners);
+
+        if (this.clientSettings.sessionId == null) {
+            this.clientSettings.sessionId = hashCode();
+        }
 
         for (Api api : apis.keySet()) {
             ConnectionCallbacks baseConnectionCallbacks = new ConnectionCallbacks() {
@@ -72,6 +122,41 @@ public class GoogleApiClientImpl implements GoogleApiClient {
         }
     }
 
+<<<<<<< HEAD
+=======
+    public synchronized void incrementUsageCounter() {
+        usageCounter++;
+    }
+
+    public synchronized void decrementUsageCounter() {
+        usageCounter--;
+        if (shouldDisconnect) disconnect();
+    }
+
+    public Looper getLooper() {
+        return looper;
+    }
+
+    public Api.Client getApiConnection(Api api) {
+        return apiConnections.get(api);
+    }
+
+    @Override
+    public ConnectionResult blockingConnect() {
+        return null;
+    }
+
+    @Override
+    public ConnectionResult blockingConnect(long timeout, TimeUnit unit) {
+        return null;
+    }
+
+    @Override
+    public PendingResult<Status> clearDefaultAccountAndReconnect() {
+        return null;
+    }
+
+>>>>>>> 49892e88 (Restructure modules https://github.com/microg/GmsCore/commit/18c3a6154dc41cebe1d4aeda5592b8f23928356f)
     @Override
     public synchronized void connect() {
         Log.d(TAG, "connect()");
@@ -83,7 +168,7 @@ public class GoogleApiClientImpl implements GoogleApiClient {
             Log.d(TAG, "Already connected/connecting, nothing to do");
             return;
         }
-        for (ApiClient connection : apiConnections.values()) {
+        for (Api.Client connection : apiConnections.values()) {
             if (!connection.isConnected()) {
                 connection.connect();
             }
@@ -92,17 +177,28 @@ public class GoogleApiClientImpl implements GoogleApiClient {
 
     @Override
     public synchronized void disconnect() {
+<<<<<<< HEAD
         Log.d(TAG, "disconnect()");
         for (ApiClient connection : apiConnections.values()) {
             if (connection.isConnected()) {
                 connection.disconnect();
+=======
+        if (usageCounter > 0) {
+            shouldDisconnect = true;
+        } else {
+            Log.d(TAG, "disconnect()");
+            for (Api.Client connection : apiConnections.values()) {
+                if (connection.isConnected()) {
+                    connection.disconnect();
+                }
+>>>>>>> 49892e88 (Restructure modules https://github.com/microg/GmsCore/commit/18c3a6154dc41cebe1d4aeda5592b8f23928356f)
             }
         }
     }
 
     @Override
     public synchronized boolean isConnected() {
-        for (ApiClient connection : apiConnections.values()) {
+        for (Api.Client connection : apiConnections.values()) {
             if (!connection.isConnected()) return false;
         }
         return true;
@@ -110,7 +206,7 @@ public class GoogleApiClientImpl implements GoogleApiClient {
 
     @Override
     public synchronized boolean isConnecting() {
-        for (ApiClient connection : apiConnections.values()) {
+        for (Api.Client connection : apiConnections.values()) {
             if (connection.isConnecting()) return true;
         }
         return false;

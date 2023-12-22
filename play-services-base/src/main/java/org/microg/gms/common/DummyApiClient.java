@@ -14,14 +14,30 @@
  * limitations under the License.
  */
 
-package org.microg.gms.common.api;
+package org.microg.gms.common;
 
-public interface ApiClient {
-    void connect();
+import com.google.android.gms.common.api.Api;
 
-    void disconnect();
+public class DummyApiClient implements Api.Client {
+    private boolean connected = false;
 
-    boolean isConnected();
+    @Override
+    public void connect() {
+        connected = true;
+    }
 
-    boolean isConnecting();
+    @Override
+    public void disconnect() {
+        connected = false;
+    }
+
+    @Override
+    public boolean isConnected() {
+        return connected;
+    }
+
+    @Override
+    public boolean isConnecting() {
+        return false;
+    }
 }

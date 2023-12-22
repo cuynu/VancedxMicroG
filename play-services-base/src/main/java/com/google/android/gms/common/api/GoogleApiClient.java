@@ -111,7 +111,7 @@ public interface GoogleApiClient {
      * @see #registerConnectionFailedListener(OnConnectionFailedListener)
      * @see #unregisterConnectionFailedListener(OnConnectionFailedListener)
      */
-    boolean isConnectionFailedListenerRegistered(OnConnectionFailedListener listener);
+    public boolean isConnectionFailedListenerRegistered(OnConnectionFailedListener listener);
 
     /**
      * Registers a listener to receive connection events from this {@link GoogleApiClient}. If the
@@ -150,7 +150,7 @@ public interface GoogleApiClient {
      * @param listener the listener where the results of the asynchronous {@link #connect()} call
      *                 are delivered.
      */
-    void registerConnectionFailedListener(OnConnectionFailedListener listener);
+    public void registerConnectionFailedListener(OnConnectionFailedListener listener);
 
     /**
      * Removes a connection listener from this {@link GoogleApiClient}. Note that removing a
@@ -166,10 +166,24 @@ public interface GoogleApiClient {
     @PublicApi
     class Builder {
         private final Context context;
+<<<<<<< HEAD
         private final Map<Api, Api.ApiOptions> apis = new HashMap<>();
         private final Set<ConnectionCallbacks> connectionCallbacks = new HashSet<>();
         private final Set<OnConnectionFailedListener> connectionFailedListeners = new HashSet<>();
         private final Looper looper;
+=======
+        private final Map<Api, Api.ApiOptions> apis = new HashMap<Api, Api.ApiOptions>();
+        private final Set<ConnectionCallbacks> connectionCallbacks = new HashSet<ConnectionCallbacks>();
+        private final Set<OnConnectionFailedListener> connectionFailedListeners = new HashSet<OnConnectionFailedListener>();
+        private final Set<String> scopes = new HashSet<String>();
+        private String accountName;
+        private int clientId = -1;
+        private FragmentActivity fragmentActivity;
+        private Looper looper;
+        private int gravityForPopups;
+        private OnConnectionFailedListener unresolvedConnectionFailedListener;
+        private View viewForPopups;
+>>>>>>> 49892e88 (Restructure modules https://github.com/microg/GmsCore/commit/18c3a6154dc41cebe1d4aeda5592b8f23928356f)
 
         public Builder(Context context) {
             this.context = context;
@@ -198,7 +212,12 @@ public interface GoogleApiClient {
         }
 
         private ApiClientSettings getClientSettings() {
-            return null;
+            ApiClientSettings clientSettings = new ApiClientSettings();
+            clientSettings.accountName = accountName;
+            clientSettings.scopes = new HashSet<>(scopes);
+            clientSettings.gravityForPopups = gravityForPopups;
+            clientSettings.viewForPopups = viewForPopups;
+            return clientSettings;
         }
 
     }
@@ -210,6 +229,19 @@ public interface GoogleApiClient {
     @PublicApi
     @Deprecated
     interface ConnectionCallbacks extends org.microg.gms.common.api.ConnectionCallbacks {
+<<<<<<< HEAD
+=======
+        /**
+         * A suspension cause informing that the service has been killed.
+         */
+        int CAUSE_SERVICE_DISCONNECTED = 1;
+        /**
+         * A suspension cause informing you that a peer device connection was lost.
+         */
+        int CAUSE_NETWORK_LOST = 2;
+
+        void onConnected(Bundle connectionHint);
+>>>>>>> 49892e88 (Restructure modules https://github.com/microg/GmsCore/commit/18c3a6154dc41cebe1d4aeda5592b8f23928356f)
     }
 
     @PublicApi

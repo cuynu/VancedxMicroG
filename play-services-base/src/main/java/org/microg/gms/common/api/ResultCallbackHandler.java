@@ -47,6 +47,20 @@ class ResultCallbackHandler<R extends Result> extends Handler {
         }
     }
 
+<<<<<<< HEAD
+=======
+    public void sendResultCallback(ResultCallback<R> callback, R result) {
+        Message message = new Message();
+        message.what = CALLBACK_ON_COMPLETE;
+        message.obj = new OnCompleteObject<R>(callback, result);
+        sendMessage(message);
+    }
+
+    public void sendTimeoutResultCallback(AbstractPendingResult pendingResult, long millis) {
+
+    }
+
+>>>>>>> 49892e88 (Restructure modules https://github.com/microg/GmsCore/commit/18c3a6154dc41cebe1d4aeda5592b8f23928356f)
     public static class OnCompleteObject<R extends Result> {
         public ResultCallback<R> callback;
         public R result;
