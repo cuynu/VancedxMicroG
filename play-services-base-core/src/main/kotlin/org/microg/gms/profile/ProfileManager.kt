@@ -72,43 +72,60 @@ object ProfileManager {
             PROFILE_AUTO -> false
             PROFILE_REAL -> false
             PROFILE_NATIVE -> true
-            else -> getProfileXml(context, profile)?.use {
-                var next = it.next()
-                while (next != XmlPullParser.END_DOCUMENT) {
-                    when (next) {
-                        XmlPullParser.START_TAG -> when (it.name) {
-                            "profile" -> {
-                                return@use it.getAttributeBooleanValue(null, "auto", false)
+            else -> {
+                val parser = getProfileXml(context, profile)
+                if (parser != null) {
+                    try {
+                        var next = parser.next()
+                        while (next != XmlPullParser.END_DOCUMENT) {
+                            when (next) {
+                                XmlPullParser.START_TAG -> when (parser.name) {
+                                    "profile" -> {
+                                        return@runCatching parser.getAttributeBooleanValue(null, "auto", false)
+                                    }
+                                }
                             }
+                            next = parser.next()
                         }
+                    } finally {
+                        parser.close()
                     }
-                    next = it.next()
+                    false
+                } else {
+                    false
                 }
-            } == true
+            }
         }
     }.getOrDefault(false)
+
+    fun getActiveProfileData(context: Context): Map<String, String> =
+        getProfileData(context, getProfile(context), getRealData())
 
     private fun getProfileData(context: Context, profile: String, realData: Map<String, String>): Map<String, String> {
         try {
             if (profile in listOf(PROFILE_REAL, PROFILE_NATIVE)) return realData
-            val profileResId = getProfileResId(context, profile)
-            if (profileResId == 0) return realData
+            if (profile != PROFILE_USER && getProfileResId(context, profile) == 0) return realData
             val resultData = mutableMapOf<String, String>()
             resultData.putAll(realData)
-            getProfileXml(context, profile)?.use {
-                var next = it.next()
-                while (next != XmlPullParser.END_DOCUMENT) {
-                    when (next) {
-                        XmlPullParser.START_TAG -> when (it.name) {
-                            "data" -> {
-                                val key = it.getAttributeValue(null, "key")
-                                val value = it.getAttributeValue(null, "value")
-                                resultData[key] = value
-                                Log.d(TAG, "Overwrite from profile: $key = $value")
+            val parser = getProfileXml(context, profile)
+            if (parser != null) {
+                try {
+                    var next = parser.next()
+                    while (next != XmlPullParser.END_DOCUMENT) {
+                        when (next) {
+                            XmlPullParser.START_TAG -> when (parser.name) {
+                                "data" -> {
+                                    val key = parser.getAttributeValue(null, "key")
+                                    val value = parser.getAttributeValue(null, "value")
+                                    resultData[key] = value
+                                    Log.d(TAG, "Overwrite from profile: $key = $value")
+                                }
                             }
                         }
+                        next = parser.next()
                     }
-                    next = it.next()
+                } finally {
+                    parser.close()
                 }
             }
             return resultData
@@ -162,15 +179,20 @@ object ProfileManager {
 
         // From profile
         try {
-            getProfileXml(context, profile)?.use {
-                var next = it.next()
-                while (next != XmlPullParser.END_DOCUMENT) {
-                    when (next) {
-                        XmlPullParser.START_TAG -> when (it.name) {
-                            "serial" -> return it.getAttributeValue(null, "template")
+            val parser = getProfileXml(context, profile)
+            if (parser != null) {
+                try {
+                    var next = parser.next()
+                    while (next != XmlPullParser.END_DOCUMENT) {
+                        when (next) {
+                            XmlPullParser.START_TAG -> when (parser.name) {
+                                "serial" -> return parser.getAttributeValue(null, "template")
+                            }
                         }
+                        next = parser.next()
                     }
-                    next = it.next()
+                } finally {
+                    parser.close()
                 }
             }
         } catch (e: Exception) {
@@ -193,6 +215,7 @@ object ProfileManager {
         return serial
     }
 
+    @SuppressLint("BlockedPrivateApi")
     private fun getRealData(): Map<String, String> = mutableMapOf(
             "Build.BOARD" to android.os.Build.BOARD,
             "Build.BOOTLOADER" to android.os.Build.BOOTLOADER,
@@ -226,9 +249,15 @@ object ProfileManager {
         if (android.os.Build.VERSION.SDK_INT >= 23) {
             put("Build.VERSION.SECURITY_PATCH", android.os.Build.VERSION.SECURITY_PATCH)
         }
+        try {
+            val field = android.os.Build.VERSION::class.java.getDeclaredField("DEVICE_INITIAL_SDK_INT")
+            field.isAccessible = true
+            put("Build.VERSION.DEVICE_INITIAL_SDK_INT", field.getInt(null).toString())
+        } catch (ignored: Exception) {
+        }
     }
 
-    private fun applyProfileData(profileData: Map<String, String>) {
+    fun applyProfileData(profileData: Map<String, String>) {
         fun applyStringField(key: String, valueSetter: (String) -> Unit) = profileData[key]?.let { valueSetter(it) }
         fun applyIntField(key: String, valueSetter: (Int) -> Unit) = profileData[key]?.toIntOrNull()?.let { valueSetter(it) }
         fun applyLongField(key: String, valueSetter: (Long) -> Unit) = profileData[key]?.toLongOrNull()?.let { valueSetter(it) }
@@ -258,6 +287,7 @@ object ProfileManager {
         applyStringField("Build.VERSION.RELEASE") { Build.VERSION.RELEASE = it }
         applyStringField("Build.VERSION.SDK") { Build.VERSION.SDK = it }
         applyIntField("Build.VERSION.SDK_INT") { Build.VERSION.SDK_INT = it }
+        applyIntField("Build.VERSION.DEVICE_INITIAL_SDK_INT") { Build.VERSION.DEVICE_INITIAL_SDK_INT = it }
         if (android.os.Build.VERSION.SDK_INT >= 21) {
             Build.SUPPORTED_ABIS = profileData["Build.SUPPORTED_ABIS"]?.split(",")?.toTypedArray() ?: emptyArray()
         } else {
@@ -285,19 +315,26 @@ object ProfileManager {
 
     fun getProfileName(context: Context, profile: String): String? = getProfileName { getProfileXml(context, profile) }
 
-    private fun getProfileName(parserCreator: () -> XmlResourceParser?): String? = parserCreator()?.use {
-        var next = it.next()
-        while (next != XmlPullParser.END_DOCUMENT) {
-            when (next) {
-                XmlPullParser.START_TAG -> when (it.name) {
-                    "profile" -> {
-                        return@use it.getAttributeValue(null, "name")
+    private fun getProfileName(parserCreator: () -> XmlResourceParser?): String? {
+        val parser = parserCreator()
+        if (parser != null) {
+            try {
+                var next = parser.next()
+                while (next != XmlPullParser.END_DOCUMENT) {
+                    when (next) {
+                        XmlPullParser.START_TAG -> when (parser.name) {
+                            "profile" -> {
+                                return parser.getAttributeValue(null, "name")
+                            }
+                        }
                     }
+                    next = parser.next()
                 }
+            } finally {
+                parser.close()
             }
-            next = it.next()
         }
-        null
+        return null
     }
 
     fun setProfile(context: Context, profile: String?) {
@@ -317,7 +354,7 @@ object ProfileManager {
         val profileName = getProfileName { FileXmlResourceParser(file) } ?: return false
         try {
             Log.d(TAG, "Importing user profile '$profileName'")
-            file.copyTo(getUserProfileFile(context))
+            file.copyTo(getUserProfileFile(context), overwrite = true)
             if (activeProfile == PROFILE_USER) applyProfile(context, PROFILE_USER)
             return true
         } catch (e: Exception) {
