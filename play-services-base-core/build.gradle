@@ -23,6 +23,8 @@ android {
     defaultConfig {
         minSdkVersion androidMinSdk
         targetSdkVersion androidTargetSdk
+
+        buildConfigField "String", "BASE_PACKAGE_NAME", "\"$basePackageName\""
     }
 
     sourceSets {

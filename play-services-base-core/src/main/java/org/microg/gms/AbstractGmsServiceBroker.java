@@ -26,6 +26,7 @@ import com.google.android.gms.common.internal.IGmsCallbacks;
 import com.google.android.gms.common.internal.IGmsServiceBroker;
 import com.google.android.gms.common.internal.ValidateAccountRequest;
 
+import org.microg.gms.base.core.BuildConfig;
 import org.microg.gms.common.GmsService;
 
 import java.util.EnumSet;
@@ -69,8 +70,13 @@ public abstract class AbstractGmsServiceBroker extends IGmsServiceBroker.Stub {
         request.gmsVersion = gmsVersion;
         request.packageName = packageName;
         request.extras = extras;
+<<<<<<< HEAD
         request.account = null;
         request.scopes = null;
+=======
+        request.account = accountName == null ? null : new Account(accountName, BuildConfig.BASE_PACKAGE_NAME);
+        request.scopes = scopes == null ? null : scopesFromStringArray(scopes);
+>>>>>>> 25329625 (Set basePackageName)
         getService(callback, request);
     }
 

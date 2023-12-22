@@ -4,15 +4,17 @@ import android.content.pm.PackageManager
 import android.os.Bundle
 import android.util.Log
 
+import org.microg.gms.base.core.BuildConfig
+
 /**
  * utilities to spoof package information
  */
 internal object PackageSpoofUtils {
     private const val TAG = "SpoofUtils"
     private const val META_SPOOF_PACKAGE_NAME =
-        "com.mgoogle.android.gms.SPOOFED_PACKAGE_NAME"
+        "${BuildConfig.BASE_PACKAGE_NAME}.android.gms.SPOOFED_PACKAGE_NAME"
     private const val META_SPOOF_PACKAGE_SIGNATURE =
-        "com.mgoogle.android.gms.SPOOFED_PACKAGE_SIGNATURE"
+        "${BuildConfig.BASE_PACKAGE_NAME}.android.gms.SPOOFED_PACKAGE_SIGNATURE"
 
     private val spoofedPackageNameCache = HashMap<String, String>()
     private val spoofedPackageSignatureCache = HashMap<String, String>()

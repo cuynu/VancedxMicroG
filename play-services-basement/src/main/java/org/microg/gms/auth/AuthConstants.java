@@ -16,11 +16,13 @@
 
 package org.microg.gms.auth;
 
+import org.microg.gms.basement.BuildConfig;
+
 public class AuthConstants {
     public static final String SCOPE_GET_ACCOUNT_ID = "^^_account_id_^^";
     public static final String PROVIDER_METHOD_GET_ACCOUNTS = "get_accounts";
     public static final String PROVIDER_METHOD_CLEAR_PASSWORD = "clear_password";
     public static final String PROVIDER_EXTRA_CLEAR_PASSWORD = "clear_password";
     public static final String PROVIDER_EXTRA_ACCOUNTS = "accounts";
-    public static final String DEFAULT_ACCOUNT_TYPE = "com.mgoogle";
+    public static final String DEFAULT_ACCOUNT_TYPE = BuildConfig.BASE_PACKAGE_NAME;
 }

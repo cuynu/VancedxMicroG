@@ -5,8 +5,14 @@
 
 buildscript {
 <<<<<<< HEAD
+<<<<<<< HEAD
     ext.kotlinVersion = '1.8.20'
 =======
+=======
+    ext.applicationNamespace = "com.google.android.gms"
+    ext.basePackageName = "com.mgoogle"
+
+>>>>>>> 25329625 (Set basePackageName)
     ext.safeParcelVersion = '1.7.1'
 
     ext.kotlinVersion = '1.7.21'

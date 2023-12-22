@@ -18,36 +18,40 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <permission
+<<<<<<< HEAD
         android:name="com.mgoogle.android.providers.gsf.permission.READ_GSERVICES"
         android:label="@string/perm_gsf_read_gservices_label"
         android:protectionLevel="normal" />
     <permission
         android:name="com.mgoogle.android.c2dm.permission.RECEIVE"
+=======
+        android:name="${basePackageName}.android.c2dm.permission.RECEIVE"
+>>>>>>> 25329625 (Set basePackageName)
         android:label="@string/perm_c2dm_receive_label"
         android:permissionGroup="android.permission-group.NETWORK"
         android:protectionLevel="normal" />
     <permission
-        android:name="com.mgoogle.android.c2dm.permission.SEND"
+        android:name="${basePackageName}.android.c2dm.permission.SEND"
         android:label="@string/perm_c2dm_send_label"
         android:permissionGroup="android.permission-group.NETWORK"
         android:protectionLevel="privileged|signature" />
     <permission
-        android:name="com.mgoogle.android.gtalkservice.permission.GTALK_SERVICE"
+        android:name="${basePackageName}.android.gtalkservice.permission.GTALK_SERVICE"
         android:label="@string/perm_gtalk_svc_label"
         android:permissionGroup="android.permission-group.MESSAGES"
         android:protectionLevel="signature" />
 
     <permission-tree
-        android:name="com.mgoogle.android.googleapps.permission.GOOGLE_AUTH"
+        android:name="${basePackageName}.android.googleapps.permission.GOOGLE_AUTH"
         android:icon="@mipmap/ic_launcher"
         android:label="Vanced microG"/>
 
     <permission
-        android:name="org.mgoogle.gms.STATUS_BROADCAST"
+        android:name="${basePackageName}.gms.STATUS_BROADCAST"
         android:label="@string/perm_status_broadcast_label"
         android:protectionLevel="normal" />
     <permission
-        android:name="org.mgoogle.gms.EXTENDED_ACCESS"
+        android:name="${basePackageName}.gms.EXTENDED_ACCESS"
         android:label="@string/perm_extended_access_label"
         android:protectionLevel="dangerous" />
 
@@ -67,11 +71,11 @@
     <uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS" />
     <uses-permission android:name="android.permission.READ_SYNC_STATS" />
 
-    <uses-permission android:name="com.mgoogle.android.c2dm.permission.RECEIVE" />
-    <uses-permission android:name="com.mgoogle.android.c2dm.permission.SEND" />
-    <uses-permission android:name="com.mgoogle.android.gtalkservice.permission.GTALK_SERVICE" />
+    <uses-permission android:name="${basePackageName}.android.c2dm.permission.RECEIVE" />
+    <uses-permission android:name="${basePackageName}.android.c2dm.permission.SEND" />
+    <uses-permission android:name="${basePackageName}.android.gtalkservice.permission.GTALK_SERVICE" />
 
-    <uses-permission android:name="org.mgoogle.gms.STATUS_BROADCAST" />
+    <uses-permission android:name="${basePackageName}.gms.STATUS_BROADCAST" />
 
     <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
@@ -94,7 +98,7 @@
         android:networkSecurityConfig="@xml/network_security_config"
         tools:targetApi="r">
 
-        <library android:name="com.mgoogle.android.gms" />
+        <library android:name="${basePackageName}.android.gms" />
 
         <meta-data
             android:name="fake-signature"
@@ -111,11 +115,11 @@
 
         <provider
             android:name="org.microg.gms.gservices.GServicesProvider"
-            android:authorities="com.mgoogle.android.gsf.gservices"
+            android:authorities="${basePackageName}.android.gsf.gservices"
             android:exported="true" />
         <provider
             android:name="org.microg.mgms.settings.GoogleSettingsProvider"
-            android:authorities="com.mgoogle.settings"
+            android:authorities="${basePackageName}.settings"
             android:exported="true" />
 
         <!-- Device Checkin -->
@@ -139,15 +143,16 @@
                 <action android:name="android.intent.action.PACKAGE_RESTARTED" />
             </intent-filter>
             <intent-filter>
-                <action android:name="com.mgoogle.android.c2dm.intent.RECEIVE" />
+                <action android:name="${basePackageName}.android.c2dm.intent.RECEIVE" />
 
                 <category android:name="android.server.checkin.CHECKIN" />
             </intent-filter>
             <intent-filter>
                 <action android:name="android.provider.Telephony.SECRET_CODE" />
 
+                <!-- *#*#MGCHECKIN#*#* -->
                 <data
-                    android:host="2432546"
+                    android:host="642432546"
                     android:scheme="android_secret_code" />
             </intent-filter>
         </receiver>
@@ -158,8 +163,8 @@
             android:process=":persistent"
             android:exported="true">
             <intent-filter>
-                <action android:name="com.mgoogle.android.c2dm.intent.REGISTER" />
-                <action android:name="com.mgoogle.android.c2dm.intent.UNREGISTER" />
+                <action android:name="${basePackageName}.android.c2dm.intent.REGISTER" />
+                <action android:name="${basePackageName}.android.c2dm.intent.UNREGISTER" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
@@ -170,7 +175,7 @@
             android:process=":persistent"
             android:exported="true">
             <intent-filter>
-                <action android:name="com.mgoogle.iid.TOKEN_REQUEST" />
+                <action android:name="${basePackageName}.iid.TOKEN_REQUEST" />
             </intent-filter>
         </receiver>
 
@@ -236,7 +241,7 @@
                 <action android:name="android.accounts.AccountAuthenticator" />
             </intent-filter>
             <intent-filter>
-                <action android:name="com.mgoogle.android.gsf.action.GET_GLS" />
+                <action android:name="${basePackageName}.android.gsf.action.GET_GLS" />
             </intent-filter>
 
             <meta-data
@@ -283,7 +288,7 @@
 
         <provider
             android:name="org.microg.gms.auth.AccountContentProvider"
-            android:authorities="com.mgoogle.android.gms.auth.accounts"
+            android:authorities="${basePackageName}.android.gms.auth.accounts"
             android:exported="true" />
 
         <activity

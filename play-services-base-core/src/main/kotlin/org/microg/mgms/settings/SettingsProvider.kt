@@ -99,7 +99,7 @@ class SettingsProvider : ContentProvider() {
             CheckIn.VERSION_INFO -> checkInPrefs.getString(key, "") ?: ""
             CheckIn.DEVICE_DATA_VERSION_INFO -> checkInPrefs.getString(key, "") ?: ""
             CheckIn.BRAND_SPOOF -> getSettingsBoolean(key, false)
-            CheckIn.HIDE_LAUNCHER_ICON -> getSettingsBoolean(key, false)
+            CheckIn.HIDE_LAUNCHER_ICON -> getSettingsBoolean(key, true)
             else -> throw IllegalArgumentException()
         }
     }

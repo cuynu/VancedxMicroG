@@ -23,6 +23,8 @@ android {
     defaultConfig {
         minSdkVersion androidMinSdk
         targetSdkVersion androidTargetSdk
+
+        buildConfigField "String", "GMS_APPLICATION_NAMESPACE", "\"$applicationNamespace\""
     }
 
     compileOptions {
