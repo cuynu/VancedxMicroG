@@ -107,7 +107,7 @@ android {
 
     packagingOptions {
         jniLibs {
-            useLegacyPackaging false
+            useLegacyPackaging true
         }
         resources {
             excludes += ['META-INF/ASL2.0']
