@@ -15,15 +15,16 @@
   ~ limitations under the License.
   -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="gms_settings_summary">Configuração do Vanece microG.</string>
+    <string name="gms_settings_name">Vanced+ microG</string>
+    <string name="gms_settings_summary">Configurações do Vanced+ microG.</string>
     <string name="just_a_sec">Um momento…</string>
     <string name="account_manager_title">Gerenciador de Contas do Google</string>
     <string name="sorry">Desculpe…</string>
     <string name="auth_before_connect">"Um aplicativo em seu dispositivo está tentando entrar em uma conta do Google.
 
-Se isso foi intencional, use o <b>Login</b> (ou <b>Huawei</b>, se você tiver um dispositivo com esta marca) para se conectar à página de login do Google, se não, pressione <b>Cancelar</b> para voltar ao aplicativo que fez com que este diálogo aparecesse."</string>
-    <string name="auth_sign_in">Iniciar sessão</string>
-    <string name="auth_connecting">"Estabelecendo uma conexão com os servidores do Google para fazer ‘login’.
+Se isso foi intencional, use o botão <b>Entrar</b> (ou <b>Huawei</b>, se você tiver um dispositivo com esta marca) para se conectar à página de login do Google."</string>
+    <string name="auth_sign_in">Entrar</string>
+    <string name="auth_connecting">"Estabelecendo uma conexão com os servidores do Google para entrar em sua conta.
 
 Isso pode levar alguns segundos."</string>
     <string name="no_network_error_desc">"Você não tem uma conexão de rede.
@@ -35,51 +36,66 @@ Tente novamente mais tarde."</string>
     <string name="auth_finalize">"Seu dispositivo está entrando em contato com o Google para salvar informações em sua conta.
 
 Isso pode demorar alguns minutos."</string>
+
     <string name="perm_status_broadcast_label">Ouvir transmissões de estado interno</string>
     <string name="perm_c2dm_receive_label">Escutar mensagens C2DM</string>
     <string name="perm_c2dm_send_label">Enviar mensagens C2DM para outros aplicativos</string>
     <string name="perm_gtalk_svc_label">Trocar mensagens e receber notificações de sincronização de servidores do Google</string>
     <string name="perm_extended_access_label">Acesso estendido aos serviços do Google</string>
-    <string name="google_account_manager">Google Account Manager not fully implemented</string>
-    <string name="manage_google_account">Manage your Google account</string>
-    <string name="manage_google_account_summary">Manage your Google account information</string>
-    <string name="manage_yt_activities">Manage YouTube activities</string>
-    <string name="manage_yt_activities_summary">Manage YouTube activities such as watch or search history</string>
+    <string name="google_account_manager">Gerenciador de Contas do Google não foi totalmente implementado</string>
+    <string name="manage_google_account">Gerenciar sua conta do Google</string>
+    <string name="manage_google_account_summary">Gerenciar as informações da sua conta do Google</string>
+    <string name="manage_yt_activities">Gerenciar atividades no YouTube</string>
+    <string name="manage_yt_activities_summary">Gerenciar atividades do YouTube, como histórico de exibição ou pesquisa</string>
+
     <string name="service_name_checkin">Registro de dispositivos do Google</string>
     <string name="service_name_mcs">Cloud Messaging</string>
+
     <string name="service_status_enabled_short">Ligado</string>
     <string name="service_status_disabled_short">Desligado</string>
+
     <string name="menu_advanced">Avançado</string>
     <string name="list_no_item_none">Nenhum</string>
     <string name="list_item_see_all">Veja tudo</string>
+
     <string name="network_type_mobile">Rede móvel</string>
     <string name="network_type_wifi">Wi-Fi</string>
     <string name="network_type_roaming">Roaming</string>
     <string name="network_type_other">Outras redes</string>
+
     <!-- Settings strings -->
+
     <string name="prefcat_about">Sobre</string>
     <string name="prefcat_google_services">Serviços do Google</string>
     <string name="pref_more_settings">Mais</string>
+
     <string name="checkin_not_registered">Não registrado</string>
     <string name="checkin_last_registration">Último registro: <xliff:g example="Yesterday, 02:20 PM">%1$s</xliff:g></string>
+
     <string name="prefs_account">Preferências da conta</string>
     <string name="prefs_account_privacy">Informações pessoais &amp; privacidade</string>
     <string name="prefs_account_security">Entrar &amp; segurança</string>
+
     <string name="pref_auth_trust_google_title">Confiar permissões de aplicativos no Google</string>
     <string name="pref_auth_trust_google_summary">Quando desativado, o usuário é solicitado antes que uma solicitação de autorização de aplicativos seja enviada ao Google. Alguns aplicativos não usarão a conta do Google se isso for desativado.</string>
     <string name="pref_auth_visible_title">Permitir que aplicativos encontrem contas</string>
     <string name="pref_auth_visible_summary">Quando ativado, todos os aplicativos deste dispositivo poderão ver o endereço de e-mail de suas contas do Google sem autorização prévia.</string>
+
     <string name="pref_add_account_title">Conta</string>
     <string name="pref_add_account_summary">Adicionar conta do Google</string>
     <string name="pref_gcm_switcher_title">Receba notificações push</string>
     <string name="pref_gcm_enable_mcs_summary">Cloud Messaging é um provedor de notificação push usado por muitos aplicativos de terceiros. Para usá-lo, você deve ativar ao registro do dispositivo.</string>
+
     <string name="pref_about_title">Sobre o Vanced+ microG</string>
     <string name="hideLauncherIcon">Ocultar ícone no menu</string>
+
     <string name="brand_spoof_button">Huawei</string>
+
     <string name="pref_switcher_title">Registar dispositivo</string>
     <string name="pref_checkin_enable_summary">Registre seu dispositivo nos serviços do Google e cria um identificador de dispositivo exclusivo. Vanced+ microG identifica e tiras bits que não sejam o nome da sua conta do Google a partir de dados de registro.</string>
     <string name="pref_device_registration_android_id">ID do Android</string>
     <string name="pref_info_status">Status</string>
+
     <string name="gcm_status_pref_default">Padrão</string>
     <string name="gcm_status_pref_manual">Manual</string>
     <string name="gcm_status_pref_sec">segundos</string>
@@ -95,6 +111,7 @@ Isso pode demorar alguns minutos."</string>
     <string name="gcm_messages_counter">Mensagens: <xliff:g example="123">%1$d</xliff:g> (<xliff:g example="12345">%2$d</xliff:g> bytes)</string>
     <string name="gcm_network_state_disconnected">Desconectado</string>
     <string name="gcm_network_state_connected">Conectado à <xliff:g example="2 hours ago">%1$s</xliff:g></string>
+
     <string name="pref_push_app_allow_register_title">Permitir registro</string>
     <string name="pref_push_app_allow_register_summary">Permita que o aplicativo se registre para notificações push.</string>
     <string name="pref_push_app_wake_for_delivery_title">Iniciar aplicativo na mensagem push</string>
@@ -104,6 +121,7 @@ Isso pode demorar alguns minutos."</string>
     <string name="prefcat_push_apps_registered_title">Aplicativos registrados</string>
     <string name="prefcat_push_apps_unregistered_title">Aplicativos não registrados</string>
     <string name="prefcat_push_networks_title">Redes para usar em notificações push</string>
+
     <string name="device_profile_name">Perfil do dispositivo</string>
     <string name="profile_name">Selecionar perfil</string>
     <string name="profile_name_native">Nativo</string>
@@ -114,30 +132,30 @@ Isso pode demorar alguns minutos."</string>
     <string name="import_profile_name">Importar perfil personalizado</string>
     <string name="import_profile_summary">Importar perfil do dispositivo a partir do arquivo</string>
     <string name="serial_name">Serial</string>
-    <string name="source_code">View source code</string>
-    <string name="source_code_summary">View project source code on GitHub</string>
-    <string name="delete_account_summary">To remove signed in Google account, go to Device Settings -> Account.</string>
-    <string name="check_for_vanced_microg_updates_on_github">Check for Vanced+ microG updates on GitHub</string>
-    <string name="check_for_updates">Check for updates</string>
-    <string name="network_google_enabled_string">If disabled, all connections to Google servers usually done by Vanced+ microG will be denied. This overrides service specific settings.</string>
-    <string name="network_google_enabled_summary">Allow connecting to Google servers</string>
-    <string name="network_google_use_tor">Requires Orbot to be installed\nNot yet supported</string>
-    <string name="network_google_use_tor_summary">Connect to Google via Tor network</string>
-    <string name="fake_signature_summary">Spoofs signature key of Vanced+ microG to fix YouTube Vanced+ playback buffering issue</string>
-    <string name="fake_signature_title">Spoof app signature key (EXPERIMENTAL)</string>
-    <string name="build_date">Build date</string>
-    <string name="your_data_in_youtube">Your data in YouTube</string>
-    <string name="your_data_in_youtube_summary">Browse or delete your YouTube activity, and discover how your data makes YouTube and other Google services work better for you</string>
-    <string name="remove_google_account_tips">Want to remove your Google account from Vanced+ microG?</string>
-    <string name="remove_google_account_summary"><![CDATA[Go to your device settings -> Account to remove them.]]></string>
-    <string name="check_for_vanced_microg_updates_on_gitlab">Check for Vanced+ microG updates on GitLab</string>
-    <string name="view_sourcecode_gitlab">View project source code on GitLab</string>
-    <string name="check_connection">Check connection</string>
-    <string name="check_your_device_internet_connection">Check your device internet connection</string>
-    <string name="back_to_vancedx_title">Back to YouTube Vanced+</string>
-    <string name="back_to_vancedx_summary">Tap to exit Vanced+ microG and back to YouTube Vanced</string>
-    <string name="package_information">Package information</string>
-    <string name="manage_googleaccount_title">Manage signed in Google accounts</string>
-    <string name="manage_googleaccount_summary">This will open your device settings !</string>
-    <string name="miscellaneous_settings">Miscellaneous settings</string>
+    <string name="source_code">Ver código fonte</string>
+    <string name="source_code_summary">Veja o código fonte do projeto no GitHub</string>
+    <string name="delete_account_summary">Para remover a conta do Google conectada, vá para Configurações do dispositivo -> Conta.</string>
+    <string name="check_for_vanced_microg_updates_on_github">Verifique se há atualizações do Vanced+ microG no GitHub</string>
+    <string name="check_for_updates">Verifique se há atualizações</string>
+    <string name="network_google_enabled_string">Se desativado, todas as conexões aos servidores do Google normalmente feitas pelo Vanced+ microG serão negadas. Isso substitui as configurações específicas do serviço.</string>
+    <string name="network_google_enabled_summary">Permitir conexão com servidores do Google</string>
+    <string name="network_google_use_tor">Requer que o Orbot esteja instalado\nAinda não é compatível</string>
+    <string name="network_google_use_tor_summary">Conecte-se ao Google através da rede Tor</string>
+    <string name="fake_signature_summary">Falsificar chave de assinatura do Vanced+ microG para corrigir o problema de buffer de reprodução do YouTube</string>
+    <string name="fake_signature_title">Falsificar chave de assinatura do aplicativo (EXPERIMENTAL)</string>
+    <string name="build_date">Data da Build</string>
+    <string name="your_data_in_youtube">Seus dados no YouTube</string>
+    <string name="your_data_in_youtube_summary">Navegue ou exclua sua atividade no YouTube e descubra como seus dados fazem com que o YouTube e outros serviços do Google funcionem melhor para você</string>
+    <string name="remove_google_account_tips">Deseja remover sua conta do Google do Vanced+ microG?</string>
+    <string name="remove_google_account_summary"><![CDATA[Vá para as configurações do seu dispositivo -> Conta para removê-las.]]></string>
+    <string name="check_for_vanced_microg_updates_on_gitlab">Verificar se há atualizações do Vanced + microG no GitLab</string>
+    <string name="view_sourcecode_gitlab">Ver código fonte do projeto no GitLab</string>
+    <string name="check_connection">Verifique a conexão</string>
+    <string name="check_your_device_internet_connection">Verifique a conexão com a Internet do seu dispositivo</string>
+    <string name="back_to_vancedx_title">Voltar ao YouTube</string>
+    <string name="back_to_vancedx_summary">Toque para sair do Vanced+ microG e voltar ao YouTube</string>
+    <string name="package_information">Informações do pacote</string>
+    <string name="manage_googleaccount_title">Gerenciar contas do Google conectadas</string>
+    <string name="manage_googleaccount_summary">Isso abrirá as configurações do seu dispositivo !</string>
+    <string name="miscellaneous_settings">Configurações diversas</string>
 </resources>
