@@ -19,7 +19,7 @@
 
     <plurals name="gcm_registered_apps_counter">
         <item quantity="one"><xliff:g example="1">%1$d</xliff:g> aplicativo registrado</item>
-        <item quantity="other"><xliff:g example="123">%1$d</xliff:g> aplicativo registrado</item>
+        <item quantity="other"><xliff:g example="123">%1$d</xliff:g> aplicativos registrados</item>
     </plurals>
 
 </resources>
