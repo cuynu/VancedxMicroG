@@ -5,11 +5,12 @@
 
 package com.google.android.gms.common.security;
 
+import static android.os.Build.VERSION.SDK_INT;
 import static com.google.android.gms.security.ProviderInstaller.PROVIDER_NAME;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
-import android.os.Build;
 import android.os.Process;
 import android.util.Log;
 
@@ -53,13 +54,14 @@ public class ProviderInstallerImpl {
         String packageName = PackageUtils.packageFromProcessId(context, Process.myPid());
         if (packageName != null && packageName.contains(".")) return packageName;
         try {
+            @SuppressLint("DiscouragedPrivateApi")
             Method getBasePackageName = Context.class.getDeclaredMethod("getBasePackageName");
             packageName = (String) getBasePackageName.invoke(context);
             if (packageName != null) return packageName;
-        } catch (Exception e) {
+        } catch (Exception ignored) {
 
         }
-        if (Build.VERSION.SDK_INT >= 29) {
+        if (SDK_INT >= 29) {
             return context.getOpPackageName();
         }
         Context applicationContext = context.getApplicationContext();

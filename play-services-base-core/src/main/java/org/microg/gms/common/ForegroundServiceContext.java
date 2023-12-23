@@ -1,5 +1,10 @@
 package org.microg.gms.common;
 
+<<<<<<< HEAD
+=======
+import static android.os.Build.VERSION.SDK_INT;
+
+>>>>>>> b20726b4 (Stop importing android.os.Build https://github.com/microg/GmsCore/commit/56b468ecbb450844c3e41a2b7d85ff979d98734b)
 import android.annotation.SuppressLint;
 import android.app.Notification;
 import android.app.NotificationChannel;
@@ -11,7 +16,6 @@ import android.content.Context;
 import android.content.ContextWrapper;
 import android.content.Intent;
 import android.net.Uri;
-import android.os.Build;
 import android.os.PowerManager;
 import android.provider.Settings;
 import android.util.Log;
@@ -33,7 +37,7 @@ public class ForegroundServiceContext extends ContextWrapper {
         if (!isIgnoringBatteryOptimizations()) {
             Log.d(TAG, "Starting in foreground mode.");
             service.putExtra(EXTRA_FOREGROUND, true);
-            if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            if (SDK_INT >= 26) {
                 return super.startForegroundService(service);
             } else {
                 return super.startService(service);
@@ -75,7 +79,7 @@ public class ForegroundServiceContext extends ContextWrapper {
             String serviceName = getServiceName(service);
             Log.d(tag, "Started " + serviceName + " in foreground mode.");
             try {
-                Notification notification = buildForegroundNotification(service, serviceName);
+                Notification notification = buildForegroundNotification(service);
                 service.startForeground(serviceName.hashCode(), notification);
                 Log.d(tag, "Notification: " + notification);
             } catch (Exception e) {
@@ -85,9 +89,13 @@ public class ForegroundServiceContext extends ContextWrapper {
     }
 
     @SuppressLint("BatteryLife")
+<<<<<<< HEAD
     private static Notification buildForegroundNotification(Context context, String serviceName) {
+=======
+    private static Notification buildForegroundNotification(Context context) {
+>>>>>>> b20726b4 (Stop importing android.os.Build https://github.com/microg/GmsCore/commit/56b468ecbb450844c3e41a2b7d85ff979d98734b)
         Intent notificationIntent = new Intent();
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+        if (SDK_INT >= 31) {
             notificationIntent.setAction(Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS);
             notificationIntent.setData(Uri.parse("package:" + context.getPackageName()));
         } else {
@@ -97,8 +105,8 @@ public class ForegroundServiceContext extends ContextWrapper {
         PendingIntent notificationPendingIntent = PendingIntent.getActivity(context,
                 0,
                 notificationIntent,
-                0);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                PendingIntent.FLAG_IMMUTABLE);
+        if (SDK_INT >= 26) {
             NotificationChannel Channel = new NotificationChannel("foreground-service",
                     context.getResources().getString(R.string.notification_service_name),
                     NotificationManager.IMPORTANCE_LOW);

@@ -33,8 +33,6 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-import static android.os.Build.VERSION.SDK_INT;
-import static android.os.Build.VERSION_CODES.ICE_CREAM_SANDWICH;
 import static org.microg.gms.common.Constants.GMS_PACKAGE_NAME;
 
 public class MultiConnectionKeeper {
@@ -164,10 +162,7 @@ public class MultiConnectionKeeper {
             } else {
                 intent = gmsIntent;
             }
-            int flags = Context.BIND_AUTO_CREATE | Context.BIND_DEBUG_UNBIND;
-            if (SDK_INT >= ICE_CREAM_SANDWICH) {
-                flags |= Context.BIND_ADJUST_WITH_ACTIVITY;
-            }
+            int flags = Context.BIND_AUTO_CREATE | Context.BIND_DEBUG_UNBIND | Context.BIND_ADJUST_WITH_ACTIVITY;
             bound = context.bindService(intent, serviceConnection, flags);
             Log.d(TAG, "Connection(" + actionString + ") :  bind() : bindService=" + bound);
             if (!bound) {

@@ -19,8 +19,42 @@ package org.microg.gms.gcm;
 import static android.app.AlarmManager.ELAPSED_REALTIME_WAKEUP;
 import static android.os.Build.VERSION.SDK_INT;
 import static org.microg.gms.common.PackageUtils.warnIfNotPersistentProcess;
-import static org.microg.gms.gcm.GcmConstants.*;
-import static org.microg.gms.gcm.McsConstants.*;
+import static org.microg.gms.gcm.GcmConstants.ACTION_C2DM_RECEIVE;
+import static org.microg.gms.gcm.GcmConstants.EXTRA_APP;
+import static org.microg.gms.gcm.GcmConstants.EXTRA_APP_OVERRIDE;
+import static org.microg.gms.gcm.GcmConstants.EXTRA_COLLAPSE_KEY;
+import static org.microg.gms.gcm.GcmConstants.EXTRA_FROM;
+import static org.microg.gms.gcm.GcmConstants.EXTRA_MESSAGE_ID;
+import static org.microg.gms.gcm.GcmConstants.EXTRA_MESSENGER;
+import static org.microg.gms.gcm.GcmConstants.EXTRA_RAWDATA;
+import static org.microg.gms.gcm.GcmConstants.EXTRA_RAWDATA_BASE64;
+import static org.microg.gms.gcm.GcmConstants.EXTRA_REGISTRATION_ID;
+import static org.microg.gms.gcm.GcmConstants.EXTRA_SEND_FROM;
+import static org.microg.gms.gcm.GcmConstants.EXTRA_SEND_TO;
+import static org.microg.gms.gcm.GcmConstants.EXTRA_TTL;
+import static org.microg.gms.gcm.McsConstants.ACTION_ACK;
+import static org.microg.gms.gcm.McsConstants.ACTION_CONNECT;
+import static org.microg.gms.gcm.McsConstants.ACTION_HEARTBEAT;
+import static org.microg.gms.gcm.McsConstants.ACTION_RECONNECT;
+import static org.microg.gms.gcm.McsConstants.ACTION_SEND;
+import static org.microg.gms.gcm.McsConstants.EXTRA_REASON;
+import static org.microg.gms.gcm.McsConstants.MCS_CLOSE_TAG;
+import static org.microg.gms.gcm.McsConstants.MCS_DATA_MESSAGE_STANZA_TAG;
+import static org.microg.gms.gcm.McsConstants.MCS_HEARTBEAT_ACK_TAG;
+import static org.microg.gms.gcm.McsConstants.MCS_HEARTBEAT_PING_TAG;
+import static org.microg.gms.gcm.McsConstants.MCS_IQ_STANZA_TAG;
+import static org.microg.gms.gcm.McsConstants.MCS_LOGIN_REQUEST_TAG;
+import static org.microg.gms.gcm.McsConstants.MCS_LOGIN_RESPONSE_TAG;
+import static org.microg.gms.gcm.McsConstants.MSG_ACK;
+import static org.microg.gms.gcm.McsConstants.MSG_CONNECT;
+import static org.microg.gms.gcm.McsConstants.MSG_HEARTBEAT;
+import static org.microg.gms.gcm.McsConstants.MSG_INPUT;
+import static org.microg.gms.gcm.McsConstants.MSG_INPUT_ERROR;
+import static org.microg.gms.gcm.McsConstants.MSG_OUTPUT;
+import static org.microg.gms.gcm.McsConstants.MSG_OUTPUT_DONE;
+import static org.microg.gms.gcm.McsConstants.MSG_OUTPUT_ERROR;
+import static org.microg.gms.gcm.McsConstants.MSG_OUTPUT_READY;
+import static org.microg.gms.gcm.McsConstants.MSG_TEARDOWN;
 
 import android.annotation.SuppressLint;
 import android.app.AlarmManager;
@@ -34,7 +68,6 @@ import android.content.pm.PermissionInfo;
 import android.content.pm.ResolveInfo;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
@@ -67,7 +100,6 @@ import org.microg.gms.gcm.mcs.IqStanza;
 import org.microg.gms.gcm.mcs.LoginRequest;
 import org.microg.gms.gcm.mcs.LoginResponse;
 import org.microg.gms.gcm.mcs.Setting;
-import org.microg.mgms.settings.SettingsProvider;
 
 import java.io.Closeable;
 import java.lang.reflect.Field;
@@ -138,10 +170,10 @@ public class McsService extends Service implements Handler.Callback {
     @Nullable
     private Method addPowerSaveTempWhitelistAppMethod;
     @Nullable
-    @RequiresApi(Build.VERSION_CODES.S)
+    @RequiresApi(31)
     private Object powerExemptionManager;
     @Nullable
-    @RequiresApi(Build.VERSION_CODES.S)
+    @RequiresApi(31)
     private Method addToTemporaryAllowListMethod;
 
     private class HandlerThread extends Thread {
@@ -156,7 +188,7 @@ public class McsService extends Service implements Handler.Callback {
             wakeLock = powerManager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "mcs");
             wakeLock.setReferenceCounted(false);
             synchronized (McsService.class) {
-                rootHandler = new Handler(Looper.myLooper(), McsService.this);
+                rootHandler = new Handler(Objects.requireNonNull(Looper.myLooper()), McsService.this);
                 if (connectIntent != null) {
                     rootHandler.sendMessage(rootHandler.obtainMessage(MSG_CONNECT, connectIntent));
                     WakefulBroadcastReceiver.completeWakefulIntent(connectIntent);
@@ -181,7 +213,7 @@ public class McsService extends Service implements Handler.Callback {
         powerManager = (PowerManager) getSystemService(POWER_SERVICE);
         if (checkSelfPermission("android.permission.CHANGE_DEVICE_IDLE_TEMP_WHITELIST") == PackageManager.PERMISSION_GRANTED) {
             try {
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+                if (SDK_INT >= 31) {
                     Class<?> powerExemptionManagerClass = Class.forName("android.os.PowerExemptionManager");
                     powerExemptionManager = getSystemService(powerExemptionManagerClass);
                     addToTemporaryAllowListMethod =
@@ -280,7 +312,10 @@ public class McsService extends Service implements Handler.Callback {
             closeAll();
         }
         logd(context, "Scheduling heartbeat in " + heartbeatMs / 1000 + " seconds...");
+<<<<<<< HEAD
         // This is supposed to work even when running in idle and without battery optimization disabled
+=======
+>>>>>>> b20726b4 (Stop importing android.os.Build https://github.com/microg/GmsCore/commit/56b468ecbb450844c3e41a2b7d85ff979d98734b)
         alarmManager.setExactAndAllowWhileIdle(ELAPSED_REALTIME_WAKEUP, SystemClock.elapsedRealtime() + heartbeatMs, heartbeatIntent);
     }
 
@@ -593,7 +628,7 @@ public class McsService extends Service implements Handler.Callback {
     }
 
     private void addPowerSaveTempWhitelistApp(String packageName) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+        if (SDK_INT >= 31) {
             try {
                 if (addToTemporaryAllowListMethod != null && powerExemptionManager != null) {
                     logd(this, "Adding app " + packageName + " to the temp allowlist");

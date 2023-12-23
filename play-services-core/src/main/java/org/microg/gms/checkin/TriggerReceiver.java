@@ -18,7 +18,6 @@ package org.microg.gms.checkin;
 
 import static android.app.PendingIntent.FLAG_UPDATE_CURRENT;
 import static android.net.NetworkCapabilities.NET_CAPABILITY_INTERNET;
-import static android.os.Build.VERSION.SDK_INT;
 import static org.microg.gms.checkin.CheckinService.EXTRA_FORCE_CHECKIN;
 import static org.microg.gms.checkin.CheckinService.REGULAR_CHECKIN_INTERVAL;
 
@@ -54,7 +53,7 @@ public class TriggerReceiver extends WakefulBroadcastReceiver {
                     Intent subIntent = new Intent(context, CheckinService.class);
                     subIntent.putExtra(EXTRA_FORCE_CHECKIN, force);
                     startWakefulService(new ForegroundServiceContext(context), subIntent);
-                } else if (SDK_INT >= 23) {
+                } else  {
                     // no network, register a network callback to retry when we have internet
                     NetworkRequest networkRequest = new NetworkRequest.Builder()
                             .addCapability(NET_CAPABILITY_INTERNET)

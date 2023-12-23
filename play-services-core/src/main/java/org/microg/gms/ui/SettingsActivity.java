@@ -1,6 +1,7 @@
 package org.microg.gms.ui;
 
-import android.os.Build;
+import static android.os.Build.VERSION.SDK_INT;
+
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
@@ -26,7 +27,7 @@ public class SettingsActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.settings_root_activity);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+        if (SDK_INT >= 31) {
             DynamicColors.applyToActivityIfAvailable(this);
         }
         appBarConfiguration = new AppBarConfiguration.Builder(getNavController().getGraph()).build();

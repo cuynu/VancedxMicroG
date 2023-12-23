@@ -100,6 +100,26 @@ public class DataHolder extends AutoSafeParcelable implements Closeable {
         return new Builder(columns);
     }
 
+<<<<<<< HEAD
+=======
+    /**
+     * @param statusCode The status code of this {@link DataHolder}.
+     * @param metadata   The metadata associated with this {@link DataHolder} (may be null).
+     * @return An empty {@link DataHolder} object with the given status and metadata.
+     */
+    public static DataHolder empty(int statusCode, Bundle metadata) {
+        return new DataHolder(new String[0], new CursorWindow[0], statusCode, metadata);
+    }
+
+    /**
+     * @param statusCode The status code of this {@link DataHolder}.
+     * @return An empty {@link DataHolder} object with the given status and null metadata.
+     */
+    public static DataHolder empty(int statusCode) {
+        return empty(statusCode, null);
+    }
+
+>>>>>>> b20726b4 (Stop importing android.os.Build https://github.com/microg/GmsCore/commit/56b468ecbb450844c3e41a2b7d85ff979d98734b)
     @SuppressLint({"NewApi", "ObsoleteSdkInt"})
     static int getCursorType(Cursor cursor, int i) {
         return cursor.getType(i);
