@@ -36,4 +36,11 @@
             android:action="@string/var_pref_auth_action_preferences_settings"
             android:targetPackage="@string/var_pref_start_gms_package" />
     </PreferenceScreen>
+    <PreferenceScreen
+        android:key="legacy"
+        android:title="Legacy settings">
+        <intent
+            android:targetClass="org.microg.gms.ui.LegacyAccountSettingsActivity"
+            android:targetPackage="@string/var_pref_start_gms_package" />
+    </PreferenceScreen>
 </PreferenceScreen>
