@@ -37,7 +37,7 @@ class PushNotificationAdvancedFragment : PreferenceFragmentCompat() {
             val appContext = requireContext().applicationContext
             lifecycleScope.launchWhenResumed {
                 (newValue as? String)?.toIntOrNull()?.let {
-                    setGcmServiceConfiguration(requireContext(), getGcmServiceInfo(appContext).configuration.copy(mobile = it))
+                    setGcmServiceConfiguration(appContext, getGcmServiceInfo(appContext).configuration.copy(mobile = it))
                 }
                 updateContent()
             }
@@ -47,7 +47,7 @@ class PushNotificationAdvancedFragment : PreferenceFragmentCompat() {
             val appContext = requireContext().applicationContext
             lifecycleScope.launchWhenResumed {
                 (newValue as? String)?.toIntOrNull()?.let {
-                    setGcmServiceConfiguration(appContext, getGcmServiceInfo(requireContext()).configuration.copy(wifi = it))
+                    setGcmServiceConfiguration(appContext, getGcmServiceInfo(appContext).configuration.copy(wifi = it))
                 }
                 updateContent()
             }
@@ -57,7 +57,7 @@ class PushNotificationAdvancedFragment : PreferenceFragmentCompat() {
             val appContext = requireContext().applicationContext
             lifecycleScope.launchWhenResumed {
                 (newValue as? String)?.toIntOrNull()?.let {
-                    setGcmServiceConfiguration(appContext, getGcmServiceInfo(requireContext()).configuration.copy(roaming = it))
+                    setGcmServiceConfiguration(appContext, getGcmServiceInfo(appContext).configuration.copy(roaming = it))
                 }
                 updateContent()
             }
@@ -67,7 +67,7 @@ class PushNotificationAdvancedFragment : PreferenceFragmentCompat() {
             val appContext = requireContext().applicationContext
             lifecycleScope.launchWhenResumed {
                 (newValue as? String)?.toIntOrNull()?.let {
-                    setGcmServiceConfiguration(appContext, getGcmServiceInfo(requireContext()).configuration.copy(other = it))
+                    setGcmServiceConfiguration(appContext, getGcmServiceInfo(appContext).configuration.copy(other = it))
                 }
                 updateContent()
             }
@@ -98,13 +98,13 @@ class PushNotificationAdvancedFragment : PreferenceFragmentCompat() {
     private fun getSummaryString(value: Int, learnt: Int): String = when (value) {
         -1 -> getString(R.string.service_status_disabled_short)
         0 -> getString(R.string.service_status_enabled_short) + " / " + getString(R.string.gcm_status_pref_default) + ": " + getHeartbeatString(learnt)
-        else -> getString(R.string.service_status_enabled_short) + " / " + getString(R.string.gcm_status_pref_manual) + ": " + getHeartbeatString(value * SettingsProvider.INTERVAL)
+        else -> getString(R.string.service_status_enabled_short) + " / " + getString(R.string.gcm_status_pref_manual) + ": " + getHeartbeatString(value * 60000)
     }
 
     private fun getHeartbeatString(heartbeatMs: Int): String {
         return if (heartbeatMs < 120000) {
             (heartbeatMs / 1000).toString() + " " + getString(R.string.gcm_status_pref_sec)
-        } else (heartbeatMs / SettingsProvider.INTERVAL).toString() + " " + getString(R.string.gcm_status_pref_min)
+        } else (heartbeatMs / 60000).toString() + " " + getString(R.string.gcm_status_pref_min)
     }
 
     companion object {

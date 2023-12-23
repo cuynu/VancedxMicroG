@@ -11,7 +11,8 @@ import org.microg.gms.gcm.TriggerReceiver.FORCE_TRY_RECONNECT
 import org.microg.mgms.settings.SettingsContract
 import org.microg.mgms.settings.SettingsContract.Gcm
 import org.microg.mgms.settings.SettingsContract.setSettings
-import org.microg.mgms.settings.SettingsProvider
+import kotlin.math.max
+import kotlin.math.min
 
 data class GcmPrefs(
     val isGcmLogEnabled: Boolean,
@@ -36,6 +37,9 @@ data class GcmPrefs(
         const val PREF_NETWORK_WIFI = Gcm.NETWORK_WIFI
         const val PREF_NETWORK_ROAMING = Gcm.NETWORK_ROAMING
         const val PREF_NETWORK_OTHER = Gcm.NETWORK_OTHER
+
+        private const val MIN_INTERVAL = 5 * 60 * 1000 // 5 minutes
+        private const val MAX_INTERVAL = 15 * 60 * 1000 // 15 minutes
 
         @JvmStatic
         fun get(context: Context): GcmPrefs? {
@@ -93,6 +97,7 @@ data class GcmPrefs(
         }
     }
 
+    @Suppress("DEPRECATION")
     fun getNetworkPrefForInfo(info: NetworkInfo?): String {
         if (info == null) return PREF_NETWORK_OTHER
         return if (info.isRoaming) PREF_NETWORK_ROAMING else when (info.type) {
@@ -102,25 +107,27 @@ data class GcmPrefs(
         }
     }
 
+    @Suppress("DEPRECATION")
     fun getHeartbeatMsFor(info: NetworkInfo?): Int {
         return getHeartbeatMsFor(getNetworkPrefForInfo(info))
     }
 
     fun getHeartbeatMsFor(pref: String): Int {
         return if (PREF_NETWORK_ROAMING == pref) {
-            if (networkRoaming != 0) networkRoaming * SettingsProvider.INTERVAL else learntMobileInterval
+            if (networkRoaming != 0) networkRoaming * 60000 else learntMobileInterval
         } else if (PREF_NETWORK_MOBILE == pref) {
-            if (networkMobile != 0) networkMobile * SettingsProvider.INTERVAL else learntMobileInterval
+            if (networkMobile != 0) networkMobile * 60000 else learntMobileInterval
         } else if (PREF_NETWORK_WIFI == pref) {
-            if (networkWifi != 0) networkWifi * SettingsProvider.INTERVAL else learntWifiInterval
+            if (networkWifi != 0) networkWifi * 60000 else learntWifiInterval
         } else {
-            if (networkOther != 0) networkOther * SettingsProvider.INTERVAL else learntOtherInterval
+            if (networkOther != 0) networkOther * 60000 else learntOtherInterval
         }
     }
 
     fun learnTimeout(context: Context, pref: String) {
         Log.d("GmsGcmPrefs", "learnTimeout: $pref")
         when (pref) {
+<<<<<<< HEAD
             PREF_NETWORK_MOBILE, PREF_NETWORK_ROAMING -> Gcm.getContentUri(context)?.let {
                 setSettings(context, it) {
                     val newInterval = (learntMobileInterval * 0.95).toInt()
@@ -138,6 +145,19 @@ data class GcmPrefs(
                     val newInterval = (learntMobileInterval * 0.95).toInt()
                     put(Gcm.LEARNT_OTHER, newInterval)
                 }
+=======
+            PREF_NETWORK_MOBILE, PREF_NETWORK_ROAMING -> setSettings(context, Gcm.getContentUri(context)) {
+                val newInterval = (learntMobileInterval * 0.95).toInt()
+                put(Gcm.LEARNT_MOBILE, max(MIN_INTERVAL, min(newInterval, MAX_INTERVAL)))
+            }
+            PREF_NETWORK_WIFI -> setSettings(context, Gcm.getContentUri(context)) {
+                val newInterval = (learntWifiInterval * 0.95).toInt()
+                put(Gcm.LEARNT_WIFI, max(MIN_INTERVAL, min(newInterval, MAX_INTERVAL)))
+            }
+            else -> setSettings(context, Gcm.getContentUri(context)) {
+                val newInterval = (learntOtherInterval * 0.95).toInt()
+                put(Gcm.LEARNT_OTHER, max(MIN_INTERVAL, min(newInterval, MAX_INTERVAL)))
+>>>>>>> b0b92c8c (Set max auto heartbeat interval to 15min https://github.com/microg/GmsCore/commit/1e96dd137eae86bbf3be3ca72a6345fa837ad8ff)
             }
         }
     }
@@ -147,34 +167,53 @@ data class GcmPrefs(
         when (pref) {
             PREF_NETWORK_MOBILE, PREF_NETWORK_ROAMING -> {
                 if (time > learntMobileInterval / 4 * 3) {
+<<<<<<< HEAD
                     Gcm.getContentUri(context)?.let {
                         setSettings(context, it) {
                             put(Gcm.LEARNT_MOBILE, SettingsProvider.INTERVAL)
                         }
+=======
+                    val newInterval = (learntMobileInterval * 1.02).toInt()
+                    setSettings(context, Gcm.getContentUri(context)) {
+                        put(Gcm.LEARNT_MOBILE, max(MIN_INTERVAL, min(newInterval, MAX_INTERVAL)))
+>>>>>>> b0b92c8c (Set max auto heartbeat interval to 15min https://github.com/microg/GmsCore/commit/1e96dd137eae86bbf3be3ca72a6345fa837ad8ff)
                     }
                 }
             }
             PREF_NETWORK_WIFI -> {
                 if (time > learntWifiInterval / 4 * 3) {
+<<<<<<< HEAD
                     Gcm.getContentUri(context)?.let {
                         setSettings(context, it) {
                             put(Gcm.LEARNT_WIFI, SettingsProvider.INTERVAL)
                         }
+=======
+                    val newInterval = (learntWifiInterval * 1.02).toInt()
+                    setSettings(context, Gcm.getContentUri(context)) {
+                        put(Gcm.LEARNT_WIFI, max(MIN_INTERVAL, min(newInterval, MAX_INTERVAL)))
+>>>>>>> b0b92c8c (Set max auto heartbeat interval to 15min https://github.com/microg/GmsCore/commit/1e96dd137eae86bbf3be3ca72a6345fa837ad8ff)
                     }
                 }
             }
             else -> {
                 if (time > learntOtherInterval / 4 * 3) {
+<<<<<<< HEAD
                     Gcm.getContentUri(context)?.let {
                         setSettings(context, it) {
                             put(Gcm.LEARNT_OTHER, SettingsProvider.INTERVAL)
                         }
+=======
+                    val newInterval = (learntOtherInterval * 1.02).toInt()
+                    setSettings(context, Gcm.getContentUri(context)) {
+                        put(Gcm.LEARNT_OTHER, max(MIN_INTERVAL, min(newInterval, MAX_INTERVAL)))
+>>>>>>> b0b92c8c (Set max auto heartbeat interval to 15min https://github.com/microg/GmsCore/commit/1e96dd137eae86bbf3be3ca72a6345fa837ad8ff)
                     }
                 }
             }
         }
     }
 
+    @Suppress("DEPRECATION")
     fun isEnabledFor(info: NetworkInfo?): Boolean {
         return isEnabled && info != null && getHeartbeatMsFor(info) >= 0
     }

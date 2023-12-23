@@ -30,9 +30,6 @@ import java.io.File
  */
 @SuppressLint("DiscouragedPrivateApi")
 class SettingsProvider : ContentProvider() {
-    companion object {
-        const val INTERVAL = 1 * 60 * 1000 // 1 minute
-    }
 
     private val preferences: SharedPreferences by lazy {
         PreferenceManager.getDefaultSharedPreferences(context)
@@ -167,9 +164,15 @@ class SettingsProvider : ContentProvider() {
             Gcm.NETWORK_ROAMING -> Integer.parseInt(preferences.getString(key, "0") ?: "0")
             Gcm.NETWORK_OTHER -> Integer.parseInt(preferences.getString(key, "0") ?: "0")
 
+<<<<<<< HEAD
             Gcm.LEARNT_MOBILE -> preferences.getInt(key, INTERVAL)
             Gcm.LEARNT_WIFI -> preferences.getInt(key, INTERVAL)
             Gcm.LEARNT_OTHER -> preferences.getInt(key, INTERVAL)
+=======
+            Gcm.LEARNT_MOBILE -> preferences.getInt(key, 300000)
+            Gcm.LEARNT_WIFI -> preferences.getInt(key, 300000)
+            Gcm.LEARNT_OTHER -> preferences.getInt(key, 300000)
+>>>>>>> b0b92c8c (Set max auto heartbeat interval to 15min https://github.com/microg/GmsCore/commit/1e96dd137eae86bbf3be3ca72a6345fa837ad8ff)
 
             else -> throw IllegalArgumentException("Unknown key: $key")
         }
