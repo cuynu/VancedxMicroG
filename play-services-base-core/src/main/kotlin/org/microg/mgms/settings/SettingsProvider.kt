@@ -24,6 +24,8 @@ import org.microg.mgms.settings.SettingsContract.Profile
 import org.microg.mgms.settings.SettingsContract.getAuthority
 import java.io.File
 
+private const val SETTINGS_PREFIX = "org.microg.mgms.settings."
+
 /**
  * All settings access should go through this [ContentProvider],
  * because it provides safe access from different processes which normal [SharedPreferences] don't.
@@ -47,6 +49,10 @@ class SettingsProvider : ContentProvider() {
         } catch (ignored: Exception) {
             null
         }
+    }
+
+    private val metaDataPreferences: SharedPreferences by lazy {
+        MetaDataPreferences(context!!, SETTINGS_PREFIX)
     }
 
     override fun onCreate(): Boolean {
@@ -272,10 +278,16 @@ class SettingsProvider : ContentProvider() {
      * @return the current setting as [Int], because [ContentProvider] does not support [Boolean].
      */
     private fun getSettingsBoolean(key: String, def: Boolean): Int {
-        return listOf(preferences, systemDefaultPreferences).getBooleanAsInt(key, def)
+        return listOf(preferences, systemDefaultPreferences, metaDataPreferences).getBooleanAsInt(key, def)
     }
 
+<<<<<<< HEAD
     private fun getSettingsString(key: String, def: String? = null): String? = listOf(preferences, systemDefaultPreferences).getString(key, def)
+=======
+    private fun getSettingsString(key: String, def: String? = null): String? = listOf(preferences, systemDefaultPreferences, metaDataPreferences).getString(key, def)
+    private fun getSettingsInt(key: String, def: Int): Int = listOf(preferences, systemDefaultPreferences, metaDataPreferences).getInt(key, def)
+    private fun getSettingsLong(key: String, def: Long): Long = listOf(preferences, systemDefaultPreferences, metaDataPreferences).getLong(key, def)
+>>>>>>> d2450feb (Base: Allow default settings to be provided in meta-data https://github.com/microg/GmsCore/commit/2c80de55d132a91c25036880517c5605c6753f71)
 
     private fun List<SharedPreferences?>.getString(key: String, def: String?): String? = foldRight(def) { preferences, defValue -> preferences?.getString(key, defValue) ?: defValue }
     private fun List<SharedPreferences?>.getBoolean(key: String, def: Boolean): Boolean = foldRight(def) { preferences, defValue -> preferences?.getBoolean(key, defValue) ?: defValue }
