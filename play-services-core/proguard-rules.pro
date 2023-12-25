@@ -21,10 +21,13 @@
 
 # Keep dynamically loaded GMS classes
 -keep public class com.google.android.gms.common.security.ProviderInstallerImpl { public *; }
+-keep public class com.google.android.gms.dynamic.IObjectWrapper { public *; }
+-keep public class com.google.android.gms.dynamite.descriptors.** { public *; }
 
 # Keep AutoSafeParcelables
 -keep public class * extends org.microg.safeparcel.AutoSafeParcelable {
     @org.microg.safeparcel.SafeParceled *;
+    <init>(...);
 }
 
 # Keep form data

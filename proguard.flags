@@ -11,16 +11,24 @@
 -dontwarn com.caverock.androidsvg.**
 -dontwarn org.slf4j.**
 -dontwarn org.codehaus.jackson.**
+-dontwarn com.android.location.provider.**
+-dontwarn java.lang.instrument.ClassFileTransformer
+-dontwarn sun.misc.SignalHandler
+-dontwarn com.android.org.conscrypt.SSLParametersImpl
+-dontwarn org.apache.harmony.xnet.provider.jsse.SSLParametersImpl
 
 # Disable ProGuard Notes, they won't help here
 -dontnote
 
 # Keep dynamically loaded GMS classes
 -keep public class com.google.android.gms.common.security.ProviderInstallerImpl { public *; }
+-keep public class com.google.android.gms.dynamic.IObjectWrapper { public *; }
+-keep public class com.google.android.gms.dynamite.descriptors.** { public *; }
 
 # Keep AutoSafeParcelables
 -keep public class * extends org.microg.safeparcel.AutoSafeParcelable {
     @org.microg.safeparcel.SafeParceled *;
+    <init>(...);
 }
 
 # Keep form data
@@ -29,7 +37,12 @@
 }
 
 # Keep our stuff
--keep class org.microg.** { *; }
+-keep class org.microg** { *; }
+-keep class com.google.android.gms** { *; }
+-keep class com.mgoogle** { *; }
+-keepdirectories org/microg**
+-keepdirectories com/google/android/gms**
+-keepdirectories com/mgoogle**
 
 # Keep asInterface method cause it's accessed from SafeParcel
 -keepattributes InnerClasses
