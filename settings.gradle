@@ -1,3 +1,5 @@
+include ':fake-signature'
+
 include ':play-services-basement'
 
 include ':play-services-tasks'

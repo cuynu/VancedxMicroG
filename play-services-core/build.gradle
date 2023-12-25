@@ -23,6 +23,8 @@ dependencies {
     implementation "de.hdodenhof:circleimageview:$circleimageviewVersion"
     implementation "androidx.webkit:webkit:$webkitVersion"
 
+    implementation project(':fake-signature')
+
     implementation project(':play-services-base-core')
     implementation project(':play-services-core-proto')
     implementation project(':play-services-core:microg-ui-tools') // deprecated

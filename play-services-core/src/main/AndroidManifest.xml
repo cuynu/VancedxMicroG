@@ -100,10 +100,6 @@
 
         <library android:name="${basePackageName}.android.gms" />
 
-        <meta-data
-            android:name="fake-signature"
-            android:value="@string/fake_signature" />
-
         <!-- Internal Settings -->
 
         <provider
