@@ -31,8 +31,15 @@ android {
         sourceCompatibility = 11
         targetCompatibility = 11
     }
+<<<<<<< HEAD
     lint {
         disable 'MissingTranslation'
+=======
+
+    lintOptions {
+        // TODO: Remove MissingTranslation once we have stable strings and proper translations.
+        disable 'MissingTranslation', 'GetLocales'
+>>>>>>> a907c391 (Build: Fix GetLocales lint https://github.com/microg/GmsCore/commit/f0b15d275a0c4ec3625033d651414d396e368320)
     }
     namespace 'org.microg.tools.ui'
 

@@ -97,6 +97,12 @@ android {
         }
     }
 
+<<<<<<< HEAD
+=======
+    lintOptions {
+        disable 'MissingTranslation', 'GetLocales', 'BatteryLife', 'ImpliedQuantity', 'MissingQuantity', 'InvalidWakeLockTag', 'Range'
+    }
+>>>>>>> a907c391 (Build: Fix GetLocales lint https://github.com/microg/GmsCore/commit/f0b15d275a0c4ec3625033d651414d396e368320)
 
     buildTypes {
         release {

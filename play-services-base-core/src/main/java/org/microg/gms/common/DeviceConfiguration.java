@@ -16,6 +16,8 @@
 
 package org.microg.gms.common;
 
+import android.annotation.SuppressLint;
+
 import android.app.ActivityManager;
 import android.content.Context;
 import android.content.pm.ConfigurationInfo;
@@ -90,15 +92,22 @@ public class DeviceConfiguration {
         this.nativePlatforms = getNativePlatforms();
         widthPixels = displayMetrics.widthPixels;
         heightPixels = displayMetrics.heightPixels;
-        locales = new ArrayList<>(Arrays.asList(context.getAssets().getLocales()));
-        for (int i = 0; i < locales.size(); i++) {
-            locales.set(i, locales.get(i).replace("-", "_"));
-        }
-        Collections.sort(locales);
+        locales = getLocales(context);
         Set<String> glExtensions = new HashSet<>();
         addEglExtensions(glExtensions);
         this.glExtensions = new ArrayList<>(glExtensions);
         Collections.sort(this.glExtensions);
+    }
+
+    @SuppressLint("GetLocales")
+    private static List<String> getLocales(Context context) {
+        List<String> locales = new ArrayList<String>();
+        locales.addAll(Arrays.asList(context.getAssets().getLocales()));
+        for (int i = 0; i < locales.size(); i++) {
+            locales.set(i, locales.get(i).replace("-", "_"));
+        }
+        Collections.sort(locales);
+        return locales;
     }
 
     @SuppressWarnings({"InlinedApi"})
