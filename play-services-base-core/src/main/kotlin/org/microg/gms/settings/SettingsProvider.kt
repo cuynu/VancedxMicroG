@@ -213,6 +213,7 @@ class SettingsProvider : ContentProvider() {
         when (key) {
             Auth.TRUST_GOOGLE -> getSettingsBoolean(key, true)
             Auth.VISIBLE -> getSettingsBoolean(key, false)
+            Auth.INCLUDE_ANDROID_ID -> getSettingsBoolean(key, true)
             else -> throw IllegalArgumentException("Unknown key: $key")
         }
     }
@@ -224,6 +225,7 @@ class SettingsProvider : ContentProvider() {
             when (key) {
                 Auth.TRUST_GOOGLE -> editor.putBoolean(key, value as Boolean)
                 Auth.VISIBLE -> editor.putBoolean(key, value as Boolean)
+                Auth.INCLUDE_ANDROID_ID -> editor.putBoolean(key, value as Boolean)
                 else -> throw IllegalArgumentException("Unknown key: $key")
             }
         }

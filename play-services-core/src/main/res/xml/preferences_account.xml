@@ -11,6 +11,7 @@
             android:targetPackage="com.android.settings" />
         </Preference>
 
+<<<<<<< HEAD
         <Preference
             android:icon="@drawable/ic_add_account"
             android:summary="@string/pref_add_account_summary"
@@ -45,4 +46,23 @@
     <Preference
         android:selectable="false"
         android:summary="@string/google_account_manager" />
+=======
+    <PreferenceCategory android:title="@string/account_manager_title">
+        <SwitchPreferenceCompat
+            android:defaultValue="true"
+            android:key="auth_manager_trust_google"
+            android:summary="@string/pref_auth_trust_google_summary"
+            android:title="@string/pref_auth_trust_google_title"/>
+        <SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="auth_manager_visible"
+            android:summary="@string/pref_auth_visible_summary"
+            android:title="@string/pref_auth_visible_title"/>
+        <SwitchPreference
+            android:defaultValue="true"
+            android:key="auth_include_android_id"
+            android:summary="@string/pref_auth_include_android_id_summary"
+            android:title="@string/pref_auth_include_android_id_title"/>
+    </PreferenceCategory>
+>>>>>>> c8d53d6b (Auth: Add option to authenticate without android id https://github.com/microg/GmsCore/commit/8663e52563040bfcc57432173f891108fa693f07)
 </PreferenceScreen>
