@@ -5,9 +5,9 @@
 package org.microg.gms.checkin
 
 import android.content.Context
-import org.microg.mgms.settings.SettingsContract
-import org.microg.mgms.settings.SettingsContract.CheckIn
-import org.microg.mgms.settings.SettingsContract.setSettings
+import org.microg.gms.settings.SettingsContract
+import org.microg.gms.settings.SettingsContract.CheckIn
+import org.microg.gms.settings.SettingsContract.setSettings
 
 object CheckinPrefs {
 

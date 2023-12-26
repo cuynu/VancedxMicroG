@@ -8,9 +8,9 @@ import android.net.ConnectivityManager
 import android.net.NetworkInfo
 import android.util.Log
 import org.microg.gms.gcm.TriggerReceiver.FORCE_TRY_RECONNECT
-import org.microg.mgms.settings.SettingsContract
-import org.microg.mgms.settings.SettingsContract.Gcm
-import org.microg.mgms.settings.SettingsContract.setSettings
+import org.microg.gms.settings.SettingsContract
+import org.microg.gms.settings.SettingsContract.Gcm
+import org.microg.gms.settings.SettingsContract.setSettings
 import kotlin.math.max
 import kotlin.math.min
 

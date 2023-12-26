@@ -29,7 +29,7 @@ import android.util.Log;
 
 import org.microg.gms.base.core.BuildConfig;
 import org.microg.gms.common.PackageUtils;
-import org.microg.mgms.settings.SettingsContract;
+import org.microg.gms.settings.SettingsContract;
 
 import java.io.IOException;
 

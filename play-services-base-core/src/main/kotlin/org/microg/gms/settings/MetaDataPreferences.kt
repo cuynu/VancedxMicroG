@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-package org.microg.mgms.settings
+package org.microg.gms.settings
 
 import android.content.Context
 import android.content.SharedPreferences

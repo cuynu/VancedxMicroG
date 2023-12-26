@@ -14,7 +14,7 @@ import com.mgoogle.android.gms.R
 import org.microg.gms.gcm.GcmPrefs
 import org.microg.gms.gcm.getGcmServiceInfo
 import org.microg.gms.gcm.setGcmServiceConfiguration
-import org.microg.mgms.settings.SettingsProvider
+import org.microg.gms.settings.SettingsProvider
 
 class PushNotificationAdvancedFragment : PreferenceFragmentCompat() {
     private lateinit var networkMobile: ListPreference

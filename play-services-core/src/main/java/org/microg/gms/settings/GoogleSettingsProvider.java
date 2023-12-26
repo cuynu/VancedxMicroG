@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.microg.mgms.settings;
+package org.microg.gms.settings;
 
 import android.content.ContentProvider;
 import android.content.ContentValues;

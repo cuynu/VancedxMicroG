@@ -28,8 +28,8 @@ import org.microg.gms.gcm.RegisterRequest
 import org.microg.gms.gcm.completeRegisterRequest
 import org.microg.gms.profile.Build
 import org.microg.gms.profile.ProfileManager
-import org.microg.mgms.settings.SettingsContract.CheckIn
-import org.microg.mgms.settings.SettingsContract.getSettings
+import org.microg.gms.settings.SettingsContract.CheckIn
+import org.microg.gms.settings.SettingsContract.getSettings
 import javax.crypto.Mac
 import javax.crypto.spec.SecretKeySpec
 import kotlin.random.Random

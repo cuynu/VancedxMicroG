@@ -103,7 +103,7 @@
         <!-- Internal Settings -->
 
         <provider
-            android:name="org.microg.mgms.settings.SettingsProvider"
+            android:name="org.microg.gms.settings.SettingsProvider"
             android:authorities="${applicationId}.microg.settings"
             android:exported="false" />
 
@@ -114,7 +114,7 @@
             android:authorities="${basePackageName}.android.gsf.gservices"
             android:exported="true" />
         <provider
-            android:name="org.microg.mgms.settings.GoogleSettingsProvider"
+            android:name="org.microg.gms.settings.GoogleSettingsProvider"
             android:authorities="${basePackageName}.settings"
             android:exported="true" />
 

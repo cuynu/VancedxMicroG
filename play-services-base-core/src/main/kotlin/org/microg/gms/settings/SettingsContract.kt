@@ -1,4 +1,4 @@
-package org.microg.mgms.settings
+package org.microg.gms.settings
 
 import android.content.ContentValues
 import android.content.Context
