@@ -19,12 +19,19 @@
 
     <permission
 <<<<<<< HEAD
+<<<<<<< HEAD
         android:name="com.mgoogle.android.providers.gsf.permission.READ_GSERVICES"
         android:label="@string/perm_gsf_read_gservices_label"
         android:protectionLevel="normal" />
     <permission
         android:name="com.mgoogle.android.c2dm.permission.RECEIVE"
 =======
+=======
+        android:name="${basePackageName}.android.providers.gsf.permission.READ_GSERVICES"
+        android:label="@string/perm_gsf_read_gservices_label"
+        android:protectionLevel="normal" />
+    <permission
+>>>>>>> caf7201f (Declare com.mgoogle.android.providers.gsf.permission.READ_GSERVICES permission https://github.com/microg/GmsCore/commit/833e2940f283eeda5eca23b3af898dbfbab24d57)
         android:name="${basePackageName}.android.c2dm.permission.RECEIVE"
 >>>>>>> 25329625 (Set basePackageName)
         android:label="@string/perm_c2dm_receive_label"
