@@ -3,11 +3,23 @@
   ~ SPDX-FileCopyrightText: 2020, microG Project Team
   ~ SPDX-License-Identifier: Apache-2.0
   -->
+<<<<<<< HEAD
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+=======
+<manifest xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    package="org.microg.gms.base.core">
+>>>>>>> 0f8fb823 (Expose device profile as content https://github.com/microg/GmsCore/commit/9d5a99710f0cbe9055a43df371eaae77610583f3)
     <application>
         <provider
             android:name="org.microg.gms.settings.SettingsProvider"
             android:authorities="${applicationId}.microg.settings"
             android:exported="false" />
+
+        <provider
+            android:name="org.microg.gms.profile.ProfileProvider"
+            android:authorities="${applicationId}.microg.profile"
+            android:exported="true"
+            tools:ignore="ExportedContentProvider" />
     </application>
 </manifest>
