@@ -37,7 +37,7 @@ import com.google.android.gms.auth.AccountChangeEventsRequest;
 import com.google.android.gms.auth.AccountChangeEventsResponse;
 import com.google.android.gms.auth.GetHubTokenInternalResponse;
 import com.google.android.gms.auth.GetHubTokenRequest;
-import com.google.android.gms.auth.HasCababilitiesRequest;
+import com.google.android.gms.auth.HasCapabilitiesRequest;
 import com.google.android.gms.auth.TokenData;
 import com.google.android.gms.common.api.Scope;
 
@@ -68,6 +68,8 @@ public class AuthManagerServiceImpl extends IAuthManagerService.Stub {
     public static final String KEY_REQUEST_VISIBLE_ACTIVITIES = "request_visible_actions";
     public static final String KEY_SUPPRESS_PROGRESS_SCREEN = "suppressProgressScreen";
     public static final String KEY_SYNC_EXTRAS = "sync_extras";
+    public static final String KEY_DELEGATION_TYPE = "delegation_type";
+    public static final String KEY_DELEGATEE_USER_ID = "delegatee_user_id";
 
     public static final String KEY_ERROR = "Error";
 
@@ -113,7 +115,8 @@ public class AuthManagerServiceImpl extends IAuthManagerService.Stub {
         packageName = PackageUtils.getAndCheckCallingPackage(context, packageName, extras.getInt(KEY_CALLER_UID, 0), extras.getInt(KEY_CALLER_PID, 0));
         boolean notify = extras.getBoolean(KEY_HANDLE_NOTIFICATION, false);
 
-        Log.d(TAG, "getToken: account:" + account.name + " scope:" + scope + " extras:" + extras + ", notify: " + notify);
+        if (!AuthConstants.SCOPE_GET_ACCOUNT_ID.equals(scope))
+            Log.d(TAG, "getToken: account:" + account.name + " scope:" + scope + " extras:" + extras + ", notify: " + notify);
 
         /*
          * TODO: This scope seems to be invalid (according to https://developers.google.com/oauthplayground/),
@@ -196,7 +199,12 @@ public class AuthManagerServiceImpl extends IAuthManagerService.Stub {
     }
 
     @Override
+<<<<<<< HEAD
     public int hasCapabilities(HasCababilitiesRequest request) {
+=======
+    public int hasCapabilities(HasCapabilitiesRequest request) throws RemoteException {
+        Log.w(TAG, "Not implemented: hasCapabilities(" + request.account + ", " + Arrays.toString(request.capabilities) + ")");
+>>>>>>> d04e2718 (Auth: Forward UID/PID from IAuthManagerService.getTokenWithAccount https://github.com/microg/GmsCore/commit/4a7bac35f8eeb1bb3cb1607dc03b439b819abe40)
         return 1;
     }
 
@@ -215,7 +223,11 @@ public class AuthManagerServiceImpl extends IAuthManagerService.Stub {
 
         Log.d(TAG, "clearToken: token:" + token + " extras:" + extras);
         AccountManager.get(context).invalidateAuthToken(AuthConstants.DEFAULT_ACCOUNT_TYPE, token);
-        return null;
+
+        Bundle res = new Bundle();
+        res.putString("Error", "Ok");
+        res.putBoolean("booleanResult", true);
+        return res;
     }
 
     @Override
