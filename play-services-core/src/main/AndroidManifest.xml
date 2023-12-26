@@ -382,6 +382,15 @@
                 android:resource="@string/gms_settings_summary" />
         </activity-alias>
 
+        <!-- microG Settings activity-alias for Google settings compatibility -->
+        <activity-alias
+            android:name="com.google.android.gms.app.settings.GoogleSettingsLink"
+            android:process=":ui"
+            android:exported="true"
+            android:targetActivity="org.microg.gms.ui.SettingsActivity"
+            android:taskAffinity="org.microg.gms.settings">
+        </activity-alias>
+
         <activity
             android:name="org.microg.gms.ui.GoogleMoreFragment$AsActivity"
             android:label="@string/gms_settings_name"
@@ -420,10 +429,6 @@
             android:exported="true"
             android:excludeFromRecents="true"
             android:theme="@style/Theme.LoginBlue.Base">
-            <intent-filter>
-                <action android:name="com.google.android.gms.accountsettings.action.VIEW_SETTINGS" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
             <intent-filter>
                 <action android:name="com.google.android.gms.accountsettings.action.BROWSE_SETTINGS" />
 
