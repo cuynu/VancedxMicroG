@@ -19,9 +19,15 @@
     <string name="just_a_sec">Секундочку…</string>
     <string name="account_manager_title">Менеджер облікових записів Google</string>
     <string name="sorry">Вибачте…</string>
+<<<<<<< HEAD
     <string name="auth_before_connect">"Застосунок на вашому пристрої намагається увійти в обліковий запис Google.
 
 Якщо це було навмисно, скористайтеся <b>Увійти</b> (або <b>Huawei</b>, якщо у вас є пристрій цієї марки), щоб під’єднатися до сторінки входу Google."</string>
+=======
+    <string name="auth_before_connect">Застосунок на Вашому пристрої намагається увійти до облікового запису Google.
+\n
+\nЯкщо Ви очікували цю дію, натисніть кнопку <b>Увійти</b> для під\'єднання до сторінки авторизації Google, інакше натисніть <b>Скасувати</b>, аби перейти назад до застосунку, що викликав це вікно.</string>
+>>>>>>> 09451497 (Translated using Weblate (Ukrainian))
     <string name="auth_sign_in">Увійти</string>
     <string name="auth_connecting">"Підключення до серверів Google для входу.
 
@@ -96,6 +102,7 @@
     <string name="gcm_network_state_disconnected">Від’єднано</string>
     <string name="gcm_network_state_connected">З\'єднано <xliff:g example="2 hours ago">%1$s</xliff:g></string>
     <string name="pref_push_app_allow_register_title">Дозволити реєстрацію</string>
+<<<<<<< HEAD
     <string name="pref_push_app_allow_register_summary">Дозволити програмі реєструватися для отримання push-сповіщень.</string>
     <string name="pref_push_app_wake_for_delivery_title">Запуск додатка за допомогою push-повідомлення</string>
     <string name="pref_push_app_wake_for_delivery_summary">Запустіть додаток у фоновому режимі, щоб отримати вхідні push-повідомлення.</string>
@@ -141,3 +148,27 @@
     <string name="manage_googleaccount_summary">This will open your device settings !</string>
     <string name="miscellaneous_settings">Miscellaneous settings</string>
 </resources>
+=======
+    <string name="profile_name_native">Нативний</string>
+    <string name="pref_test_summary_running">Запуск…</string>
+    <string name="pref_safetynet_recent_cat_basic">Основні дані</string>
+    <string name="gms_settings_summary">Налаштування служб microG.</string>
+    <string name="pref_add_account_summary">Додати обліковий запис Google</string>
+    <string name="profile_name_system">Системний: %s</string>
+    <string name="pref_safetynet_recent_cat_response">Дані відповіді</string>
+    <string name="pref_push_app_allow_register_summary">Дозволити застосунку реєструватися для push-сповіщень.</string>
+    <string name="pref_safetynet_recent_token">Токен</string>
+    <string name="pref_safetynet_test_not_completed">Ще не завершено</string>
+    <string name="pref_safetynet_recent_request_time">Час запиту</string>
+    <string name="signin_subtext_policy_terms">умови надання послуг</string>
+    <string name="prefcat_push_apps_registered_title">Зареєстровані застосунки</string>
+    <string name="pref_device_registration_device_profile_category">Профіль пристрою</string>
+    <string name="prefcat_push_networks_title">Мережі, які слід використовувати для push-сповіщень</string>
+    <string name="pref_safetynet_recent_eval_type">Тип оцінки</string>
+    <string name="pref_vending_summary_licensing_on">Ліцензування ввімкнено</string>
+    <string name="pref_vending_licensing_enable_switch">Відповідати на запити перевірки ліцензії</string>
+    <string name="pref_vending_license_enable_summary">Деякі застосунки вимагають підтвердження того, що ви придбали їх у Google Play. На запит застосунку microG може завантажити підтвердження покупки з Google. Якщо цю функцію вимкнено або якщо обліковий запис Google не додано, запити на перевірку ліцензії ігноруються.</string>
+    <string name="pref_vending_summary_licensing_off">Ліцензування вимкнено</string>
+    <string name="service_name_vending">Служби Play Store</string>
+</resources>
+>>>>>>> 09451497 (Translated using Weblate (Ukrainian))
