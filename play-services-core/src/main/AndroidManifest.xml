@@ -319,6 +319,119 @@
 
         <!-- microG Settings shown in Launcher -->
         <activity
+<<<<<<< HEAD
+=======
+            android:name="org.microg.gms.auth.signin.AuthSignInActivity"
+            android:theme="@style/Theme.AppCompat.DayNight.Dialog.Alert.NoActionBar"
+            android:process=":ui"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.google.android.gms.auth.GOOGLE_SIGN_IN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <service android:name="org.microg.gms.signin.SignInService">
+            <intent-filter>
+                <action android:name="com.google.android.gms.signin.service.START" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </service>
+
+        <service android:name="org.microg.gms.auth.signin.AuthSignInService">
+            <intent-filter>
+                <action android:name="com.google.android.gms.auth.api.signin.service.START" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </service>
+
+        <service
+            android:name="org.microg.gms.auth.signin.SignInConfigurationService"
+            android:exported="false" />
+
+        <service android:name="org.microg.gms.auth.credentials.identity.IdentitySignInService">
+            <intent-filter>
+                <action android:name="com.google.android.gms.auth.api.identity.service.signin.START" />
+            </intent-filter>
+        </service>
+
+        <!-- Games -->
+
+        <activity
+            android:name="org.microg.gms.games.UpgradeActivity"
+            android:process=":ui"
+            android:theme="@style/Theme.AppCompat.DayNight.Dialog">
+            <intent-filter>
+                <action android:name="com.google.android.gms.games.PLAY_GAMES_UPGRADE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <service
+            android:name="org.microg.gms.games.GamesService"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.google.android.gms.games.service.START" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </service>
+
+        <service
+            android:name="org.microg.gms.games.GamesConnectService"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.google.android.gms.games.internal.connect.service.START" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </service>
+
+        <service
+            android:name="org.microg.gms.games.GamesConfigurationService"
+            android:exported="false" />
+
+        <!-- Chimera -->
+        <provider
+            android:name="org.microg.gms.chimera.ServiceProvider"
+            android:authorities="com.google.android.gms.chimera"
+            android:exported="true" />
+
+        <!-- Fonts -->
+        <provider
+            android:name="org.microg.gms.fonts.FontsProvider"
+            android:authorities="com.google.android.gms.fonts"
+            android:exported="true" />
+
+        <!-- microG Settings activity -->
+        <activity
+            android:name="org.microg.gms.ui.MainSettingsActivity"
+            android:icon="@mipmap/ic_app_settings"
+            android:label="@string/gms_settings_name"
+            android:process=":ui"
+            android:roundIcon="@mipmap/ic_app_settings"
+            android:taskAffinity="org.microg.gms.settings">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <data
+                    android:host="exposure-notifications-rpis"
+                    android:scheme="x-gms-settings" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.APPLICATION_PREFERENCES" />
+                <action android:name="com.google.android.gms.settings.EXPOSURE_NOTIFICATION_SETTINGS" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <!-- microG Settings activity-alias shown in Launcher -->
+        <activity-alias
+>>>>>>> 048a6e59 (Add identity sign-in service (#2130))
             android:name="org.microg.gms.ui.SettingsActivity"
             android:icon="@mipmap/ic_launcher"
             android:label="@string/gms_settings_name"
@@ -416,6 +529,73 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="com.google.android.gms.accounts.ACCOUNT_SERVICE" />
+<<<<<<< HEAD
+=======
+                <action android:name="com.google.android.gms.ads.identifier.service.EVENT_ATTESTATION" />
+                <action android:name="com.google.android.gms.ads.service.CACHE" />
+                <action android:name="com.google.android.gms.ads.service.CONSENT_LOOKUP" />
+                <action android:name="com.google.android.gms.ads.service.HTTP" />
+                <action android:name="com.google.android.gms.appstate.service.START" />
+                <action android:name="com.google.android.gms.appusage.service.START" />
+                <action android:name="com.google.android.gms.asterism.service.START" />
+                <action android:name="com.google.android.gms.audiomodem.service.AudioModemService.START" />
+                <action android:name="com.google.android.gms.audit.service.START" />
+                <action android:name="com.google.android.gms.auth.account.authapi.START" />
+                <action android:name="com.google.android.gms.auth.account.authenticator.auto.service.START" />
+                <action android:name="com.google.android.gms.auth.account.authenticator.chromeos.START" />
+                <action android:name="com.google.android.gms.auth.account.authenticator.tv.service.START" />
+                <action android:name="com.google.android.gms.auth.account.data.service.START" />
+                <action android:name="com.google.android.gms.auth.api.identity.service.authorization.START" />
+                <action android:name="com.google.android.gms.auth.api.identity.service.credentialsaving.START" />
+                <action android:name="com.google.android.gms.auth.api.phone.service.InternalService.START" />
+                <action android:name="com.google.android.gms.auth.api.signin.service.START" />
+                <action android:name="com.google.android.gms.auth.config.service.START" />
+                <action android:name="com.google.android.gms.auth.cryptauth.cryptauthservice.START" />
+                <action android:name="com.google.android.gms.auth.proximity.devicesyncservice.START" />
+                <action android:name="com.google.android.gms.auth.proximity.securechannelservice.START" />
+                <action android:name="com.google.android.gms.auth.proximity.START" />
+                <action android:name="com.google.android.gms.auth.service.START" />
+                <action android:name="com.google.android.gms.backup.G1_BACKUP" />
+                <action android:name="com.google.android.gms.backup.G1_RESTORE" />
+                <action android:name="com.google.android.gms.backup.GMS_MODULE_RESTORE" />
+                <action android:name="com.google.android.gms.beacon.internal.IBleService.START" />
+                <action android:name="com.google.android.gms.carrierauth.service.START" />
+                <action android:name="com.google.android.gms.cast.firstparty.START" />
+                <action android:name="com.google.android.gms.cast_mirroring.service.START" />
+                <action android:name="com.google.android.gms.cast.remote_display.service.START" />
+                <action android:name="com.google.android.gms.chromesync.service.START" />
+                <action android:name="com.google.android.gms.common.download.START" />
+                <action android:name="com.google.android.gms.common.service.START" />
+                <action android:name="com.google.android.gms.common.telemetry.service.START" />
+                <action android:name="com.google.android.gms.config.START" />
+                <action android:name="com.google.android.gms.constellation.service.START" />
+                <action android:name="com.google.android.gms.deviceconnection.service.START" />
+                <action android:name="com.google.android.gms.enterprise.loader.service.START" />
+                <action android:name="com.google.android.gms.facs.internal.service.START" />
+                <action android:name="com.google.android.gms.fido.credentialstore.internal_service.START" />
+                <action android:name="com.google.android.gms.fido.fido2.regular.START" />
+                <action android:name="com.google.android.gms.fido.fido2.zeroparty.START" />
+                <action android:name="com.google.android.gms.fido.sourcedevice.service.START" />
+                <action android:name="com.google.android.gms.fido.targetdevice.internal_service.START" />
+                <action android:name="com.google.android.gms.fido.u2f.privileged.START" />
+                <action android:name="com.google.android.gms.fido.u2f.thirdparty.START" />
+                <action android:name="com.google.android.gms.fido.u2f.zeroparty.START" />
+                <action android:name="com.google.android.gms.fitness.BleApi" />
+                <action android:name="com.google.android.gms.fitness.ConfigApi" />
+                <action android:name="com.google.android.gms.fitness.GoalsApi" />
+                <action android:name="com.google.android.gms.fitness.GoogleFitnessService.START" />
+                <action android:name="com.google.android.gms.fitness.HistoryApi" />
+                <action android:name="com.google.android.gms.fitness.InternalApi" />
+                <action android:name="com.google.android.gms.fitness.RecordingApi" />
+                <action android:name="com.google.android.gms.fitness.SensorsApi" />
+                <action android:name="com.google.android.gms.fitness.SessionsApi" />
+                <action android:name="com.google.android.gms.fonts.service.START" />
+                <action android:name="com.google.android.gms.freighter.service.START" />
+                <action android:name="com.google.android.gms.gass.START" />
+                <action android:name="com.google.android.gms.growth.service.START" />
+                <action android:name="com.google.android.gms.googlehelp.service.GoogleHelpService.START" />
+                <action android:name="com.google.android.gms.herrevad.services.LightweightNetworkQualityAndroidService.START" />
+>>>>>>> 048a6e59 (Add identity sign-in service (#2130))
                 <action android:name="com.google.android.gms.identity.service.BIND" />
                 <action android:name="com.google.android.gms.auth.service.START" />
                 <action android:name="com.google.android.gms.common.service.START" />
