@@ -2,10 +2,6 @@
 
 This fork tweaks MicroG to be usable by applications that require Google authentication such as [YouTube Vanced+](https://gitlab.com/cuynu/ytvancedx) or [ReVanced](https://github.com/revanced), [ReVanced Extended](https://github.com/inotia00) / [ReX](https://github.com/YT-Advanced).
 
-## Donate this project (Not required)
-<p align="left">
-    <a href="https://github.com/sponsors/cuynu"><img src="https://img.shields.io/badge/Support%20Project-%E2%9D%A4-%23db61a2.svg?&logo=github&logoColor=white&labelColor=181717&style=flat-square" alt="Badage"></img></a>
-
 ## Warning!
 Vanced+ microG probably not work in ReVanced/RVX in future as recent changes from ReVanced/RVX to use with they specific MicroG called ReVanced MicroG with different package name !
 
