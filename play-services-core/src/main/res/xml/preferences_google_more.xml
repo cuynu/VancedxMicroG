@@ -49,8 +49,8 @@
         android:title="@string/package_information"
         android:summary="Package name : com.mgoogle.android.gms \n Version code : 234914073
         \n minSdk : 23 \n targetSdk : 30
-        \n GMS version : 23.49.14
-        \n build type : release" />
+        \n GMS version : 23.50.14
+        \n build type : " />
         <Preference
             android:selectable="true"
             android:icon="@drawable/ic_info_outline"
