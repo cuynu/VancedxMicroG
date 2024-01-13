@@ -47,9 +47,9 @@
         android:selectable="false"
         android:icon="@drawable/ic_info_outline"
         android:title="@string/package_information"
-        android:summary="Package name : com.mgoogle.android.gms \n Version code : 234914073
+        android:summary="Package name : com.mgoogle.android.gms \n Version code : 235054000
         \n minSdk : 23 \n targetSdk : 30
-        \n GMS version : 23.50.14
+        \n GMS version : 23.50.54
         \n build type : " />
         <Preference
             android:selectable="true"
