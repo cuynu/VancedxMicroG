@@ -32,6 +32,10 @@
         android:label="@string/perm_gtalk_svc_label"
         android:permissionGroup="android.permission-group.MESSAGES"
         android:protectionLevel="signature" />
+    <permission
+        android:name="${basePackageName}.android.providers.gsf.permission.READ_GSERVICES"
+        android:label="@string/perm_gsf_read_gservices_label"
+        android:protectionLevel="normal" />
 
     <permission-tree
         android:name="com.mgoogle.android.googleapps.permission.GOOGLE_AUTH"
