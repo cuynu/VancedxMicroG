@@ -108,6 +108,7 @@ Questo potrà richiedere un paio di minuti"</string>
     <string name="profile_name_user">Personalizzato: %s</string>
     <string name="profile_name_auto">Automatico: %s</string>
     <string name="profile_name_system">Sistema: %s</string>
+<<<<<<< HEAD
     <string name="import_profile_name">Importa profilo personalizzato</string>
     <string name="import_profile_summary">Importa profilo dispositivo da file</string>
     <string name="serial_name">Seriale</string>
@@ -138,3 +139,53 @@ Questo potrà richiedere un paio di minuti"</string>
     <string name="manage_googleaccount_summary">This will open your device settings !</string>
     <string name="miscellaneous_settings">Miscellaneous settings</string>
 </resources>
+=======
+    <string name="pref_device_registration_import_custom_profile_title">Importa profilo personalizzato</string>
+    <string name="pref_device_registration_serial_title">Seriale</string>
+    <string name="pref_device_registration_import_custom_profile_summary">Importa un profilo del dispositivo da un file</string>
+    <string name="pref_device_registration_select_profile_title">Seleziona profilo</string>
+    <string name="pref_device_registration_device_profile_category">Profilo del dispositivo</string>
+    <string name="pref_safetynet_recent_uses">Utilizzi recenti</string>
+    <string name="pref_safetynet_recent_attestation_summary">Attestazione: %s</string>
+    <string name="pref_safetynet_recent_recaptcha_summary">ReCaptcha: %s</string>
+    <string name="pref_safetynet_recent_copy_json">Copia dati JSON JWS</string>
+    <string name="pref_safetynet_recent_eval_type">Tipo di valutazione</string>
+    <string name="pref_safetynet_recent_response_status">Stato della risposta</string>
+    <string name="pref_safetynet_recent_cat_response">Dati della risposta</string>
+    <string name="pref_safetynet_recent_cat_request">Dati della richiesta</string>
+    <string name="pref_safetynet_recent_nonce">Nonce (esadecimale)</string>
+    <string name="pref_safetynet_recent_request_time">Data e ora della richiesta</string>
+    <string name="pref_safetynet_recent_cat_basic">Dati di base</string>
+    <string name="pref_safetynet_recent_request_type">Tipo di richiesta</string>
+    <string name="pref_safetynet_recent_token">Token</string>
+    <string name="pref_safetynet_recent_copied">Copiato negli appunti!</string>
+    <string name="pref_safetynet_test_not_completed">Non ancora completato</string>
+    <string name="pref_safetynet_test_no_result">Nessun risultato</string>
+    <string name="pref_safetynet_test_invalid_json">JSON non valido</string>
+    <string name="pref_safetynet_recent_advice">Suggerimento</string>
+    <string name="pref_safetynet_test_integrity_cts_passed">Integrità e CTS superati</string>
+    <string name="pref_safetynet_test_cts_failed">CTS non superato</string>
+    <string name="pref_safetynet_test_integrity_failed">Integrità non superata</string>
+    <string name="push_notifications_summary_values_seconds">%s secondi</string>
+    <string name="pref_safetynet_recent_recaptcha_enterprise_summary">ReCaptcha Enterprise: %s</string>
+    <string name="push_notifications_summary_automatic">Abilitato / Automatico: %s</string>
+    <string name="push_notifications_summary_manual">Abilitato / Manuale: %s</string>
+    <string name="push_notifications_summary_values_minutes">%s minuti</string>
+    <string name="push_notifications_summary_off">Disabilitato</string>
+    <string name="signin_subtext_policy_privacy">informativa sulla privacy</string>
+    <string name="perm_gsf_read_gservices_label">lettura della configurazione dei servizi Google</string>
+    <string name="signin_picker_title">Scegli un account</string>
+    <string name="pref_auth_include_android_id_summary">Se l\'opzione è disabilitata, le richieste di autenticazione non saranno collegate alla registrazione del dispositivo. Ciò consente a dispositivi non autorizzati di effettuare l\'accesso, ma potrebbe avere delle conseguenze impreviste.</string>
+    <string name="signin_picker_subtitle">per continuare su <xliff:g example="F-Droid">%1$s</xliff:g></string>
+    <string name="pref_droidguard_unsupported_summary">L\'esecuzione di DroidGuard non è supportata su questo dispositivo. I servizi di SafetyNet potrebbero funzionare in maniera anomala.</string>
+    <string name="signin_confirm_title">Consenti l\'accesso a <xliff:g example="F-Droid">%1$s</xliff:g></string>
+    <string name="signin_picker_add_account_label">Aggiungi un altro account</string>
+    <string name="signin_confirm_button_text">Consenti e condividi</string>
+    <string name="signin_subtext_policy">Prima di usare quest\'app, consulta la sua %1$s e i %2$s.</string>
+    <string name="signin_subtext_sharing">Per continuare, microG condividerà il nome, l\'indirizzo email e l\'immagine del profilo del tuo account Google con <xliff:g example="F-Droid">%1$s</xliff:g>.</string>
+    <string name="pref_auth_include_android_id_title">Autenticazione con registrazione del dispositivo</string>
+    <string name="signin_subtext_policy_terms">termini di servizio</string>
+    <string name="pref_vending_summary_licensing_on">La licenza è abilitata</string>
+    <string name="service_name_vending">Servizi Play Store</string>
+</resources>
+>>>>>>> e67fd40b (Translated using Weblate (Italian))
