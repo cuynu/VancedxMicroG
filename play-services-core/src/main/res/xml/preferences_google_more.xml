@@ -50,7 +50,7 @@
         android:summary="Package name : com.mgoogle.android.gms \n Version code : 240315000
         \n minSdk : 23 \n targetSdk : 30
         \n GMS version : 24.03.15
-        \n build type : " />
+        \n build type :  " />
         <Preference
             android:selectable="true"
             android:icon="@drawable/ic_info_outline"
@@ -66,10 +66,10 @@
             android:selectable="true"
             android:enabled="true"
             android:title="Facts"
-            android:summary="Does Cuynu knows how to code? no they always stupid and dont even know what java is !">
+            android:summary="Cuynu said they are dummy ✨">
             <intent
                 android:action="android.intent.action.VIEW"
-                android:data="https://t.me/revanced_extended_chat/252142" />
+                android:data="https://gitlab.com/cuynu" />
         </Preference>
     </PreferenceCategory>
 </PreferenceScreen>
