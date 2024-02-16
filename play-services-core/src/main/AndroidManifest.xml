@@ -597,12 +597,99 @@
                 <action android:name="com.google.android.gms.herrevad.services.LightweightNetworkQualityAndroidService.START" />
 >>>>>>> 048a6e59 (Add identity sign-in service (#2130))
                 <action android:name="com.google.android.gms.identity.service.BIND" />
+<<<<<<< HEAD
                 <action android:name="com.google.android.gms.auth.service.START" />
                 <action android:name="com.google.android.gms.common.service.START" />
                 <action android:name="com.google.android.contextmanager.service.ContextManagerService.START" />
                 <action android:name="com.google.android.gms.auth.api.credentials.service.START" />
                 <action android:name="com.google.android.gms.gass.START" />
                 <action android:name="com.google.android.gms.audit.service.START" />
+=======
+                <action android:name="com.google.android.gms.instantapps.START" />
+                <action android:name="com.google.android.gms.kids.service.START" />
+                <action android:name="com.google.android.gms.learning.internal.dynamitesupport.START" />
+                <action android:name="com.google.android.gms.learning.intservice.START" />
+                <action android:name="com.google.android.gms.learning.predictor.START" />
+                <action android:name="com.google.android.gms.learning.trainer.START" />
+                <action android:name="com.google.android.gms.learning.training.background.START" />
+                <action android:name="com.google.android.gms.locationsharing.api.START" />
+                <action android:name="com.google.android.gms.locationsharingreporter.service.START" />
+                <action android:name="com.google.android.gms.lockbox.service.START" />
+                <action android:name="com.google.android.gms.matchstick.lighter.service.START" />
+                <action android:name="com.google.android.gms.mdm.services.DeviceManagerApiService.START" />
+                <action android:name="com.google.android.gms.mdns.service.START" />
+                <action android:name="com.google.android.gms.nearby.bootstrap.service.NearbyBootstrapService.START" />
+                <action android:name="com.google.android.gms.nearby.connection.service.START" />
+                <action android:name="com.google.android.gms.nearby.fastpair.START" />
+                <action android:name="com.google.android.gms.nearby.messages.service.NearbyMessagesService.START" />
+                <action android:name="com.google.android.gms.nearby.sharing.service.NearbySharingService.START" />
+                <action android:name="com.google.android.gms.nearby.sharing.START_SERVICE" />
+                <action android:name="com.google.android.gms.notifications.service.START" />
+                <action android:name="com.google.android.gms.ocr.service.internal.START" />
+                <action android:name="com.google.android.gms.ocr.service.START" />
+                <action android:name="com.google.android.gms.payse.service.BIND" />
+                <action android:name="com.google.android.gms.people.contactssync.service.START" />
+                <action android:name="com.google.android.gms.photos.autobackup.service.START" />
+                <action android:name="com.google.android.gms.plus.service.default.INTENT" />
+                <action android:name="com.google.android.gms.plus.service.image.INTENT" />
+                <action android:name="com.google.android.gms.plus.service.internal.START" />
+                <action android:name="com.google.android.gms.plus.service.START" />
+                <action android:name="com.google.android.gms.pseudonymous.service.START" />
+                <action android:name="com.google.android.gms.rcs.START" />
+                <action android:name="com.google.android.gms.romanesco.MODULE_BACKUP_AGENT" />
+                <action android:name="com.google.android.gms.romanesco.service.START" />
+                <action android:name="com.google.android.gms.search.service.SEARCH_AUTH_START" />
+                <action android:name="com.google.android.gms.semanticlocation.service.START_ODLH" />
+                <action android:name="com.google.android.gms.sesame.service.BIND" />
+                <action android:name="com.google.android.gms.telephonyspam.service.START" />
+                <action android:name="com.google.android.gms.testsupport.service.START" />
+                <action android:name="com.google.android.gms.scheduler.ACTION_PROXY_SCHEDULE" />
+                <action android:name="com.google.android.gms.setup.auth.SecondDeviceAuth.START" />
+                <action android:name="com.google.android.gms.smartdevice.d2d.SourceDeviceService.START" />
+                <action android:name="com.google.android.gms.smartdevice.d2d.TargetDeviceService.START" />
+                <action android:name="com.google.android.gms.smartdevice.directtransfer.SourceDirectTransferService.START" />
+                <action android:name="com.google.android.gms.smartdevice.directtransfer.TargetDirectTransferService.START" />
+                <action android:name="com.google.android.gms.smartdevice.postsetup.PostSetupService.START" />
+                <action android:name="com.google.android.gms.smartdevice.setup.accounts.AccountsService.START" />
+                <action android:name="com.google.android.gms.smartdevice.wifi.START_WIFI_HELPER_SERVICE" />
+                <action android:name="com.google.android.gms.social.location.activity.service.START" />
+                <action android:name="com.google.android.gms.statementservice.EXECUTE" />
+                <action android:name="com.google.android.gms.stats.ACTION_UPLOAD_DROPBOX_ENTRIES" />
+                <action android:name="com.google.android.gms.speech.service.START" />
+                <action android:name="com.google.android.gms.thunderbird.service.START" />
+                <action android:name="com.google.android.gms.trustagent.BridgeApi.START" />
+                <action android:name="com.google.android.gms.trustagent.StateApi.START" />
+                <action android:name="com.google.android.gms.trustagent.trustlet.trustletmanagerservice.BIND" />
+                <action android:name="com.google.android.gms.trustlet.bluetooth.service.BIND" />
+                <action android:name="com.google.android.gms.trustlet.connectionlessble.service.BIND" />
+                <action android:name="com.google.android.gms.trustlet.face.service.BIND" />
+                <action android:name="com.google.android.gms.trustlet.nfc.service.BIND" />
+                <action android:name="com.google.android.gms.trustlet.onbody.service.BIND" />
+                <action android:name="com.google.android.gms.trustlet.place.service.BIND" />
+                <action android:name="com.google.android.gms.trustlet.voiceunlock.service.BIND" />
+                <action android:name="com.google.android.gms.udc.service.START" />
+                <action android:name="com.google.android.gms.update.START_API_SERVICE" />
+                <action android:name="com.google.android.gms.update.START_SERVICE" />
+                <action android:name="com.google.android.gms.update.START_SINGLE_USER_API_SERVICE" />
+                <action android:name="com.google.android.gms.update.START_TV_API_SERVICE" />
+                <action android:name="com.google.android.gms.userlocation.service.START" />
+                <action android:name="com.google.android.gms.vehicle.cabin.service.START" />
+                <action android:name="com.google.android.gms.vehicle.climate.service.START" />
+                <action android:name="com.google.android.gms.vehicle.info.service.START" />
+                <action android:name="com.google.android.gms.walletp2p.service.firstparty.BIND" />
+                <action android:name="com.google.android.gms.walletp2p.service.zeroparty.BIND" />
+                <action android:name="com.google.android.gms.wearable.BIND" />
+                <action android:name="com.google.android.gms.wearable.DATA_CHANGED" />
+                <action android:name="com.google.android.gms.wearable.NODE_CHANGED" />
+                <action android:name="com.google.android.mdd.service.START" />
+                <action android:name="com.google.android.mdh.service.START" />
+                <action android:name="com.google.android.mdh.service.listener.START" />
+                <action android:name="com.google.android.mobstore.service.START" />
+
+                <action
+                    android:name="com.google.android.gms.wearable.BIND_LISTENER"
+                    tools:ignore="WearableBindListener" />
+>>>>>>> 1b34bbd3 (Add dummy service for PANORAMA(3) (#2173))
             </intent-filter>
         </service>
     </application>
