@@ -28,14 +28,20 @@ import org.microg.gms.gcm.RegisterRequest
 import org.microg.gms.gcm.completeRegisterRequest
 import org.microg.gms.profile.Build
 import org.microg.gms.profile.ProfileManager
+<<<<<<< HEAD
 import org.microg.mgms.settings.SettingsContract.CheckIn
 import org.microg.mgms.settings.SettingsContract.getSettings
+=======
+import org.microg.gms.settings.SettingsContract.CheckIn
+import org.microg.gms.settings.SettingsContract.getSettings
+import org.microg.gms.utils.singleInstanceOf
+>>>>>>> d69a0f5a (Only use a single Volley instance per process)
 import javax.crypto.Mac
 import javax.crypto.spec.SecretKeySpec
 import kotlin.random.Random
 
 class AppCertManager(private val context: Context) {
-    private val queue = Volley.newRequestQueue(context)
+    private val queue = singleInstanceOf { Volley.newRequestQueue(context.applicationContext) }
 
     private fun readDeviceKey() {
         try {
