@@ -91,6 +91,36 @@ public enum GmsService {
     CONTACT_SYNC(208, "com.google.android.gms.people.contactssync.service.START"),
 >>>>>>> 37dd2b59 (Add dummy service for SEMANTIC_LOCATION(173) (#2174))
     IDENTITY_SIGN_IN(212, "com.google.android.gms.auth.api.identity.service.signin.START"),
+<<<<<<< HEAD
+=======
+    CREDENTIAL_STORE(214, "com.google.android.gms.fido.credentialstore.internal_service.START"),
+    MDI_SYNC(215, "com.google.android.gms.mdisync.service.START"),
+    EVENT_ATTESTATION(216, "com.google.android.gms.ads.identifier.service.EVENT_ATTESTATION"),
+    SCHEDULER(218, "com.google.android.gms.scheduler.ACTION_PROXY_SCHEDULE"),
+    AUTHORIZATION(219, "com.google.android.gms.auth.api.identity.service.authorization.START"),
+    FACS_SYNC(220, "com.google.android.gms.facs.internal.service.START"),
+    AUTH_CONFIG_SYNC(221, "com.google.android.gms.auth.config.service.START"),
+    CREDENTIAL_SAVING(223, "com.google.android.gms.auth.api.identity.service.credentialsaving.START"),
+    GOOGLE_AUTH(224, "com.google.android.gms.auth.account.authapi.START"),
+    ENTERPRISE_LOADER(225, "com.google.android.gms.enterprise.loader.service.START"),
+    THUNDERBIRD(226, "com.google.android.gms.thunderbird.service.START"),
+    NEARBY_EXPOSURE(236, "com.google.android.gms.nearby.exposurenotification.START"),
+    GMS_COMPLIANCE(257, "com.google.android.gms.gmscompliance.service.START"),
+    FIDO_SOURCE_DEVICE(262, "com.google.android.gms.fido.sourcedevice.service.START"),
+    FAST_PAIR(265, "com.google.android.gms.nearby.fastpair.START"),
+    MATCHSTICK_LIGHTER(268, "com.google.android.gms.matchstick.lighter.service.START"),
+    FIDO_TARGET_DEVICE_INTERNAL(269, "com.google.android.gms.fido.targetdevice.internal_service.START"),
+    TELEMETRY(270, "com.google.android.gms.common.telemetry.service.START"),
+    SECOND_DEVICE_AUTH(275, "com.google.android.gms.setup.auth.SecondDeviceAuth.START"),
+    LOCATION_SHARING_REPORTER(277, "com.google.android.gms.locationsharingreporter.service.START"),
+    OCR(279, "com.google.android.gms.ocr.service.START"),
+    POTOKENS(285, "com.google.android.gms.potokens.service.START"),
+    OCR_INTERNAL(281, "com.google.android.gms.ocr.service.internal.START"),
+    APP_SET(300, "com.google.android.gms.appset.service.START"),
+    MODULE_INSTALL(308, "com.google.android.gms.chimera.container.moduleinstall.ModuleInstallService.START"),
+    IN_APP_REACH(315, "com.google.android.gms.inappreach.service.START"),
+    APP_ERRORS(334, "com.google.android.gms.apperrors.service.START_APP_ERROR"),
+>>>>>>> 9ee35e3c (Add dummy services for PSEUDONYMOUS_ID(52), GASS(116), ACCOUNT_DATA(153) and APP_SET(300) (#2175))
     ;
 
     public final int SERVICE_ID;

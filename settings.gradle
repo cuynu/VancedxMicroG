@@ -1,3 +1,38 @@
+<<<<<<< HEAD
+=======
+def sublude(name) {
+  def projectName = ':' + name.substring(1).replace(':', '-')
+  include projectName
+  project(projectName).projectDir = file(name.substring(1).replace(':', '/'))
+}
+
+def localProperties = new Properties()
+try {
+  var stream = new File(rootDir, 'local.properties').newDataInputStream()
+  localProperties.load(stream)
+  stream.close()
+} catch (ignored) {
+  // Ignore
+}
+def hasModule = (String name, boolean enabledByDefault) -> {
+  return localProperties.getProperty("modules." + name, enabledByDefault.toString()).toBoolean()
+}
+
+include ':fake-signature'
+include ':safe-parcel-processor'
+include ':vending-app'
+
+include ':play-services-ads'
+include ':play-services-ads-base'
+include ':play-services-ads-identifier'
+include ':play-services-ads-lite'
+include ':play-services-appinvite'
+include ':play-services-appset'
+include ':play-services-auth'
+include ':play-services-auth-api-phone'
+include ':play-services-auth-base'
+include ':play-services-base'
+>>>>>>> 9ee35e3c (Add dummy services for PSEUDONYMOUS_ID(52), GASS(116), ACCOUNT_DATA(153) and APP_SET(300) (#2175))
 include ':play-services-basement'
 <<<<<<< HEAD
 
@@ -45,6 +80,7 @@ sublude ':play-services-ads:core'
 sublude ':play-services-ads-identifier:core'
 sublude ':play-services-ads-lite:core'
 sublude ':play-services-appinvite:core'
+sublude ':play-services-appset:core'
 sublude ':play-services-auth-api-phone:core'
 sublude ':play-services-base:core'
 sublude ':play-services-base:core:package'
