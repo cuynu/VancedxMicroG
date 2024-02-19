@@ -16,6 +16,7 @@
   -->
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+<<<<<<< HEAD
     <PreferenceCategory
         android:title="@string/pref_more_settings">
     <SwitchPreferenceCompat
@@ -28,10 +29,13 @@
             android:key="auth_manager_visible"
             android:summary="@string/pref_auth_visible_summary"
             android:title="@string/pref_auth_visible_title"/>
+=======
+>>>>>>> 566215bd (UI: Port more to Material 3)
     <SwitchPreferenceCompat
         android:defaultValue="true"
         android:enabled="true"
         android:key="network_google_enabled"
+<<<<<<< HEAD
         android:summary="@string/network_google_enabled_string"
         android:title="@string/network_google_enabled_summary"/>
     <Preference
@@ -54,3 +58,15 @@
         </Preference>
     </PreferenceCategory>
 </PreferenceScreen>
+=======
+        android:summary="If disabled, all connections to Google servers usually done by microG will be denied. This overrides service specific settings."
+        android:title="Allow connecting to Google servers"/>
+    <SwitchPreferenceCompat
+        android:defaultValue="false"
+        android:dependency="network_google_enabled"
+        android:enabled="false"
+        android:key="network_google_use_tor"
+        android:summary="Requires Orbot to be installed\nNot yet supported"
+        android:title="Connect to Google via Tor network"/>
+</PreferenceScreen>
+>>>>>>> 566215bd (UI: Port more to Material 3)

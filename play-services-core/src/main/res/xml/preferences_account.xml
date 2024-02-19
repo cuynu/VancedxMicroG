@@ -11,6 +11,7 @@
             android:targetPackage="com.android.settings" />
         </Preference>
 
+<<<<<<< HEAD
         <Preference
             android:icon="@drawable/ic_add_account"
             android:summary="@string/pref_add_account_summary"
@@ -40,6 +41,24 @@
                 android:action="android.intent.action.VIEW"
                 android:data="https://myaccount.google.com/u/0/yourdata/youtube"/>
         </Preference>
+=======
+    <PreferenceCategory android:title="@string/account_manager_title">
+        <SwitchPreferenceCompat
+            android:defaultValue="true"
+            android:key="auth_manager_trust_google"
+            android:summary="@string/pref_auth_trust_google_summary"
+            android:title="@string/pref_auth_trust_google_title"/>
+        <SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="auth_manager_visible"
+            android:summary="@string/pref_auth_visible_summary"
+            android:title="@string/pref_auth_visible_title"/>
+        <SwitchPreferenceCompat
+            android:defaultValue="true"
+            android:key="auth_include_android_id"
+            android:summary="@string/pref_auth_include_android_id_summary"
+            android:title="@string/pref_auth_include_android_id_title"/>
+>>>>>>> 566215bd (UI: Port more to Material 3)
     </PreferenceCategory>
 
     <Preference

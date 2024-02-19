@@ -1,4 +1,5 @@
 <resources>
+<<<<<<< HEAD
     <style name="AppTheme" parent="Theme.Material3.DynamicColors.DayNight"/>
     <style name="Theme.Material3.DynamicColors.DayNight" parent="Theme.Material3.DynamicColors.Light"/>
     <style name="Theme.Material3.DynamicColors.Light" parent="Theme.Material3.Light">
@@ -9,5 +10,9 @@
         <item name="colorTertiary">@android:color/system_accent3_600</item>
         <item name="colorOnTertiary">@android:color/system_accent3_0</item>
         <item name="colorOnBackground">@android:color/system_neutral1_900</item>
+=======
+    <style name="Theme.App" parent="Theme.Base.DayNight.NoActionBar">
+        <item name="isMaterial3DynamicColorApplied">true</item>
+>>>>>>> 566215bd (UI: Port more to Material 3)
     </style>
 </resources>
