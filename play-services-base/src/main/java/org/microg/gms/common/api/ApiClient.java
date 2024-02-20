@@ -16,6 +16,7 @@
 
 package org.microg.gms.common.api;
 
+<<<<<<< HEAD:play-services-base/src/main/java/org/microg/gms/common/api/ApiClient.java
 public interface ApiClient {
     void connect();
 
@@ -24,4 +25,9 @@ public interface ApiClient {
     boolean isConnected();
 
     boolean isConnecting();
+=======
+public class ModuleDescriptor {
+    public static final String MODULE_ID = "com.google.android.gms.measurement.dynamite";
+    public static final int MODULE_VERSION = 98;
+>>>>>>> df6f331a (Dynamite: Bump version of measurement API):play-services-core/src/main/java/com/google/android/gms/dynamite/descriptors/com/google/android/gms/measurement/dynamite/ModuleDescriptor.java
 }
