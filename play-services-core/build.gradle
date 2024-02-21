@@ -87,6 +87,7 @@ dependencies {
 >>>>>>> 1b34bbd3 (Add dummy service for PANORAMA(3) (#2173))
     implementation "androidx.webkit:webkit:$webkitVersion"
 
+<<<<<<< HEAD
     implementation project(':play-services-base-core')
     implementation project(':play-services-core-proto')
     implementation project(':play-services-core:microg-ui-tools') // deprecated
@@ -98,6 +99,9 @@ dependencies {
     implementation "androidx.preference:preference-ktx:$preferenceVersion"
 
     implementation 'org.microg.gms:conscrypt-gmscore:2.5.2'
+=======
+    // Material Components
+>>>>>>> 48e0b00a (Update build tools and dependencies)
     implementation "com.google.android.material:material:$materialVersion"
 
     // Navigation
