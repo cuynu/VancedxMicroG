@@ -13,12 +13,29 @@
   ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
   ~ See the License for the specific language governing permissions and
   ~ limitations under the License.
+<<<<<<< HEAD
   -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="gms_settings_summary">Configurazione di Vanced+ microG.</string>
     <string name="just_a_sec">Solo un secondo…</string>
     <string name="account_manager_title">Gestore Account Google</string>
     <string name="sorry">Ci scusiamo…</string>
+=======
+  --><resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="gms_app_name">microG Services</string>
+    <string name="gms_settings_name">Impostazioni di microG</string>
+    <string name="gms_settings_summary">Configurazione di microG</string>
+    <string name="just_a_sec">Giusto un secondo…</string>
+    <string name="google_account_label">Google</string>
+    <string name="ask_permission_tos">Continuando autorizzi questa applicazione e Google a usare le tue informazioni in accordo con i rispettivi termini di servizio e politiche di riservatezza.</string>
+    <string name="ask_scope_permission_title"><xliff:g example="F-Droid">%1$s</xliff:g> vorrebbe:</string>
+    <string name="ask_service_permission_title"><xliff:g example="F-Droid">%1$s</xliff:g> vorrebbe utilizzare:</string>
+    <string name="account_manager_title">Gestione dell\'account Google</string>
+    <string name="sorry">Ci dispiace…</string>
+    <string name="auth_before_connect">Un\'applicazione sul tuo dispositivo sta tentando di effettuare l\'accesso ad un account Google.
+\n
+\nSe ciò era intenzionale, utilizza il pulsante <b>Accedi</b> per collegarti alla pagina di autenticazione di Google, altrimenti premi <b>Annulla</b> per tornare all\'applicazione che ha aperto questa schermata.</string>
+>>>>>>> 287de2bc (Translated using Weblate (Italian))
     <string name="auth_sign_in">Accedi</string>
     <string name="auth_connecting">"Il tuo dispositivo sta stabilendo una connessione con i server di Google per eseguire l'accesso.
 
