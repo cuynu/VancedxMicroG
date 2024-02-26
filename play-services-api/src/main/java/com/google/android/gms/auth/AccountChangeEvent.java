@@ -18,6 +18,20 @@ package com.google.android.gms.auth;
 
 import org.microg.safeparcel.AutoSafeParcelable;
 
+<<<<<<< HEAD:play-services-api/src/main/java/com/google/android/gms/auth/AccountChangeEvent.java
 public class AccountChangeEvent extends AutoSafeParcelable {
     public static Creator<AccountChangeEvent> CREATOR = new AutoCreator<>(AccountChangeEvent.class);
+=======
+import java.util.List;
+
+public class GetAllCapabilitiesResponse extends AutoSafeParcelable {
+    @Field(1)
+    private int versionCode = 1;
+    @Field(2)
+    public int statusCode;
+    @Field(3)
+    public List<CapabilityInfoParcelable> capabilities;
+
+    public static final Creator<GetAllCapabilitiesResponse> CREATOR = findCreator(GetAllCapabilitiesResponse.class);
+>>>>>>> 1cc72500 (Wearable: Invoke callback on WearableService.getAllCapabilities()):play-services-wearable/src/main/java/com/google/android/gms/wearable/internal/GetAllCapabilitiesResponse.java
 }
