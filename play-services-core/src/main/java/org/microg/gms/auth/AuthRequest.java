@@ -113,7 +113,17 @@ public class AuthRequest extends HttpFormClient.Request {
     public AuthRequest fromContext(Context context) {
         build(context);
         locale(Utils.getLocale(context));
+<<<<<<< HEAD
         androidIdHex = Long.toHexString(LastCheckinInfo.read(context).getAndroidId());
+=======
+        if (AuthPrefs.shouldIncludeAndroidId(context)) {
+            androidIdHex = Long.toHexString(LastCheckinInfo.read(context).getAndroidId());
+        }
+        if (AuthPrefs.shouldStripDeviceName(context)) {
+            deviceName = "";
+            buildVersion = "";
+        }
+>>>>>>> 9028d03a (Auth: Allow stripping device name from requests)
         return this;
     }
 
