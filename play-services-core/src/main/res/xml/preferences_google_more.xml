@@ -60,16 +60,5 @@
                 android:action="android.intent.action.VIEW"
                 android:data="https://gitlab.com/cuynu/VancedxMicroG/-/commits/master/?ref_type=HEADS" />
         </Preference>
-
-        <Preference
-            android:icon="@drawable/ic_info_outline"
-            android:selectable="true"
-            android:enabled="true"
-            android:title="Facts"
-            android:summary="Cuynu said they are dummy ✨">
-            <intent
-                android:action="android.intent.action.VIEW"
-                android:data="https://gitlab.com/cuynu" />
-        </Preference>
     </PreferenceCategory>
 </PreferenceScreen>
