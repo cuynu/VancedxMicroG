@@ -33,6 +33,7 @@ import com.google.android.gms.people.internal.IPeopleService;
 import com.google.android.gms.people.model.AccountMetadata;
 
 import org.microg.gms.auth.AuthConstants;
+import org.microg.gms.common.GooglePackagePermission;
 import org.microg.gms.common.NonCancelToken;
 import org.microg.gms.common.PackageUtils;
 
@@ -50,7 +51,13 @@ public class PeopleServiceImpl extends IPeopleService.Stub {
     @Override
     public void loadOwners(final IPeopleCallbacks callbacks, boolean var2, boolean var3, final String accountName, String var5, int sortOrder) {
         Log.d(TAG, "loadOwners: " + var2 + ", " + var3 + ", " + accountName + ", " + var5 + ", " + sortOrder);
+<<<<<<< HEAD
 
+=======
+        if (context.checkCallingPermission(Manifest.permission.READ_CONTACTS) != PackageManager.PERMISSION_GRANTED) {
+            PackageUtils.assertGooglePackagePermission(context, GooglePackagePermission.OWNER);
+        }
+>>>>>>> a9906e52 (Rework known google package system)
         AccountManager accountManager = AccountManager.get(context);
         Bundle accountMetadata = new Bundle();
         String accountType = AuthConstants.DEFAULT_ACCOUNT_TYPE;
@@ -88,7 +95,7 @@ public class PeopleServiceImpl extends IPeopleService.Stub {
     @Override
     public void loadCircles(IPeopleCallbacks callbacks, String account, String pageGaiaId, String circleId, int type, String var6, boolean var7) throws RemoteException {
         Log.d(TAG, "loadCircles: " + account + ", " + pageGaiaId + ", " + circleId + ", " + type + ", " + var6 + ", " + var7);
-        PackageUtils.assertExtendedAccess(context);
+        PackageUtils.assertGooglePackagePermission(context, GooglePackagePermission.PEOPLE);
         try {
             DatabaseHelper databaseHelper = new DatabaseHelper(context);
             Cursor owner = databaseHelper.getOwner(account);
@@ -115,6 +122,7 @@ public class PeopleServiceImpl extends IPeopleService.Stub {
     @Override
     public ICancelToken loadOwnerAvatar(final IPeopleCallbacks callbacks, final String account, String pageId, int size, int flags) {
         Log.d(TAG, "loadOwnerAvatar: " + account + ", " + pageId + ", " + size + ", " + flags);
+<<<<<<< HEAD
         PackageUtils.assertExtendedAccess(context);
         final Thread thread = new Thread(() -> {
             Bundle extras = new Bundle();
@@ -126,6 +134,25 @@ public class PeopleServiceImpl extends IPeopleService.Stub {
                 ParcelFileDescriptor fileDescriptor = null;
                 if (avaterFile != null) {
                     fileDescriptor = ParcelFileDescriptor.open(avaterFile, ParcelFileDescriptor.MODE_READ_ONLY);
+=======
+        PackageUtils.assertGooglePackagePermission(context, GooglePackagePermission.OWNER);
+        final Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                Bundle extras = new Bundle();
+                extras.putBoolean("rewindable", false);
+                extras.putInt("width", 0);
+                extras.putInt("height", 0);
+                File avaterFile = PeopleManager.getOwnerAvatarFile(context, account, true);
+                try {
+                    ParcelFileDescriptor fileDescriptor = null;
+                    if (avaterFile != null) {
+                        fileDescriptor = ParcelFileDescriptor.open(avaterFile, ParcelFileDescriptor.MODE_READ_ONLY);
+                    }
+                    callbacks.onParcelFileDescriptor(0, extras, fileDescriptor, extras);
+                } catch (Exception e) {
+                    Log.w(TAG, e);
+>>>>>>> a9906e52 (Rework known google package system)
                 }
                 callbacks.onParcelFileDescriptor(0, extras, fileDescriptor, extras);
             } catch (Exception e) {

@@ -27,14 +27,13 @@ import android.os.Binder;
 import android.util.Log;
 
 import androidx.annotation.Nullable;
+import org.microg.gms.utils.ExtendedPackageInfo;
 
 import java.lang.reflect.Method;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import static android.os.Build.VERSION.SDK_INT;
 import static org.microg.gms.common.Constants.GMS_PACKAGE_NAME;
@@ -48,6 +47,7 @@ public class PackageUtils {
     private static final String GOOGLE_APP_KEY = "24bb24c05e47e0aefa68a58a766179d9b613a600";
     private static final String[] GOOGLE_PRIMARY_KEYS = {GOOGLE_PLATFORM_KEY, GOOGLE_PLATFORM_KEY_2, GOOGLE_APP_KEY};
 
+<<<<<<< HEAD:play-services-base-core/src/main/java/org/microg/gms/common/PackageUtils.java
     private static final Map<String, String> KNOWN_GOOGLE_PACKAGES;
 
     static {
@@ -76,20 +76,32 @@ public class PackageUtils {
 >>>>>>> 21ac41f4 (Fix account access for google wifi (#2205)):play-services-base/core/src/main/java/org/microg/gms/common/PackageUtils.java
     }
 
+=======
+    @Deprecated
+>>>>>>> a9906e52 (Rework known google package system):play-services-base/core/src/main/java/org/microg/gms/common/PackageUtils.java
     public static boolean isGooglePackage(Context context, String packageName) {
-        String signatureDigest = firstSignatureDigest(context, packageName);
-        return isGooglePackage(packageName, signatureDigest);
+        return new ExtendedPackageInfo(context, packageName).isGoogleOrPlatformPackage();
     }
 
-    public static boolean isGooglePackage(PackageManager packageManager, String packageName) {
-        String signatureDigest = firstSignatureDigest(packageManager, packageName);
-        return isGooglePackage(packageName, signatureDigest);
+    /**
+     * @deprecated Extended access is a deprecated concept
+     */
+    @Deprecated
+    public static boolean callerHasExtendedAccessPermission(Context context) {
+        return context.checkCallingPermission("org.microg.gms.EXTENDED_ACCESS") == PackageManager.PERMISSION_GRANTED;
     }
 
-    public static boolean isGooglePackage(String packageName, byte[] bytes) {
-        return isGooglePackage(packageName, sha1sum(bytes));
+    public static void assertGooglePackagePermission(Context context, GooglePackagePermission permission) {
+        try {
+            if (!callerHasGooglePackagePermission(context, permission))
+                throw new SecurityException("Access denied, missing google package permission for " + permission.name());
+        } catch (SecurityException e) {
+            Log.w("ExtendedAccess", e);
+            throw e;
+        }
     }
 
+<<<<<<< HEAD:play-services-base-core/src/main/java/org/microg/gms/common/PackageUtils.java
     public static boolean isGooglePackage(String packageName, String signatureDigest) {
         if (signatureDigest == null) return false;
         if (Arrays.asList(GOOGLE_PRIMARY_KEYS).contains(signatureDigest)) return true;
@@ -112,17 +124,38 @@ public class PackageUtils {
             }
         }
         return context.checkCallingPermission("org.mgoogle.gms.EXTENDED_ACCESS") == PackageManager.PERMISSION_GRANTED;
+=======
+    public static boolean callerHasGooglePackagePermission(Context context, GooglePackagePermission permission) {
+        for (String packageCandidate : getCallingPackageCandidates(context)) {
+            if (new ExtendedPackageInfo(context, packageCandidate).hasGooglePackagePermission(permission)) {
+                return true;
+            }
+        }
+
+        // TODO: Replace with explicit permission instead of generic "extended access"
+        if (callerHasExtendedAccessPermission(context)) return true;
+
+        return false;
+>>>>>>> a9906e52 (Rework known google package system):play-services-base/core/src/main/java/org/microg/gms/common/PackageUtils.java
     }
 
     public static void checkPackageUid(Context context, String packageName, int callingUid) {
         getAndCheckPackage(context, packageName, callingUid, 0);
     }
 
+    /**
+     * @deprecated We should stop using SHA-1 for certificate fingerprints!
+     */
+    @Deprecated
     @Nullable
     public static String firstSignatureDigest(Context context, String packageName) {
         return firstSignatureDigest(context.getPackageManager(), packageName);
     }
 
+    /**
+     * @deprecated We should stop using SHA-1 for certificate fingerprints!
+     */
+    @Deprecated
     @Nullable
     public static String firstSignatureDigest(PackageManager packageManager, String packageName) {
         if (packageName.equals("com.google.android.apps.youtube.music") || packageName.contains("youtube.music")) {
@@ -155,11 +188,19 @@ public class PackageUtils {
         return null;
     }
 
+    /**
+     * @deprecated We should stop using SHA-1 for certificate fingerprints!
+     */
+    @Deprecated
     @Nullable
     public static byte[] firstSignatureDigestBytes(Context context, String packageName) {
         return firstSignatureDigestBytes(context.getPackageManager(), packageName);
     }
 
+    /**
+     * @deprecated We should stop using SHA-1 for certificate fingerprints!
+     */
+    @Deprecated
     @Nullable
     public static byte[] firstSignatureDigestBytes(PackageManager packageManager, String packageName) {
         final PackageInfo info;
@@ -205,17 +246,26 @@ public class PackageUtils {
         return null;
     }
 
+    public static String[] getCallingPackageCandidates(Context context) {
+        int callingUid = Binder.getCallingUid(), callingPid = Binder.getCallingPid();
+        String packageName = packageFromProcessId(context, callingPid);
+        if (packageName != null) return new String[]{packageName};
+        String[] candidates = context.getPackageManager().getPackagesForUid(callingUid);
+        if (candidates == null) return new String[0];
+        return candidates;
+    }
+
     @Nullable
     public static String getAndCheckCallingPackage(Context context, String suggestedPackageName) {
         return getAndCheckCallingPackage(context, suggestedPackageName, 0);
     }
 
     @Nullable
-    public static String getAndCheckCallingPackageOrExtendedAccess(Context context, String suggestedPackageName) {
+    public static String getAndCheckCallingPackageOrImpersonation(Context context, String suggestedPackageName) {
         try {
             return getAndCheckCallingPackage(context, suggestedPackageName, 0);
         } catch (Exception e) {
-            if (callerHasExtendedAccess(context)) {
+            if (callerHasGooglePackagePermission(context, GooglePackagePermission.IMPERSONATE)) {
                 return suggestedPackageName;
             }
             throw e;
@@ -347,6 +397,10 @@ public class PackageUtils {
         }
     }
 
+    /**
+     * @deprecated We should stop using SHA-1 for certificate fingerprints!
+     */
+    @Deprecated
     public static String sha1sum(byte[] bytes) {
         MessageDigest md;
         try {
@@ -367,27 +421,38 @@ public class PackageUtils {
         return null;
     }
 
-    public static int versionCode(Context context, String packageName) {
+<<<<<<< HEAD:play-services-base-core/src/main/java/org/microg/gms/common/PackageUtils.java
+=======
+    /**
+     * @deprecated We should stop using SHA-1 for certificate fingerprints!
+     */
+    @Deprecated
+    public static byte[] sha1bytes(byte[] bytes) {
+        MessageDigest md;
         try {
-            return context.getPackageManager().getPackageInfo(packageName, 0).versionCode;
-        } catch (PackageManager.NameNotFoundException e) {
-            return -1;
-        }
-    }
-
-    public static String versionName(Context context, String packageName) {
-        try {
-            return context.getPackageManager().getPackageInfo(packageName, 0).versionName;
-        } catch (PackageManager.NameNotFoundException e) {
+            md = MessageDigest.getInstance("SHA1");
+        } catch (final NoSuchAlgorithmException e) {
             return null;
         }
+        if (md != null) {
+            return md.digest(bytes);
+        }
+        return null;
     }
 
+    @Deprecated
+>>>>>>> a9906e52 (Rework known google package system):play-services-base/core/src/main/java/org/microg/gms/common/PackageUtils.java
+    public static int versionCode(Context context, String packageName) {
+        return new ExtendedPackageInfo(context, packageName).getShortVersionCode();
+    }
+
+    @Deprecated
+    public static String versionName(Context context, String packageName) {
+        return new ExtendedPackageInfo(context, packageName).getVersionName();
+    }
+
+    @Deprecated
     public static int targetSdkVersion(Context context, String packageName) {
-        try {
-            return context.getPackageManager().getApplicationInfo(packageName, 0).targetSdkVersion;
-        } catch (PackageManager.NameNotFoundException e) {
-            return -1;
-        }
+        return new ExtendedPackageInfo(context, packageName).getTargetSdkVersion();
     }
 }
