@@ -77,7 +77,24 @@ class SettingsFragment : ResourceSettingsFragment() {
             findPreference<Preference>(PREF_GCM)?.setSummary(R.string.service_status_disabled_short)
         }
 
+<<<<<<< HEAD
         findPreference<Preference>(PREF_CHECKIN)?.setSummary(if (CheckinPrefs.isEnabled(context) == true) R.string.service_status_enabled_short else R.string.service_status_disabled_short)
+=======
+        findPreference<Preference>(PREF_CHECKIN)!!.setSummary(if (CheckinPreferences.isEnabled(requireContext())) org.microg.gms.base.core.R.string.service_status_enabled_short else org.microg.gms.base.core.R.string.service_status_disabled_short)
+        findPreference<Preference>(PREF_SNET)!!.setSummary(if (SafetyNetPreferences.isEnabled(requireContext())) org.microg.gms.base.core.R.string.service_status_enabled_short else org.microg.gms.base.core.R.string.service_status_disabled_short)
+
+        lifecycleScope.launchWhenResumed {
+            val entries = getAllSettingsProviders(requireContext()).flatMap { it.getEntriesDynamic(requireContext()) }
+            for (preference in createdPreferences) {
+                if (!entries.any { it.key == preference.key }) preference.isVisible = false
+            }
+            for (entry in entries) {
+                val preference = createdPreferences.find { it.key == entry.key }
+                if (preference != null) preference.fillFromEntry(entry)
+                else entry.createPreference()
+            }
+        }
+>>>>>>> d4d7713f (Add experimental support for in app billing)
     }
 
     companion object {
