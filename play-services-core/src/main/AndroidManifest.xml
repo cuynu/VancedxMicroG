@@ -736,6 +736,7 @@
                 <action android:name="com.google.android.gms.auth.api.identity.service.credentialsaving.START" />
                 <action android:name="com.google.android.gms.auth.api.phone.service.InternalService.START" />
                 <action android:name="com.google.android.gms.auth.api.signin.service.START" />
+                <action android:name="com.google.android.gms.auth.blockstore.service.START"/>
                 <action android:name="com.google.android.gms.auth.config.service.START" />
                 <action android:name="com.google.android.gms.auth.cryptauth.cryptauthservice.START" />
                 <action android:name="com.google.android.gms.auth.proximity.devicesyncservice.START" />
@@ -784,6 +785,7 @@
 >>>>>>> 048a6e59 (Add identity sign-in service (#2130))
                 <action android:name="com.google.android.gms.identity.service.BIND" />
 <<<<<<< HEAD
+<<<<<<< HEAD
                 <action android:name="com.google.android.gms.auth.service.START" />
                 <action android:name="com.google.android.gms.common.service.START" />
                 <action android:name="com.google.android.contextmanager.service.ContextManagerService.START" />
@@ -791,6 +793,9 @@
                 <action android:name="com.google.android.gms.gass.START" />
                 <action android:name="com.google.android.gms.audit.service.START" />
 =======
+=======
+                <action android:name="com.google.android.gms.inappreach.service.START"/>
+>>>>>>> 48c4ec57 (Chimera: Fix connection to unsupported services (#2243))
                 <action android:name="com.google.android.gms.instantapps.START" />
                 <action android:name="com.google.android.gms.kids.service.START" />
                 <action android:name="com.google.android.gms.learning.internal.dynamitesupport.START" />
