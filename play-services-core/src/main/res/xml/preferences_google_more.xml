@@ -43,14 +43,6 @@
         android:targetClass="com.google.android.youtube.HomeActivity"
         android:targetPackage="com.vancedx.android.youtube" />
     </Preference>
-    <Preference
-        android:selectable="false"
-        android:icon="@drawable/ic_info_outline"
-        android:title="@string/package_information"
-        android:summary="Package name : com.mgoogle.android.gms \n Version code : 240315000
-        \n minSdk : 23 \n targetSdk : 30
-        \n GMS version : 24.03.15
-        \n build type :  " />
         <Preference
             android:selectable="true"
             android:icon="@drawable/ic_info_outline"
