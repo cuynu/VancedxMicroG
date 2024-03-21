@@ -27,11 +27,30 @@ public class AboutFragment extends AbstractAboutFragment {
 
     @Override
     protected void collectLibraries(List<AbstractAboutFragment.Library> libraries) {
+<<<<<<< HEAD
         libraries.add(new AbstractAboutFragment.Library("org.oscim.android", "V™", "GNU LGPLv3, Hannes Janetzek and devemux86"));
+=======
+        if ("vtm".equalsIgnoreCase(BuildConfig.FLAVOR_maps)) {
+            libraries.add(new AbstractAboutFragment.Library("org.oscim.android", "V™", "GNU LGPLv3, Hannes Janetzek and devemux86"));
+            libraries.add(new AbstractAboutFragment.Library("org.slf4j", "SLF4J", "MIT License, QOS.ch"));
+        } else if ("mapbox".equalsIgnoreCase(BuildConfig.FLAVOR_maps) || "maplibre".equalsIgnoreCase(BuildConfig.FLAVOR_maps)){
+            libraries.add(new AbstractAboutFragment.Library("com.mapbox.mapboxsdk", "MapLibre Native for Android", "Two-Clause BSD, MapLibre contributors"));
+        } else if ("hms".equalsIgnoreCase(BuildConfig.FLAVOR_maps)) {
+            libraries.add(new AbstractAboutFragment.Library("com.huawei.hms.maps.api", "Huawei MapKit", "Proprietary, Huawei Technologies"));
+        }
+        libraries.add(new AbstractAboutFragment.Library("androidx", "Android Jetpack", "Apache License 2.0, The Android Open Source Project"));
+        libraries.add(new AbstractAboutFragment.Library("com.upokecenter.cbor", "CBOR", "Creative Commons Zero, Peter O"));
+>>>>>>> bfabc38e (About: Fix scrolling)
         libraries.add(new AbstractAboutFragment.Library("de.hdodenhof.circleimageview", "CircleImageView", "Apache License 2.0, Henning Dodenhof"));
         libraries.add(new AbstractAboutFragment.Library("org.conscrypt", "Conscrypt", "Apache License 2.0, The Android Open Source Project"));
+<<<<<<< HEAD
         libraries.add(new AbstractAboutFragment.Library("org.microg.safeparcel", "SafeParcel", "Apache License 2.0, microG Team"));
         libraries.add(new AbstractAboutFragment.Library("org.slf4j", "SLF4J", "MIT License, QOS.ch"));
+=======
+        libraries.add(new AbstractAboutFragment.Library("org.chromium.net", "Cronet", "BSD-style License, The Chromium Authors"));
+        libraries.add(new AbstractAboutFragment.Library("org.jetbrains.kotlin", "Kotlin", "Apache License 2.0, JetBrains s.r.o."));
+        libraries.add(new AbstractAboutFragment.Library("com.google.android.material", "Material Components", "Apache License 2.0, The Android Open Source Project"));
+>>>>>>> bfabc38e (About: Fix scrolling)
         libraries.add(new AbstractAboutFragment.Library("com.android.volley", "Volley", "Apache License 2.0, The Android Open Source Project"));
         libraries.add(new AbstractAboutFragment.Library("com.squareup.wire", "Wire Protocol Buffers", "Apache License 2.0, Square Inc."));
     }
