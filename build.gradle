@@ -76,7 +76,11 @@ buildscript {
 }
 
 
+<<<<<<< HEAD
 def gmsVersion = "24.10.17"
+=======
+def gmsVersion = "24.09.13"
+>>>>>>> ef113281 (Bump GMS version to 24.09.13 (#2191))
 def gmsVersionCode = Integer.parseInt(gmsVersion.replaceAll('\\.', ''))
 
 def ourVersionBase = "0.3.0"
