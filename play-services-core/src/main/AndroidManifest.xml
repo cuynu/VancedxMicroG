@@ -541,6 +541,15 @@
         <activity
             android:name="org.microg.gms.ui.AccountSettingsActivity"
             android:process=":ui"
+<<<<<<< HEAD
+=======
+            android:taskAffinity="org.microg.gms.settings" />
+
+        <activity
+            android:name="org.microg.gms.accountsettings.ui.MainActivity"
+            android:process=":ui"
+            android:exported="false"
+>>>>>>> 31254935 (Improve accounts settings)
             android:taskAffinity="org.microg.gms.settings"
             android:exported="true">
             <intent-filter>
