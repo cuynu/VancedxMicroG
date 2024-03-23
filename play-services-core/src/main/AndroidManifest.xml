@@ -290,7 +290,12 @@
             android:name="org.microg.tools.AccountPickerActivity"
             android:excludeFromRecents="true"
             android:exported="true"
+<<<<<<< HEAD
             android:process=":ui">
+=======
+            android:process=":ui"
+            android:theme="@style/Theme.App.DayNight.Dialog.Alert.NoActionBar">
+>>>>>>> bcb5f7cf (Improve location settings dialog)
             <intent-filter>
                 <action android:name="com.google.android.gms.common.account.CHOOSE_ACCOUNT" />
 
@@ -361,7 +366,7 @@
 <<<<<<< HEAD
 =======
             android:name="org.microg.gms.auth.signin.AuthSignInActivity"
-            android:theme="@style/Theme.AppCompat.DayNight.Dialog.Alert.NoActionBar"
+            android:theme="@style/Theme.App.DayNight.Dialog.Alert.NoActionBar"
             android:process=":ui"
             android:exported="true">
             <intent-filter>
@@ -401,7 +406,7 @@
             android:enabled="true"
             android:exported="false"
             android:process=":ui"
-            android:theme="@style/Theme.Translucent"/>
+            android:theme="@style/Theme.App.Translucent"/>
 
         <activity
             android:name="org.microg.gms.games.UpgradeActivity"
@@ -532,6 +537,24 @@
                 android:resource="@string/gms_settings_summary" />
         </activity-alias>
 
+<<<<<<< HEAD
+=======
+        <!-- microG Settings activity-alias for Google settings compatibility -->
+        <activity-alias
+            android:name="com.google.android.gms.app.settings.GoogleSettingsLink"
+            android:process=":ui"
+            android:exported="true"
+            android:targetActivity="org.microg.gms.ui.MainSettingsActivity"
+            android:taskAffinity="org.microg.gms.settings">
+        </activity-alias>
+
+        <activity
+            android:name="org.microg.gms.ui.AskPushPermission"
+            android:excludeFromRecents="true"
+            android:process=":ui"
+            android:theme="@style/Theme.App.DayNight.Dialog.Alert.NoActionBar" />
+
+>>>>>>> bcb5f7cf (Improve location settings dialog)
         <activity
             android:name="org.microg.gms.ui.GoogleMoreFragment$AsActivity"
             android:label="@string/gms_settings_name"
@@ -556,6 +579,21 @@
                 <action android:name="com.google.android.gms.accountsettings.ACCOUNT_PREFERENCES_SETTINGS" />
                 <action android:name="com.google.android.gms.accountsettings.PRIVACY_SETTINGS" />
                 <action android:name="com.google.android.gms.accountsettings.SECURITY_SETTINGS" />
+<<<<<<< HEAD
+=======
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="org.microg.gms.accountsettings.ui.LoaderActivity"
+            android:process=":ui"
+            android:exported="true"
+            android:excludeFromRecents="true"
+            android:theme="@style/Theme.App.DayNight.Dialog.Alert.NoActionBar">
+            <intent-filter>
+>>>>>>> bcb5f7cf (Improve location settings dialog)
                 <action android:name="com.google.android.gms.accountsettings.action.VIEW_SETTINGS" />
                 
                 <category android:name="android.intent.category.DEFAULT" />
@@ -653,7 +691,7 @@
             android:name="com.google.android.gms.feedback.FeedbackActivity"
             android:exported="true"
             android:excludeFromRecents="true"
-            android:theme="@style/Theme.Translucent"/>
+            android:theme="@style/Theme.App.Translucent"/>
 
         <service android:name="org.microg.gms.clearcut.ClearcutLoggerService">
             <intent-filter>
