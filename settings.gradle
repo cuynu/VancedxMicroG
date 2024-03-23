@@ -63,9 +63,16 @@ include ':play-services-safetynet'
 include ':play-services-tapandpay'
 >>>>>>> 1b34bbd3 (Add dummy service for PANORAMA(3) (#2173))
 include ':play-services-tasks'
+<<<<<<< HEAD
 
 include ':play-services-base-api'
 include ':play-services-iid-api'
+=======
+include ':play-services-vision'
+include ':play-services-vision-common'
+include ':play-services-wearable'
+include ':play-services-fitness'
+>>>>>>> a4c96575 (Improve dummy for fitness.HistoryApi service  (#2163))
 
 include ':play-services-api'
 
