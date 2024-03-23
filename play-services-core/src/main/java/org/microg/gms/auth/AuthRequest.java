@@ -30,6 +30,7 @@ import org.microg.gms.profile.ProfileManager;
 
 import java.io.IOException;
 import java.util.Locale;
+import java.util.Map;
 
 public class AuthRequest extends HttpFormClient.Request {
     private static final String SERVICE_URL = "https://android.googleapis.com/auth";
@@ -82,6 +83,32 @@ public class AuthRequest extends HttpFormClient.Request {
     public boolean hasPermission;
     @RequestContent("add_account")
     public boolean addAccount;
+<<<<<<< HEAD
+=======
+    @RequestContent("delegation_type")
+    public String delegationType;
+    @RequestContent("delegatee_user_id")
+    public String delegateeUserId;
+    @RequestContent("oauth2_foreground")
+    public String oauth2Foreground;
+    @RequestContent("token_request_options")
+    public String tokenRequestOptions;
+    @RequestContent("it_caveat_types")
+    public String itCaveatTypes;
+    @RequestContent("check_email")
+    public boolean checkEmail;
+    @RequestContent("request_visible_actions")
+    public String requestVisibleActions;
+    @RequestContent("oauth2_prompt")
+    public String oauth2Prompt;
+    @RequestContent("oauth2_include_profile")
+    public String oauth2IncludeProfile;
+    @RequestContent("oauth2_include_email")
+    public String oauth2IncludeEmail;
+    @HttpFormClient.RequestContentDynamic
+    public Map<Object, Object> dynamicFields;
+
+>>>>>>> 0041f6d6 (Extend authorized domain scope (#2204))
     public String deviceName;
     public String buildVersion;
 
@@ -196,6 +223,55 @@ public class AuthRequest extends HttpFormClient.Request {
         return this;
     }
 
+<<<<<<< HEAD
+=======
+    public AuthRequest droidguardResults(String droidguardResults) {
+        this.droidguardResults = droidguardResults;
+        return this;
+    }
+
+    public AuthRequest delegation(int delegationType, String delegateeUserId) {
+        this.delegationType = delegationType == 0 ? null : Integer.toString(delegationType);
+        this.delegateeUserId = delegateeUserId;
+        return this;
+    }
+
+    public AuthRequest oauth2Foreground(String oauth2Foreground) {
+        this.oauth2Foreground = oauth2Foreground;
+        return this;
+    }
+
+    public AuthRequest tokenRequestOptions(String tokenRequestOptions) {
+        this.tokenRequestOptions = tokenRequestOptions;
+        return this;
+    }
+
+    public AuthRequest oauth2IncludeProfile(String oauth2IncludeProfile) {
+        this.oauth2IncludeProfile = oauth2IncludeProfile;
+        return this;
+    }
+
+    public AuthRequest oauth2IncludeEmail(String oauth2IncludeProfile) {
+        this.oauth2IncludeEmail = oauth2IncludeEmail;
+        return this;
+    }
+
+    public AuthRequest oauth2Prompt(String oauth2Prompt) {
+        this.oauth2Prompt = oauth2Prompt;
+        return this;
+    }
+
+    public AuthRequest itCaveatTypes(String itCaveatTypes) {
+        this.itCaveatTypes = itCaveatTypes;
+        return this;
+    }
+
+    public AuthRequest putDynamicFiledMap(Map<Object, Object> dynamicFields) {
+        this.dynamicFields = dynamicFields;
+        return this;
+    }
+
+>>>>>>> 0041f6d6 (Extend authorized domain scope (#2204))
     public AuthResponse getResponse() throws IOException {
         return HttpFormClient.request(SERVICE_URL, this, AuthResponse.class);
     }

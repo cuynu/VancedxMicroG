@@ -16,6 +16,25 @@
 
 package org.microg.gms.auth;
 
+<<<<<<< HEAD
+=======
+import android.accounts.Account;
+import android.accounts.AccountManager;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.pm.PackageManager;
+import android.net.Uri;
+import android.util.Log;
+
+import androidx.annotation.RequiresPermission;
+import org.microg.gms.common.PackageUtils;
+import org.microg.gms.settings.SettingsContract;
+
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+
+>>>>>>> 0041f6d6 (Extend authorized domain scope (#2204))
 import static android.content.pm.ApplicationInfo.FLAG_SYSTEM;
 import static android.content.pm.ApplicationInfo.FLAG_UPDATED_SYSTEM_APP;
 import static org.microg.gms.auth.AuthPrefs.isTrustGooglePermitted;
@@ -38,7 +57,7 @@ public class AuthManager {
     public static final String PERMISSION_TREE_BASE = "com.mgoogle.android.googleapps.permission.GOOGLE_AUTH.";
     public static final String PREF_AUTH_VISIBLE = SettingsContract.Auth.VISIBLE;
     public static final int ONE_HOUR_IN_SECONDS = 60 * 60;
-
+    public Map<Object, Object> dynamicFields = new HashMap<>();
     private final Context context;
     private final String accountName;
     private final String packageName;
@@ -48,6 +67,20 @@ public class AuthManager {
     private String packageSignature;
     private String accountType;
 
+<<<<<<< HEAD
+=======
+
+    private int delegationType;
+    private String delegateeUserId;
+    private String oauth2Foreground;
+    private String oauth2Prompt;
+    private String itCaveatTypes;
+    private String tokenRequestOptions;
+    public String includeEmail;
+    public String includeProfile;
+    public boolean isGmsApp;
+
+>>>>>>> 0041f6d6 (Extend authorized domain scope (#2204))
     public AuthManager(Context context, String accountName, String packageName, String service) {
         this.context = context;
         this.accountName = accountName;
@@ -132,6 +165,39 @@ public class AuthManager {
         getAccountManager().setUserData(getAccount(), key, value);
     }
 
+<<<<<<< HEAD
+=======
+    public void setDelegation(int delegationType, String delegateeUserId) {
+        if (delegationType != 0 && delegateeUserId != null) {
+            this.delegationType = delegationType;
+            this.delegateeUserId = delegateeUserId;
+        } else {
+            this.delegationType = 0;
+            this.delegateeUserId = null;
+        }
+    }
+
+    public void setOauth2Foreground(String oauth2Foreground) {
+        this.oauth2Foreground = oauth2Foreground;
+    }
+
+    public void setOauth2Prompt(String oauth2Prompt) {
+        this.oauth2Prompt = oauth2Prompt;
+    }
+
+    public void setItCaveatTypes(String itCaveatTypes) {
+        this.itCaveatTypes = itCaveatTypes;
+    }
+
+    public void setTokenRequestOptions(String tokenRequestOptions) {
+        this.tokenRequestOptions = tokenRequestOptions;
+    }
+
+    public void putDynamicFiled(Object key, Object value) {
+        this.dynamicFields.put(key, value);
+    }
+
+>>>>>>> 0041f6d6 (Extend authorized domain scope (#2204))
     public boolean accountExists() {
         for (Account refAccount : getAccountManager().getAccountsByType(accountType)) {
             if (refAccount.name.equalsIgnoreCase(accountName)) return true;
@@ -222,9 +288,26 @@ public class AuthManager {
                 .app(packageName, getPackageSignature())
                 .email(accountName)
                 .token(getAccountManager().getPassword(account))
+<<<<<<< HEAD
                 .service(service);
         if (isSystemApp()) request.systemPartition();
         if (isPermitted()) request.hasPermission();
+=======
+                .service(service)
+                .delegation(delegationType, delegateeUserId)
+                .oauth2Foreground(oauth2Foreground)
+                .oauth2Prompt(oauth2Prompt)
+                .oauth2IncludeProfile(includeProfile)
+                .oauth2IncludeEmail(includeEmail)
+                .itCaveatTypes(itCaveatTypes)
+                .tokenRequestOptions(tokenRequestOptions)
+                .systemPartition(isSystemApp())
+                .hasPermission(isPermitted())
+                .putDynamicFiledMap(dynamicFields);
+        if (isGmsApp) {
+            request.appIsGms();
+        }
+>>>>>>> 0041f6d6 (Extend authorized domain scope (#2204))
         if (legacy) {
             request.callerIsGms().calledFromAccountManager();
         } else {

@@ -115,6 +115,12 @@ public class AuthResponse {
         if (permission != null) sb.append(", permission='").append(permission).append('\'');
         if (scopeConsentDetails != null) sb.append(", scopeConsentDetails='").append(scopeConsentDetails).append('\'');
         if (consentDataBase64 != null) sb.append(", consentDataBase64='").append(consentDataBase64).append('\'');
+<<<<<<< HEAD
+=======
+        if (auths != null) sb.append(", auths='").append(auths).append('\'');
+        if (itMetadata != null) sb.append(", itMetadata='").append(itMetadata).append('\'');
+        if (resolutionDataBase64 != null) sb.append(", resolutionDataBase64='").append(resolutionDataBase64).append('\'');
+>>>>>>> 0041f6d6 (Extend authorized domain scope (#2204))
         sb.append('}');
         return sb.toString();
     }
