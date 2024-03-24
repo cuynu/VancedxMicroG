@@ -43,7 +43,7 @@ buildscript {
 }
 
 
-def gmsVersion = "24.09.13"
+def gmsVersion = "24.10.17"
 def gmsVersionCode = Integer.parseInt(gmsVersion.replaceAll('\\.', ''))
 
 def ourVersionBase = "0.3.0"
