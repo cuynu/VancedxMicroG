@@ -8,7 +8,7 @@ Vanced+ microG probably not work in ReVanced/RVX in future as recent changes fro
 ## Notable changes
 
 - No longer a system app
-- Package name changed from `com.google.android.gms` to `com.mgoogle.android.gms` to support installation alongside the official MicroG
+- Package name changed from `com.google.android.gms` to `com.mgoogle.android.gms` to support installation alongside the official MicroG or device with Google Play Services pre-installed
 - Removed unnecessary features:
   - Ads
   - Analytics
