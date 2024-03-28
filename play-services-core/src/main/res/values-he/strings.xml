@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (C) 2013-2017 microG Project Team
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="gms_settings_summary">הגדרת Vanced+ microG.</string>
+    <string name="just_a_sec">רק רגע…</string>
+    <string name="account_manager_title">ניהול חשבון גוגל</string>
+    <string name="sorry">סליחה…</string>
+    <string name="auth_sign_in">התחברות</string>
+    <string name="auth_connecting">"יצירת חיבור לשרתים של Google כדי להיכנס.
+
+ זה יכול לקחת כמה שניות."</string>
+    <string name="no_network_error_desc">"אין לך חיבור לרשת.
+
+ זו יכולה להיות בעיה זמנית או שמכשיר ה-Android שלך לא מסופק עבור שירותי נתונים. נסה שוב כאשר אתה מחובר לרשת סלולרית, או התחבר לרשת Wi-Fi."</string>
+    <string name="auth_general_error_desc">"יצירת חיבור לשרתים של Google כדי להיכנס.
+
+ זה יכול לקחת כמה שניות."</string>
+    <string name="auth_finalize">"המכשיר שלך יוצר קשר עם Google כדי לשמור מידע בחשבון שלך.
+
+ זה יכול לקחת כמה דקות."</string>
+    <string name="perm_status_broadcast_label">להאזין לשידורי סטטוס פנימיים</string>
+    <string name="perm_c2dm_receive_label">להאזין להודעות C2DM</string>
+    <string name="perm_c2dm_send_label">לשלוח הודעות C2DM לאפליקציות אחרות</string>
+    <string name="perm_gtalk_svc_label">להחליף הודעות ולקבל התראות סנכרון משרתי Google</string>
+    <string name="perm_extended_access_label">גישה מורחבת לשירותי גוגל</string>
+    <string name="google_account_manager">Google Account Manager not fully implemented</string>
+    <string name="manage_google_account">Manage your Google account</string>
+    <string name="manage_google_account_summary">Manage your Google account information</string>
+    <string name="manage_yt_activities">Manage YouTube activities</string>
+    <string name="manage_yt_activities_summary">Manage YouTube activities such as watch or search history</string>
+    <string name="service_name_checkin">רישום מכשיר Google</string>
+    <string name="service_name_mcs">העברת הודעות בענן</string>
+    <string name="service_status_enabled_short">פועל</string>
+    <string name="service_status_disabled_short">כבוי</string>
+    <string name="menu_advanced">מתקדם</string>
+    <string name="list_no_item_none">ללא</string>
+    <string name="list_item_see_all">ראה/י הכל</string>
+    <string name="network_type_mobile">רשת סלולרית</string>
+    <string name="network_type_wifi">Wi-Fi</string>
+    <string name="network_type_roaming">נדידה</string>
+    <string name="network_type_other">רשתות אחרות</string>
+    <!-- Settings strings -->
+    <string name="prefcat_about">מידע על</string>
+    <string name="prefcat_google_services">שירותי Google</string>
+    <string name="pref_more_settings">עוד</string>
+    <string name="checkin_not_registered">לא רשום</string>
+    <string name="checkin_last_registration">הרשמה אחרונה: <xliff:g example="Yesterday, 02:20 PM">%1$s</xliff:g></string>
+    <string name="prefs_account">העדפות חשבון</string>
+    <string name="prefs_account_privacy">נתונים אישיים &amp; פרטיות</string>
+    <string name="source_code">View source code</string>
+    <string name="source_code_summary">View project source code on GitHub</string>
+    <string name="delete_account_summary">To remove signed in Google account, go to Device Settings -> Account.</string>
+    <string name="check_for_vanced_microg_updates_on_github">Check for Vanced+ microG updates on GitHub</string>
+    <string name="check_for_updates">Check for updates</string>
+    <string name="network_google_enabled_string">If disabled, all connections to Google servers usually done by Vanced+ microG will be denied. This overrides service specific settings.</string>
+    <string name="network_google_enabled_summary">Allow connecting to Google servers</string>
+    <string name="network_google_use_tor">Requires Orbot to be installed\nNot yet supported</string>
+    <string name="network_google_use_tor_summary">Connect to Google via Tor network</string>
+    <string name="fake_signature_summary">Spoofs signature key of Vanced+ microG to fix YouTube Vanced+ playback buffering issue</string>
+   <string name="fake_signature_title">Spoof app signature key (EXPERIMENTAL)</string>
+    <string name="build_date">Build date</string>
+    <string name="your_data_in_youtube">Your data in YouTube</string>
+    <string name="your_data_in_youtube_summary">Browse or delete your YouTube activity, and discover how your data makes YouTube and other Google services work better for you</string>
+    <string name="remove_google_account_tips">Want to remove your Google account from Vanced+ microG?</string>
+    <string name="remove_google_account_summary"><![CDATA[Go to your device settings -> Account to remove them.]]></string>
+    <string name="check_for_vanced_microg_updates_on_gitlab">Check for Vanced+ microG updates on GitLab</string>
+    <string name="view_sourcecode_gitlab">View project source code on GitLab</string>
+    <string name="check_connection">Check connection</string>
+    <string name="check_your_device_internet_connection">Check your device internet connection</string>
+    <string name="back_to_vancedx_title">Back to YouTube Vanced+</string>
+    <string name="back_to_vancedx_summary">Tap to exit Vanced+ microG and back to YouTube Vanced</string>
+    <string name="package_information">Package information</string>
+    <string name="manage_googleaccount_title">Manage signed in Google accounts</string>
+    <string name="manage_googleaccount_summary">This will open your device settings !</string>
+    <string name="miscellaneous_settings">Miscellaneous settings</string>
+</resources>

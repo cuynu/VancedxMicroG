@@ -1,0 +1,19 @@
+include ':play-services-basement'
+
+include ':play-services-tasks'
+
+include ':play-services-base-api'
+include ':play-services-iid-api'
+
+include ':play-services-api'
+
+include ':play-services-core-proto'
+
+include ':play-services-core:microg-ui-tools' // Legacy
+include ':play-services-core'
+
+include ':play-services-base'
+include ':play-services-base-core'
+
+include ':play-services-cast-framework'
+include ':play-services-cast'

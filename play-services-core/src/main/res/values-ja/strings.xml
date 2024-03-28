@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (C) 2013-2017 microG Project Team
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="gms_settings_summary">Vended+ microGのセットアップ</string>
+    <string name="just_a_sec">お待ちください…</string>
+    <string name="account_manager_title">Google アカウントの管理</string>
+    <string name="sorry">申し訳ございません</string>
+    <string name="auth_before_connect">"端末上のアプリがGoogleアカウントにサインインしようとしています。
+
+これがあなたによる要求の場合は、<b>サインイン</b> (または <b>Huawei</b>) を選択してログインを続行してください。"</string>
+    <string name="auth_sign_in">サインイン</string>
+    <string name="auth_connecting">"Googleのサーバーに接続しています...
+
+これには数秒かかることがあります。"</string>
+    <string name="no_network_error_desc">"ネットワークに接続できませんでした。
+
+一時的な問題が発生しているか、データサービス用 この端末がプロビジョニングされていない可能性があります。
+ネットワークの構成設定を確認し、再試行してください。"</string>
+    <string name="auth_general_error_desc">"Google サーバーとの通信に問題が発生しました。
+
+後ほど、もう一度お試しください。"</string>
+    <string name="auth_finalize">"アカウント情報を保存するためにGoogleと通信しています...
+
+これには数分かかることがあります。"</string>
+    <string name="perm_c2dm_receive_label">C2DMメッセージを聞く</string>
+    <string name="perm_c2dm_send_label">C2DMのメッセージを他のアプリに送信</string>
+    <string name="perm_gtalk_svc_label">メッセージの交換とGoogleサーバーからの同期通知の受信します</string>
+    <string name="perm_extended_access_label">Google サービスへの拡張アクセス</string>
+    <string name="google_account_manager">Googleアカウントマネージャー は、完全に実装されていません。</string>
+    <string name="manage_google_account">Google アカウントを管理</string>
+    <string name="manage_google_account_summary">Google アカウント情報の管理</string>
+    <string name="manage_yt_activities">YouTube のアクティビティの管理</string>
+    <string name="manage_yt_activities_summary">視聴履歴や検索履歴などの YouTube のアクティビティを管理</string>
+    <string name="service_name_checkin">Google デバイスの登録</string>
+    <string name="service_name_mcs">クラウドメッセージ</string>
+    <string name="service_status_enabled_short">有効</string>
+    <string name="service_status_disabled_short">無効</string>
+    <string name="menu_advanced">通知間隔の設定</string>
+    <string name="list_no_item_none">なし</string>
+    <string name="list_item_see_all">すべて表示</string>
+    <string name="network_type_mobile">モバイルネットワーク</string>
+    <string name="network_type_wifi">Wi-Fi</string>
+    <string name="network_type_roaming">ローミング</string>
+    <string name="network_type_other">その他のネットワーク接続</string>
+    <!-- Settings strings -->
+    <string name="prefcat_about">概要</string>
+    <string name="prefcat_google_services">Google サービス</string>
+    <string name="pref_more_settings">詳細</string>
+    <string name="checkin_not_registered">登録されていません</string>
+    <string name="checkin_last_registration">最終更新：<xliff:g example="Yesterday, 02:20 PM">%1$s</xliff:g></string>
+    <string name="prefs_account">アカウント設定</string>
+    <string name="prefs_account_privacy">個人情報 &amp; プライバシー</string>
+    <string name="prefs_account_security">サインイン &amp; セキュリティ</string>
+    <string name="pref_auth_trust_google_title">Google にアプリへのアクセス許可を付与する</string>
+    <string name="pref_auth_trust_google_summary">無効にすると、アプリの認証要求が Google に送信される前にユーザーに要求されます。これを無効にすると、一部のアプリでは Google アカウントの使用に失敗します。</string>
+    <string name="pref_auth_visible_title">アプリによるアカウントの検索を許可する</string>
+    <string name="pref_auth_visible_summary">有効にすると、この端末上のすべてのアプリは、事前承認なしでGoogleアカウントのメールアドレスを見ることができます。</string>
+    <string name="pref_add_account_title">アカウント</string>
+    <string name="pref_add_account_summary">Google アカウントを追加</string>
+    <string name="pref_gcm_switcher_title">プッシュ通知を受け取る</string>
+    <string name="pref_gcm_enable_mcs_summary">クラウドメッセージングは、Vanced で使用されているプッシュ通知プロバイダです。通知を使用するには、[Google デバイスの登録]を有効にする必要があります。</string>
+    <string name="pref_about_title">Vanced+ microGについて</string>
+    <string name="hideLauncherIcon">ホームからアプリを隠す</string>
+    <string name="brand_spoof_button">Huawei</string>
+    <string name="pref_switcher_title">端末を登録</string>
+    <string name="pref_checkin_enable_summary">端末を Google のサービスに登録し、一意の端末識別子を作成します。 Vanced+ microGは、登録されたデータからGoogleアカウント名以外の識別ビットを削除します。</string>
+    <string name="pref_device_registration_android_id">Android ID</string>
+    <string name="pref_info_status">状態</string>
+    <string name="gcm_status_pref_default">既定</string>
+    <string name="gcm_status_pref_manual">手動</string>
+    <string name="gcm_status_pref_sec">秒</string>
+    <string name="gcm_status_pref_min">分</string>
+    <string name="gcm_unregister_app">登録を解除</string>
+    <string name="gcm_no_message_yet">これまでに受信した通知はありません</string>
+    <string name="gcm_last_message_at">最新通知：<xliff:g example="Yesterday, 02:20 PM">%1$s</xliff:g></string>
+    <string name="gcm_registered">登録済</string>
+    <string name="gcm_registered_since">登録：<xliff:g example="Yesterday, 02:20 PM">%1$s</xliff:g></string>
+    <string name="gcm_unregister_confirm_title"><xliff:g example="F-Droid">%1$s</xliff:g> の登録解除しますか？</string>
+    <string name="gcm_unregister_confirm_message">一部のアプリは自動的に再登録しない、または手動で登録するオプションを提供しない場合があります。 登録解除後にこれらのアプリが正常に動作しない可能性があります。\n続行しますか？</string>
+    <string name="gcm_unregister_after_deny_message">既に登録されているプッシュ通知の登録を拒否しました。\n今後プッシュメッセージを受信しないように登録を解除しますか?</string>
+    <string name="gcm_messages_counter">通知件数：<xliff:g example="123">%1$d</xliff:g> (<xliff:g example="12345">%2$d</xliff:g> bytes)</string>
+    <string name="gcm_network_state_disconnected">切断されました</string>
+    <string name="gcm_network_state_connected"><xliff:g example="2 hours ago">%1$s</xliff:g>から接続しました</string>
+    <string name="pref_push_app_allow_register_title">登録を許可する</string>
+    <string name="pref_push_app_allow_register_summary">プッシュ通知の登録をアプリに許可します。</string>
+    <string name="pref_push_app_wake_for_delivery_title">プッシュメッセージでアプリを起動</string>
+    <string name="pref_push_app_wake_for_delivery_summary">バックグラウンドでアプリを起動し、受信するプッシュメッセージを受信します。</string>
+    <string name="prefcat_status_title">接続状態</string>
+    <string name="prefcat_push_apps_title">プッシュ通知を使用しているアプリ</string>
+    <string name="prefcat_push_apps_registered_title">登録済みのアプリ</string>
+    <string name="prefcat_push_apps_unregistered_title">未登録のアプリ</string>
+    <string name="prefcat_push_networks_title">プッシュ通知に使用するネットワーク</string>
+    <string name="device_profile_name">端末のプロファイル</string>
+    <string name="profile_name">プロファイル</string>
+    <string name="profile_name_native">ランダム値</string>
+    <string name="profile_name_real">端末に依存</string>
+    <string name="profile_name_user">カスタム：%s</string>
+    <string name="profile_name_auto">規定：%s</string>
+    <string name="profile_name_system">システム：%s</string>
+    <string name="import_profile_name">カスタム プロファイルを使用</string>
+    <string name="import_profile_summary">ファイルからプロファイルをインポートします</string>
+    <string name="serial_name">シリアル</string>
+    <string name="source_code">ソースコードを閲覧</string>
+    <string name="source_code_summary">GitHub でプロジェクトのソースコードを表示します</string>
+    <string name="delete_account_summary">Google アカウントからログアウトしたい場合は、端末の設定 → アカウント に移動して該当するアカウントを選択し削除します</string>
+    <string name="check_for_vanced_microg_updates_on_github">GitHub で Vanced+ microG の更新を確認する</string>
+    <string name="check_for_updates">更新を確認</string>
+    <string name="network_google_enabled_string">無効にすると、本来 Vanced+ microG によって行われる Google サーバーへのすべての接続が拒否されます。\nこれはサービス固有の設定を無視します。</string>
+    <string name="network_google_enabled_summary">Google サーバーへの接続を許可する</string>
+    <string name="network_google_use_tor">Orbot がインストールされている必要があります。\nまだ実装されていません</string>
+    <string name="network_google_use_tor_summary">Tor ネットワーク経由で Google に接続する</string>
+    <string name="fake_signature_summary">Vanced+ microG の署名を偽装して YouTube Vanced+ の再生バッファリングの問題を修正します</string>
+    <string name="fake_signature_title">アプリの署名を偽装 (試験的)</string>
+    <string name="build_date">ビルド日時</string>
+    <string name="your_data_in_youtube">YouTube上のデータを閲覧</string>
+    <string name="your_data_in_youtube_summary">YouTube のアクティビティを確認、削除できます。YouTube の利便性を向上させるために YouTube やその他の Google サービスのデータがどのように使用されているかを確認できます</string>
+    <string name="remove_google_account_tips">Vanced+ microG で追加したGoogleアカウントはどうすれば削除できますか？</string>
+    <string name="remove_google_account_summary">端末の設定 → アカウント に移動して該当するアカウントを選択し削除します</string>
+    <string name="check_for_vanced_microg_updates_on_gitlab">GitLab で Vanced+ microG の更新を確認する</string>
+    <string name="view_sourcecode_gitlab">GitLab でプロジェクトのソースコードを表示します</string>
+    <string name="check_connection">Check connection</string>
+    <string name="check_your_device_internet_connection">Check your device internet connection</string>
+    <string name="back_to_vancedx_title">Back to YouTube Vanced+</string>
+    <string name="back_to_vancedx_summary">Tap to exit Vanced+ microG and back to YouTube Vanced</string>
+    <string name="package_information">Package information</string>
+    <string name="manage_googleaccount_title">Manage signed in Google accounts</string>
+    <string name="manage_googleaccount_summary">This will open your device settings !</string>
+    <string name="miscellaneous_settings">Miscellaneous settings</string>
+</resources>

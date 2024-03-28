@@ -1,0 +1,107 @@
+/*
+ * Copyright 2013-2019 microG Project Team
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+
+dependencies {
+    implementation "com.squareup.wire:wire-runtime:$wireVersion"
+    implementation "de.hdodenhof:circleimageview:$circleimageviewVersion"
+    implementation "androidx.webkit:webkit:$webkitVersion"
+
+    implementation project(':play-services-base-core')
+    implementation project(':play-services-core-proto')
+    implementation project(':play-services-core:microg-ui-tools') // deprecated
+    implementation project(':play-services-api')
+    implementation project(':play-services-tasks')
+
+    // AndroidX UI
+    implementation "androidx.appcompat:appcompat:$appcompatVersion"
+    implementation "androidx.preference:preference-ktx:$preferenceVersion"
+
+    implementation 'org.microg.gms:conscrypt-gmscore:2.5.2'
+    implementation "com.google.android.material:material:$materialVersion"
+
+    // Navigation
+    implementation "androidx.navigation:navigation-fragment-ktx:$navigationVersion"
+    implementation "androidx.navigation:navigation-ui-ktx:$navigationVersion"
+
+    implementation "androidx.lifecycle:lifecycle-service:$lifecycleVersion"
+    implementation "com.android.volley:volley:$volleyVersion"
+
+    api project(':play-services-basement')
+}
+
+android {
+    compileSdkVersion androidCompileSdk
+    buildToolsVersion androidBuildVersionTools
+
+    defaultConfig {
+        versionName version
+        versionCode appVersionCode
+        resConfigs 'xxhdpi'
+
+        minSdkVersion androidMinSdk
+        targetSdkVersion androidTargetSdk
+
+        ndk {
+            abiFilters "armeabi-v7a", "arm64-v8a", "x86", "x86_64"
+        }
+
+    }
+
+    buildFeatures {
+        dataBinding = true
+        viewBinding = true
+    }
+
+    sourceSets {
+        main {
+            java.srcDirs += 'src/main/kotlin'
+        }
+    }
+
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    packagingOptions {
+        jniLibs {
+            useLegacyPackaging false
+        }
+        resources {
+            excludes += ['META-INF/ASL2.0']
+        }
+    }
+    lint {
+        disable 'MissingTranslation', 'BatteryLife', 'ImpliedQuantity', 'MissingQuantity', 'InvalidWakeLockTag', 'Range'
+    }
+    namespace 'com.mgoogle.android.gms'
+}
+
+if (file('user.gradle').exists()) {
+    apply from: 'user.gradle'
+}

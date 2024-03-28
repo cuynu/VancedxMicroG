@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (C) 2013-2017 microG Project Team
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="gms_settings_summary">Налаштувати Vanced+ microG.</string>
+    <string name="just_a_sec">Секундочку…</string>
+    <string name="account_manager_title">Менеджер облікових записів Google</string>
+    <string name="sorry">Вибачте…</string>
+    <string name="auth_before_connect">"Застосунок на вашому пристрої намагається увійти в обліковий запис Google.
+
+Якщо це було навмисно, скористайтеся <b>Увійти</b> (або <b>Huawei</b>, якщо у вас є пристрій цієї марки), щоб під’єднатися до сторінки входу Google."</string>
+    <string name="auth_sign_in">Увійти</string>
+    <string name="auth_connecting">"Підключення до серверів Google для входу.
+
+Це може зайняти декілька секунд."</string>
+    <string name="no_network_error_desc">"У вас немає підключення до мережі.
+
+Це може бути тимчасова проблема, або ваш пристрій Android не підтримує служби передачі даних. Повторіть спробу, коли під’єднатися до мобільної мережі, або під’єднатися до мережі Wi-Fi."</string>
+    <string name="auth_general_error_desc">"Виникла проблема зв’язку із серверами Google.
+
+Спробуйте ще раз пізніше."</string>
+    <string name="auth_finalize">"Ваш пристрій зв’язується з Google, щоб зберегти інформацію у вашому обліковому записі.
+
+Це може зайняти декілька хвилин."</string>
+    <string name="perm_status_broadcast_label">слухати до внутрішнього статусу трансляції</string>
+    <string name="perm_c2dm_receive_label">слухати повідомлення C2DM</string>
+    <string name="perm_c2dm_send_label">надсилати повідомлення C2DM іншим додаткам</string>
+    <string name="perm_gtalk_svc_label">обмінюватися повідомленнями та отримувати сповіщення про синхронізацію від серверів Google</string>
+    <string name="perm_extended_access_label">Розширений доступ до сервісів Google</string>
+    <string name="google_account_manager">Google Account Manager not fully implemented</string>
+    <string name="manage_google_account">Manage your Google account</string>
+    <string name="manage_google_account_summary">Manage your Google account information</string>
+    <string name="manage_yt_activities">Manage YouTube activities</string>
+    <string name="manage_yt_activities_summary">Manage YouTube activities such as watch or search history</string>
+    <string name="service_name_checkin">Реєстрація пристрою Google</string>
+    <string name="service_name_mcs">Хмарне повідомлення</string>
+    <string name="service_status_enabled_short">Увімкнено</string>
+    <string name="service_status_disabled_short">Вимкнено</string>
+    <string name="menu_advanced">Розширені</string>
+    <string name="list_no_item_none">Немає</string>
+    <string name="list_item_see_all">Показати всі</string>
+    <string name="network_type_mobile">Мобільна мережа</string>
+    <string name="network_type_wifi">Wi-Fi</string>
+    <string name="network_type_roaming">Роумінг</string>
+    <string name="network_type_other">Інші мережі</string>
+    <!-- Settings strings -->
+    <string name="prefcat_about">Про додаток</string>
+    <string name="prefcat_google_services">Сервіси Google</string>
+    <string name="pref_more_settings">Більше</string>
+    <string name="checkin_not_registered">Не зареєстрований</string>
+    <string name="checkin_last_registration">Остання реєстрація: <xliff:g example="Yesterday, 02:20 PM">%1$s</xliff:g></string>
+    <string name="prefs_account">Налаштування облікового запису</string>
+    <string name="prefs_account_privacy">Особиста інформація &amp; конфіденційність</string>
+    <string name="prefs_account_security">Увійти &amp; захист</string>
+    <string name="pref_auth_trust_google_title">Довіряйте Google щодо дозволів додатків</string>
+    <string name="pref_auth_trust_google_summary">Якщо вимкнено, користувач запитується перед надсиланням запиту на авторизацію програми в Google. Деякі додатки не зможуть використовувати обліковий запис Google, якщо цей параметр вимкнено.</string>
+    <string name="pref_auth_visible_title">Дозволити додаткам знаходити облікові записи</string>
+    <string name="pref_auth_visible_summary">Якщо увімкнути цю функцію, усі програми на цьому пристрої зможуть переглядати електронну адресу ваших облікових записів Google без попередньої авторизації.</string>
+    <string name="pref_add_account_title">Аккаунт</string>
+    <string name="pref_add_account_summary">Додати Google аккаунт</string>
+    <string name="pref_gcm_switcher_title">Отримувати push-сповіщення</string>
+    <string name="pref_gcm_enable_mcs_summary">Хмарне повідомлення – це провайдер push-сповіщень, який використовується багатьма сторонніми програмами. Щоб скористатися нею, необхідно увімкнути реєстрацію пристрою.</string>
+    <string name="pref_about_title">Про Vanced+ microG</string>
+    <string name="hideLauncherIcon">Сховати значок з лаунчера</string>
+    <string name="brand_spoof_button">Huawei</string>
+    <string name="pref_switcher_title">Зареєструвати пристрій</string>
+    <string name="pref_checkin_enable_summary">Реєструє ваш пристрій у службах Google і створює унікальний ідентифікатор пристрою. Vanced+ microG видаляє з реєстраційних даних біти, відмінні від імені вашого аккаунта Google.</string>
+    <string name="pref_device_registration_android_id">Android ID</string>
+    <string name="pref_info_status">Стан</string>
+    <string name="gcm_status_pref_default">Типово</string>
+    <string name="gcm_status_pref_manual">Інструкція</string>
+    <string name="gcm_status_pref_sec">секунди</string>
+    <string name="gcm_status_pref_min">хвилини</string>
+    <string name="gcm_unregister_app">Скасувати реєстрацію</string>
+    <string name="gcm_no_message_yet">Поки що не отримано жодного повідомлення</string>
+    <string name="gcm_last_message_at">Останнє повідомлення: <xliff:g example="Yesterday, 02:20 PM">%1$s</xliff:g></string>
+    <string name="gcm_registered">Зареєстрований</string>
+    <string name="gcm_registered_since">Зареєстрований: <xliff:g example="Yesterday, 02:20 PM">%1$s</xliff:g></string>
+    <string name="gcm_unregister_confirm_title">Скасувати реєстрацію <xliff:g example="F-Droid">%1$s</xliff:g>?</string>
+    <string name="gcm_unregister_confirm_message">Деякі програми не здійснюють автоматичну повторну реєстрацію та/або не надають можливості зробити це вручну. Ці програми можуть не працювати належним чином після скасування реєстрації.\nПродовжити?</string>
+    <string name="gcm_unregister_after_deny_message">Ви відмовили програмі зареєструватися для отримання push-сповіщень, яка вже зареєстрована.\nЧи бажаєте ви скасувати її реєстрацію зараз, щоб вона не отримувала push-повідомлень у майбутньому?</string>
+    <string name="gcm_messages_counter">Повідомлення: <xliff:g example="123">%1$d</xliff:g>(<xliff:g example="12345">%2$d</xliff:g> байтів)</string>
+    <string name="gcm_network_state_disconnected">Від’єднано</string>
+    <string name="gcm_network_state_connected">З\'єднано <xliff:g example="2 hours ago">%1$s</xliff:g></string>
+    <string name="pref_push_app_allow_register_title">Дозволити реєстрацію</string>
+    <string name="pref_push_app_allow_register_summary">Дозволити програмі реєструватися для отримання push-сповіщень.</string>
+    <string name="pref_push_app_wake_for_delivery_title">Запуск додатка за допомогою push-повідомлення</string>
+    <string name="pref_push_app_wake_for_delivery_summary">Запустіть додаток у фоновому режимі, щоб отримати вхідні push-повідомлення.</string>
+    <string name="prefcat_status_title">Статус</string>
+    <string name="prefcat_push_apps_title">Програми, які використовують push-сповіщення</string>
+    <string name="prefcat_push_apps_registered_title">Зареєстровані додатки</string>
+    <string name="prefcat_push_apps_unregistered_title">Незареєстровані додатки</string>
+    <string name="prefcat_push_networks_title">Мережі для push-сповіщень</string>
+    <string name="device_profile_name">Профіль пристрою</string>
+    <string name="profile_name">Виберіть профіль</string>
+    <string name="profile_name_native">Рідне</string>
+    <string name="profile_name_real">Справжнє</string>
+    <string name="profile_name_user">Користувацький: %s</string>
+    <string name="profile_name_auto">Автоматично: %s</string>
+    <string name="profile_name_system">Система: %s</string>
+    <string name="import_profile_name">Імпорт користувацького профілю</string>
+    <string name="import_profile_summary">Імпортувати профіль пристрою з файлу</string>
+    <string name="serial_name">Срійне ім\'я</string>
+    <string name="source_code">View source code</string>
+    <string name="source_code_summary">View project source code on GitHub</string>
+    <string name="delete_account_summary">To remove signed in Google account, go to Device Settings -> Account.</string>
+    <string name="check_for_vanced_microg_updates_on_github">Check for Vanced+ microG updates on GitHub</string>
+    <string name="check_for_updates">Check for updates</string>
+    <string name="network_google_enabled_string">If disabled, all connections to Google servers usually done by Vanced+ microG will be denied. This overrides service specific settings.</string>
+    <string name="network_google_enabled_summary">Allow connecting to Google servers</string>
+    <string name="network_google_use_tor">Requires Orbot to be installed\nNot yet supported</string>
+    <string name="network_google_use_tor_summary">Connect to Google via Tor network</string>
+    <string name="fake_signature_summary">Spoofs signature key of Vanced+ microG to fix YouTube Vanced+ playback buffering issue</string>
+    <string name="fake_signature_title">Spoof app signature key (EXPERIMENTAL)</string>
+    <string name="build_date">Build date</string>
+    <string name="your_data_in_youtube">Your data in YouTube</string>
+    <string name="your_data_in_youtube_summary">Browse or delete your YouTube activity, and discover how your data makes YouTube and other Google services work better for you</string>
+    <string name="remove_google_account_tips">Want to remove your Google account from Vanced+ microG?</string>
+    <string name="remove_google_account_summary"><![CDATA[Go to your device settings -> Account to remove them.]]></string>
+    <string name="check_for_vanced_microg_updates_on_gitlab">Check for Vanced+ microG updates on GitLab</string>
+    <string name="view_sourcecode_gitlab">View project source code on GitLab</string>
+    <string name="check_connection">Check connection</string>
+    <string name="check_your_device_internet_connection">Check your device internet connection</string>
+    <string name="back_to_vancedx_title">Back to YouTube Vanced+</string>
+    <string name="back_to_vancedx_summary">Tap to exit Vanced+ microG and back to YouTube Vanced</string>
+    <string name="package_information">Package information</string>
+    <string name="manage_googleaccount_title">Manage signed in Google accounts</string>
+    <string name="manage_googleaccount_summary">This will open your device settings !</string>
+    <string name="miscellaneous_settings">Miscellaneous settings</string>
+</resources>
