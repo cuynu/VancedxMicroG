@@ -122,8 +122,6 @@
     <string name="network_google_enabled_summary">Allow connecting to Google servers</string>
     <string name="network_google_use_tor">Requires Orbot to be installed\nNot yet supported</string>
     <string name="network_google_use_tor_summary">Connect to Google via Tor network</string>
-    <string name="fake_signature_summary">Spoofs signature key of Vanced+ microG to fix YouTube Vanced+ playback buffering issue</string>
-    <string name="fake_signature_title">Spoof app signature key (EXPERIMENTAL)</string>
     <string name="build_date">Build date</string>
     <string name="your_data_in_youtube">Your data in YouTube</string>
     <string name="your_data_in_youtube_summary">Browse or delete your YouTube activity, and discover how your data makes YouTube and other Google services work better for you</string>

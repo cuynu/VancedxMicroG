@@ -141,8 +141,6 @@ Isso pode demorar alguns minutos."</string>
     <string name="network_google_enabled_summary">Permitir conexão com servidores do Google</string>
     <string name="network_google_use_tor">Requer que o Orbot esteja instalado\nAinda não é compatível</string>
     <string name="network_google_use_tor_summary">Conecte-se ao Google através da rede Tor</string>
-    <string name="fake_signature_summary">Falsificar chave de assinatura do Vanced+ microG para corrigir o problema de buffer de reprodução do YouTube</string>
-    <string name="fake_signature_title">Falsificar chave de assinatura do aplicativo (EXPERIMENTAL)</string>
     <string name="build_date">Data da Build</string>
     <string name="your_data_in_youtube">Seus dados no YouTube</string>
     <string name="your_data_in_youtube_summary">Navegue ou exclua sua atividade no YouTube e descubra como seus dados fazem com que o YouTube e outros serviços do Google funcionem melhor para você</string>

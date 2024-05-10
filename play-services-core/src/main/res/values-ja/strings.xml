@@ -123,8 +123,6 @@
     <string name="network_google_enabled_summary">Google サーバーへの接続を許可する</string>
     <string name="network_google_use_tor">Orbot がインストールされている必要があります。\nまだ実装されていません</string>
     <string name="network_google_use_tor_summary">Tor ネットワーク経由で Google に接続する</string>
-    <string name="fake_signature_summary">Vanced+ microG の署名を偽装して YouTube Vanced+ の再生バッファリングの問題を修正します</string>
-    <string name="fake_signature_title">アプリの署名を偽装 (試験的)</string>
     <string name="build_date">ビルド日時</string>
     <string name="your_data_in_youtube">YouTube上のデータを閲覧</string>
     <string name="your_data_in_youtube_summary">YouTube のアクティビティを確認、削除できます。YouTube の利便性を向上させるために YouTube やその他の Google サービスのデータがどのように使用されているかを確認できます</string>
