@@ -79,6 +79,8 @@ Hãy thử lại sau."</string>
     <string name="pref_switcher_title">Đăng ký thiết bị</string>
     <string name="pref_checkin_enable_summary">Đăng ký thiết bị của bạn với các dịch vụ của Google và tạo một mã nhận dạng thiết bị duy nhất. Vanced+ microG tách một ít thông tin nhận dạng không phải tên tài khoản Google của bạn từ dữ liệu đăng ký.</string>
     <string name="pref_device_registration_android_id">ID Android</string>
+    <string name="pref_auth_include_android_id_title">Xác thực với đăng ký thiết bị</string>
+    <string name="pref_auth_include_android_id_summary">Khi vô hiệu hóa, các yêu cầu xác thực sẽ không được liên kết với đăng ký thiết bị, điều này cho phép các thiết bị trái phép đăng nhập nhưng có thể gây ra những hậu quả về tài khoản.</string>
     <string name="pref_info_status">Trạng thái</string>
     <string name="gcm_status_pref_default">Mặc định</string>
     <string name="gcm_status_pref_manual">Thủ công</string>
@@ -98,7 +100,7 @@ Hãy thử lại sau."</string>
     <string name="pref_push_app_allow_register_title">Cho phép đăng ký</string>
     <string name="pref_push_app_allow_register_summary">Cho phép ứng dụng đăng ký nhận thông báo đẩy.</string>
     <string name="pref_push_app_wake_for_delivery_title">Khởi động ứng dụng từ tin nhắn đẩy</string>
-    <string name="pref_push_app_wake_for_delivery_summary">Khởi động ứng dụng ở chế độ nền để nhận các tin nhắn đẩy đến.</string>
+    <string name="pref_push_app_wake_for_delivery_summary">Khởi động ứng dụng ở chế độ nền để nhận các thông báo đẩy đến.</string>
     <string name="prefcat_status_title">Trạng thái</string>
     <string name="prefcat_push_apps_title">Ứng dụng sử dụng thông báo đẩy</string>
     <string name="prefcat_push_apps_registered_title">Ứng dụng đã đăng ký</string>
@@ -123,8 +125,6 @@ Hãy thử lại sau."</string>
     <string name="network_google_enabled_summary">Cho phép kết nối tới máy chủ Google</string>
     <string name="network_google_use_tor">Requires Orbot to be installed\nNot yet supported</string>
     <string name="network_google_use_tor_summary">Connect to Google via Tor network</string>
-    <string name="fake_signature_summary">Giả mạo chữ ký của ứng dụng Vanced+ microG để đánh lừa Google và khắc phục lỗi phát video trên YouTube Vanced+</string>
-    <string name="fake_signature_title">Giả mạo chữ ký Vanced+ microG (THỬ NGHIỆM)</string>
     <string name="build_date">Ngày dựng</string>
     <string name="your_data_in_youtube">Dữ liệu của bạn trong YouTube</string>
     <string name="your_data_in_youtube_summary">Xem hoặc xóa hoạt động của bạn trên YouTube và khám phá cách dữ liệu của bạn có thể giúp YouTube và các dịch vụ khác của Google hoạt động hiệu quả hơn cho bạn.</string>
