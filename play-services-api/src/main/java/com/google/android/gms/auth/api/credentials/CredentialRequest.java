@@ -10,13 +10,43 @@ package com.google.android.gms.auth.api.credentials;
 
 import org.microg.safeparcel.AutoSafeParcelable;
 
+/**
+ * Parameters for requesting a Credential, via Auth.CredentialsApi.request(). Instances can be
+ * created using CredentialRequest.Builder.
+ */
 public class CredentialRequest extends AutoSafeParcelable {
 
-    @Field(1)
-    private final boolean passwordLoginSupported;
+    @Field(1000)
+    private final int versionCode = 1;
 
-    public CredentialRequest(boolean passwordLoginSupported) {
+    @Field(1)
+    private boolean passwordLoginSupported;
+    @Field(2)
+    private String[] accountTypes;
+    @Field(3)
+    private CredentialPickerConfig credentialPickerConfig;
+    @Field(4)
+    private CredentialPickerConfig credentialHintPickerConfig;
+
+    private CredentialRequest() { }
+
+    public CredentialRequest(boolean passwordLoginSupported, String[] accountTypes, CredentialPickerConfig credentialPickerConfig, CredentialPickerConfig credentialHintPickerConfig) {
         this.passwordLoginSupported = passwordLoginSupported;
+        this.accountTypes = accountTypes;
+        this.credentialPickerConfig = credentialPickerConfig;
+        this.credentialHintPickerConfig = credentialHintPickerConfig;
+    }
+
+    public String[] getAccountTypes() {
+        return accountTypes;
+    }
+
+    public CredentialPickerConfig getCredentialHintPickerConfig() {
+        return credentialHintPickerConfig;
+    }
+
+    public CredentialPickerConfig getCredentialPickerConfig() {
+        return credentialPickerConfig;
     }
 
     /**
@@ -34,12 +64,13 @@ public class CredentialRequest extends AutoSafeParcelable {
     public static final Creator<CredentialRequest> CREATOR = new AutoCreator<CredentialRequest>(CredentialRequest.class);
 
     public static class Builder {
-
-        public Builder() {
-        }
+        private boolean passwordLoginSupported;
+        private String[] accountTypes;
+        private CredentialPickerConfig credentialPickerConfig;
+        private CredentialPickerConfig credentialHintPickerConfig;
 
         public void setAccountTypes(String... accountTypes) {
-            accountTypes.clone();
+            this.accountTypes = accountTypes.clone();
         }
     }
 }

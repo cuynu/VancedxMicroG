@@ -80,8 +80,7 @@ public class CheckinClient {
                                              DeviceIdentifier deviceIdent, PhoneInfo phoneInfo,
                                              LastCheckinInfo checkinInfo, Locale locale,
                                              List<Account> accounts, Boolean brandSpoof) {
-        CheckinRequest.Builder builder;
-        builder = new CheckinRequest.Builder()
+        CheckinRequest.Builder builder = new CheckinRequest.Builder()
                 .accountCookie(new ArrayList<>())
                 .androidId(checkinInfo.getAndroidId())
                 .checkin(new CheckinRequest.Checkin.Builder()

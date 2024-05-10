@@ -16,11 +16,13 @@
 
 package org.microg.gms;
 
+import android.accounts.Account;
 import android.os.Bundle;
 import android.os.Parcel;
 import android.os.RemoteException;
 import android.util.Log;
 
+import com.google.android.gms.common.api.Scope;
 import com.google.android.gms.common.internal.GetServiceRequest;
 import com.google.android.gms.common.internal.IGmsCallbacks;
 import com.google.android.gms.common.internal.IGmsServiceBroker;
@@ -57,27 +59,35 @@ public abstract class AbstractGmsServiceBroker extends IGmsServiceBroker.Stub {
     @Override
     public void getAddressService(IGmsCallbacks callback, int versionCode, String packageName)
             throws RemoteException {
-        callGetService(callback, versionCode, packageName);
+        callGetService(GmsService.ADDRESS, callback, versionCode, packageName);
     }
 
-    private void callGetService(IGmsCallbacks callback, int gmsVersion,
+    private void callGetService(GmsService service, IGmsCallbacks callback, int gmsVersion,
                                 String packageName) throws RemoteException {
-        callGetService(GmsService.ADDRESS, callback, gmsVersion, packageName, null);
+        callGetService(service, callback, gmsVersion, packageName, null);
     }
 
-    private void callGetService(GmsService service, IGmsCallbacks callback, int gmsVersion, String packageName, Bundle extras) throws RemoteException {
+    private void callGetService(GmsService service, IGmsCallbacks callback, int gmsVersion,
+                                String packageName, Bundle extras) throws RemoteException {
+        callGetService(service, callback, gmsVersion, packageName, extras, null, null);
+    }
+
+    private void callGetService(GmsService service, IGmsCallbacks callback, int gmsVersion, String packageName, Bundle extras, String accountName, String[] scopes) throws RemoteException {
         GetServiceRequest request = new GetServiceRequest(service.SERVICE_ID);
         request.gmsVersion = gmsVersion;
         request.packageName = packageName;
         request.extras = extras;
-<<<<<<< HEAD
-        request.account = null;
-        request.scopes = null;
-=======
         request.account = accountName == null ? null : new Account(accountName, BuildConfig.BASE_PACKAGE_NAME);
         request.scopes = scopes == null ? null : scopesFromStringArray(scopes);
->>>>>>> 25329625 (Set basePackageName)
         getService(callback, request);
+    }
+
+    private Scope[] scopesFromStringArray(String[] arr) {
+        Scope[] scopes = new Scope[arr.length];
+        for (int i = 0; i < arr.length; i++) {
+            scopes[i] = new Scope(arr[i]);
+        }
+        return scopes;
     }
 
     @Override
@@ -94,7 +104,7 @@ public abstract class AbstractGmsServiceBroker extends IGmsServiceBroker.Stub {
     public abstract void handleServiceRequest(IGmsCallbacks callback, GetServiceRequest request, GmsService service) throws RemoteException;
 
     @Override
-    public void validateAccount(IGmsCallbacks callback, ValidateAccountRequest request) {
+    public void validateAccount(IGmsCallbacks callback, ValidateAccountRequest request) throws RemoteException {
         throw new IllegalArgumentException("ValidateAccountRequest not supported");
     }
 

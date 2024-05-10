@@ -42,44 +42,39 @@ data class GcmPrefs(
         private const val MAX_INTERVAL = 15 * 60 * 1000 // 15 minutes
 
         @JvmStatic
-        fun get(context: Context): GcmPrefs? {
-            return Gcm.getContentUri(context)?.let {
-                SettingsContract.getSettings(context, it, Gcm.PROJECTION) { c ->
-                    GcmPrefs(
-                        isGcmLogEnabled = c.getInt(0) != 0,
-                        lastPersistedId = c.getString(1),
-                        gcmEnabled = c.getInt(2) != 0,
-                        networkMobile = c.getInt(3),
-                        networkWifi = c.getInt(4),
-                        networkRoaming = c.getInt(5),
-                        networkOther = c.getInt(6),
-                        learntMobileInterval = c.getInt(7),
-                        learntWifiInterval = c.getInt(8),
-                        learntOtherInterval = c.getInt(9),
-                    )
-                }
+        fun get(context: Context): GcmPrefs {
+            return SettingsContract.getSettings(context, Gcm.getContentUri(context), Gcm.PROJECTION) { c ->
+                GcmPrefs(
+                    isGcmLogEnabled = c.getInt(0) != 0,
+                    lastPersistedId = c.getString(1),
+                    gcmEnabled = c.getInt(2) != 0,
+                    networkMobile = c.getInt(3),
+                    networkWifi = c.getInt(4),
+                    networkRoaming = c.getInt(5),
+                    networkOther = c.getInt(6),
+                    learntMobileInterval = c.getInt(7),
+                    learntWifiInterval = c.getInt(8),
+                    learntOtherInterval = c.getInt(9),
+                )
             }
         }
 
         fun write(context: Context, config: ServiceConfiguration) {
-            Gcm.getContentUri(context)?.let {
-                setSettings(context, it) {
-                    put(Gcm.ENABLE_GCM, config.enabled)
-                    put(Gcm.NETWORK_MOBILE, config.mobile)
-                    put(Gcm.NETWORK_WIFI, config.wifi)
-                    put(Gcm.NETWORK_ROAMING, config.roaming)
-                    put(Gcm.NETWORK_OTHER, config.other)
-                }
+            val gcmPrefs = get(context)
+            setSettings(context, Gcm.getContentUri(context)) {
+                put(Gcm.ENABLE_GCM, config.enabled)
+                put(Gcm.NETWORK_MOBILE, config.mobile)
+                put(Gcm.NETWORK_WIFI, config.wifi)
+                put(Gcm.NETWORK_ROAMING, config.roaming)
+                put(Gcm.NETWORK_OTHER, config.other)
             }
-            get(context)?.setEnabled(context, config.enabled)
+            gcmPrefs.setEnabled(context, config.enabled)
         }
 
         @JvmStatic
         fun clearLastPersistedId(context: Context) {
-            Gcm.getContentUri(context)?.let {
-                setSettings(context, it) {
-                    put(Gcm.LAST_PERSISTENT_ID, "")
-                }
+            setSettings(context, Gcm.getContentUri(context)) {
+                put(Gcm.LAST_PERSISTENT_ID, "")
             }
         }
     }
@@ -127,25 +122,6 @@ data class GcmPrefs(
     fun learnTimeout(context: Context, pref: String) {
         Log.d("GmsGcmPrefs", "learnTimeout: $pref")
         when (pref) {
-<<<<<<< HEAD
-            PREF_NETWORK_MOBILE, PREF_NETWORK_ROAMING -> Gcm.getContentUri(context)?.let {
-                setSettings(context, it) {
-                    val newInterval = (learntMobileInterval * 0.95).toInt()
-                    put(Gcm.LEARNT_MOBILE, newInterval)
-                }
-            }
-            PREF_NETWORK_WIFI -> Gcm.getContentUri(context)?.let {
-                setSettings(context, it) {
-                    val newInterval = (learntMobileInterval * 0.95).toInt()
-                    put(Gcm.LEARNT_WIFI, newInterval)
-                }
-            }
-            else -> Gcm.getContentUri(context)?.let {
-                setSettings(context, it) {
-                    val newInterval = (learntMobileInterval * 0.95).toInt()
-                    put(Gcm.LEARNT_OTHER, newInterval)
-                }
-=======
             PREF_NETWORK_MOBILE, PREF_NETWORK_ROAMING -> setSettings(context, Gcm.getContentUri(context)) {
                 val newInterval = (learntMobileInterval * 0.95).toInt()
                 put(Gcm.LEARNT_MOBILE, max(MIN_INTERVAL, min(newInterval, MAX_INTERVAL)))
@@ -157,7 +133,6 @@ data class GcmPrefs(
             else -> setSettings(context, Gcm.getContentUri(context)) {
                 val newInterval = (learntOtherInterval * 0.95).toInt()
                 put(Gcm.LEARNT_OTHER, max(MIN_INTERVAL, min(newInterval, MAX_INTERVAL)))
->>>>>>> b0b92c8c (Set max auto heartbeat interval to 15min https://github.com/microg/GmsCore/commit/1e96dd137eae86bbf3be3ca72a6345fa837ad8ff)
             }
         }
     }
@@ -167,46 +142,25 @@ data class GcmPrefs(
         when (pref) {
             PREF_NETWORK_MOBILE, PREF_NETWORK_ROAMING -> {
                 if (time > learntMobileInterval / 4 * 3) {
-<<<<<<< HEAD
-                    Gcm.getContentUri(context)?.let {
-                        setSettings(context, it) {
-                            put(Gcm.LEARNT_MOBILE, SettingsProvider.INTERVAL)
-                        }
-=======
                     val newInterval = (learntMobileInterval * 1.02).toInt()
                     setSettings(context, Gcm.getContentUri(context)) {
                         put(Gcm.LEARNT_MOBILE, max(MIN_INTERVAL, min(newInterval, MAX_INTERVAL)))
->>>>>>> b0b92c8c (Set max auto heartbeat interval to 15min https://github.com/microg/GmsCore/commit/1e96dd137eae86bbf3be3ca72a6345fa837ad8ff)
                     }
                 }
             }
             PREF_NETWORK_WIFI -> {
                 if (time > learntWifiInterval / 4 * 3) {
-<<<<<<< HEAD
-                    Gcm.getContentUri(context)?.let {
-                        setSettings(context, it) {
-                            put(Gcm.LEARNT_WIFI, SettingsProvider.INTERVAL)
-                        }
-=======
                     val newInterval = (learntWifiInterval * 1.02).toInt()
                     setSettings(context, Gcm.getContentUri(context)) {
                         put(Gcm.LEARNT_WIFI, max(MIN_INTERVAL, min(newInterval, MAX_INTERVAL)))
->>>>>>> b0b92c8c (Set max auto heartbeat interval to 15min https://github.com/microg/GmsCore/commit/1e96dd137eae86bbf3be3ca72a6345fa837ad8ff)
                     }
                 }
             }
             else -> {
                 if (time > learntOtherInterval / 4 * 3) {
-<<<<<<< HEAD
-                    Gcm.getContentUri(context)?.let {
-                        setSettings(context, it) {
-                            put(Gcm.LEARNT_OTHER, SettingsProvider.INTERVAL)
-                        }
-=======
                     val newInterval = (learntOtherInterval * 1.02).toInt()
                     setSettings(context, Gcm.getContentUri(context)) {
                         put(Gcm.LEARNT_OTHER, max(MIN_INTERVAL, min(newInterval, MAX_INTERVAL)))
->>>>>>> b0b92c8c (Set max auto heartbeat interval to 15min https://github.com/microg/GmsCore/commit/1e96dd137eae86bbf3be3ca72a6345fa837ad8ff)
                     }
                 }
             }
@@ -220,10 +174,8 @@ data class GcmPrefs(
 
     fun extendLastPersistedId(context: Context, id: String) {
         val newId = if (lastPersistedId.isNullOrEmpty()) id else "$lastPersistedId|$id"
-        Gcm.getContentUri(context)?.let {
-            setSettings(context, it) {
-                put(Gcm.LAST_PERSISTENT_ID, newId)
-            }
+        setSettings(context, Gcm.getContentUri(context)) {
+            put(Gcm.LAST_PERSISTENT_ID, newId)
         }
     }
 

@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-package com.google.android.gms.common.api;
-
-import android.app.Activity;
-
-public class GoogleApiActivity extends Activity {
-=======
 /*
  * SPDX-FileCopyrightText: 2020, microG Project Team
  * SPDX-License-Identifier: Apache-2.0
@@ -30,5 +23,4 @@ public class GoogleApiActivity extends Activity implements DialogInterface.OnCan
     public void onCancel(DialogInterface dialog) {
 
     }
->>>>>>> 49892e88 (Restructure modules https://github.com/microg/GmsCore/commit/18c3a6154dc41cebe1d4aeda5592b8f23928356f)
 }

@@ -32,7 +32,7 @@ private const val TAG = "AuthProxyService"
 class AuthProxyService : BaseService(TAG, GmsService.AUTH_PROXY) {
     override fun handleServiceRequest(callback: IGmsCallbacks, request: GetServiceRequest, service: GmsService) {
         val packageName = PackageUtils.getAndCheckCallingPackage(this, request.packageName)
-            ?: throw IllegalArgumentException("Missing package name")
+                ?: throw IllegalArgumentException("Missing package name")
         val consumerPackageName = request.extras.getString("consumerPkg")
         if (consumerPackageName != null) PackageUtils.assertExtendedAccess(this)
         val serviceImpl = AuthServiceImpl(this, lifecycle, consumerPackageName ?: packageName)
@@ -59,10 +59,5 @@ class AuthServiceImpl(private val context: Context, private val lifecycle: Lifec
 
     override fun getLifecycle(): Lifecycle = lifecycle
 
-<<<<<<< HEAD
-    override fun onTransact(code: Int, data: Parcel, reply: Parcel?, flags: Int): Boolean = warnOnTransactionIssues(code, reply, flags) { super.onTransact(code, data, reply, flags) }
-}
-=======
     override fun onTransact(code: Int, data: Parcel, reply: Parcel?, flags: Int): Boolean = warnOnTransactionIssues(code, reply, flags, TAG) { super.onTransact(code, data, reply, flags) }
 }
->>>>>>> 6f98f5aa (Asorted fixes https://github.com/microg/GmsCore/commit/80c1d9cf61baeec0692ec9efd3233305cda3c016)

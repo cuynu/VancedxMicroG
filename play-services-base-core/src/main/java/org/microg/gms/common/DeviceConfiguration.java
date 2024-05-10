@@ -112,10 +112,6 @@ public class DeviceConfiguration {
 
     @SuppressWarnings({"InlinedApi"})
     private static List<String> getNativePlatforms() {
-<<<<<<< HEAD
-        List<String> nativePlatforms;
-=======
->>>>>>> b20726b4 (Stop importing android.os.Build https://github.com/microg/GmsCore/commit/56b468ecbb450844c3e41a2b7d85ff979d98734b)
         return Arrays.asList(Build.SUPPORTED_ABIS);
     }
 

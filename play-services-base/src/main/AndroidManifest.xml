@@ -15,7 +15,8 @@
   ~ limitations under the License.
   -->
 
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest package="org.microg.gms.base"
+          xmlns:android="http://schemas.android.com/apk/res/android">
 
     <application>
         <meta-data

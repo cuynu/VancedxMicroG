@@ -141,6 +141,7 @@ internal object PackageSpoofUtils {
      * @param packageName name of the package to get metadata of
      * @return package metadata bundle
      */
+    @Suppress("DEPRECATION")
     private fun getPackageMetadata(packageManager: PackageManager, packageName: String): Bundle? {
         return try {
             // PackageManager.getPackageInfo() has been deprecated in targetSdkVersion 30+

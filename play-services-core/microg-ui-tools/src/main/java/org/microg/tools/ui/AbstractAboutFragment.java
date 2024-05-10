@@ -29,7 +29,6 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
@@ -65,7 +64,7 @@ public abstract class AbstractAboutFragment extends Fragment {
     }
 
     protected String getAppName() {
-        return getAppName(requireContext());
+        return getAppName(getContext());
     }
 
     public static String getLibVersion(String packageName) {
@@ -83,7 +82,7 @@ public abstract class AbstractAboutFragment extends Fragment {
     }
 
     protected String getSelfVersion() {
-        return getSelfVersion(requireContext());
+        return getSelfVersion(getContext());
     }
 
     protected String getSummary() {
@@ -94,7 +93,7 @@ public abstract class AbstractAboutFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View aboutRoot = inflater.inflate(R.layout.about_root, container, false);
-        ((ImageView) aboutRoot.findViewById(android.R.id.icon)).setImageDrawable(getIcon(requireContext()));
+        ((ImageView) aboutRoot.findViewById(android.R.id.icon)).setImageDrawable(getIcon(getContext()));
         ((TextView) aboutRoot.findViewById(android.R.id.title)).setText(getAppName());
         ((TextView) aboutRoot.findViewById(R.id.about_version)).setText(getString(R.string.about_version_str, getSelfVersion()));
         String summary = getSummary();
@@ -137,7 +136,6 @@ public abstract class AbstractAboutFragment extends Fragment {
             this.copyright = copyright;
         }
 
-        @NonNull
         @Override
         public String toString() {
             return name + ", " + copyright;

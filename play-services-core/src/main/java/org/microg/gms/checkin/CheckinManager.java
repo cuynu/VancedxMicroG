@@ -71,7 +71,8 @@ public class CheckinManager {
 
         ContentResolver resolver = context.getContentResolver();
         for (CheckinResponse.GservicesSetting setting : response.setting) {
-            GServices.setString(resolver, setting.name.utf8(), setting.value_.utf8());
+            if (setting.name != null && setting.value_ != null)
+                GServices.setString(resolver, setting.name.utf8(), setting.value_.utf8());
         }
 
         return info;

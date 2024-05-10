@@ -5,9 +5,6 @@
 
 package org.microg.gms.common.api;
 
-<<<<<<< HEAD
-import android.annotation.SuppressLint;
-=======
 import android.content.Context;
 import android.os.Bundle;
 
@@ -21,27 +18,22 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
->>>>>>> 49892e88 (Restructure modules https://github.com/microg/GmsCore/commit/18c3a6154dc41cebe1d4aeda5592b8f23928356f)
 
 public class GoogleApiManager {
-    @SuppressLint("StaticFieldLeak")
     private static GoogleApiManager instance;
-<<<<<<< HEAD
-=======
     private Context context;
     private Map<ApiInstance, Api.Client> clientMap = new HashMap<>();
     private Map<ApiInstance, List<WaitingApiCall<?>>> waitingApiCallMap = new HashMap<>();
->>>>>>> 49892e88 (Restructure modules https://github.com/microg/GmsCore/commit/18c3a6154dc41cebe1d4aeda5592b8f23928356f)
 
-    private GoogleApiManager() {
+    private GoogleApiManager(Context context) {
+        this.context = context;
     }
 
-    public synchronized static void getInstance() {
-        if (instance == null) instance = new GoogleApiManager();
+    public synchronized static GoogleApiManager getInstance(Context context) {
+        if (instance == null) instance = new GoogleApiManager(context);
+        return instance;
     }
 
-<<<<<<< HEAD
-=======
     private synchronized <O extends Api.ApiOptions, A extends Api.Client> A clientForApi(GoogleApi<O> api) {
         ApiInstance apiInstance = new ApiInstance(api);
         if (clientMap.containsKey(apiInstance)) {
@@ -194,5 +186,4 @@ public class GoogleApiManager {
             return result;
         }
     }
->>>>>>> 49892e88 (Restructure modules https://github.com/microg/GmsCore/commit/18c3a6154dc41cebe1d4aeda5592b8f23928356f)
 }

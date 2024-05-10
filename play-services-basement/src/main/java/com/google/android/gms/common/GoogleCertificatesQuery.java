@@ -1,47 +1,38 @@
 /*
- * Copyright (C) 2019 microG Project Team
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ * SPDX-FileCopyrightText: 2023 microG Project Team
+ * SPDX-License-Identifier: Apache-2.0
  */
 
-package com.google.android.gms.common.internal;
+package com.google.android.gms.common;
 
 import android.os.IBinder;
+import android.os.Parcel;
 import android.os.RemoteException;
-
+import androidx.annotation.NonNull;
+import com.google.android.gms.common.internal.CertData;
+import com.google.android.gms.common.internal.ICertData;
+import com.google.android.gms.common.internal.safeparcel.AbstractSafeParcelable;
+import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
+import com.google.android.gms.common.internal.safeparcel.SafeParcelableCreatorAndWriter;
 import com.google.android.gms.dynamic.IObjectWrapper;
 import com.google.android.gms.dynamic.ObjectWrapper;
+import org.microg.gms.common.Hide;
 
-import org.microg.safeparcel.AutoSafeParcelable;
-import org.microg.safeparcel.SafeParceled;
-
-public class GoogleCertificatesQuery extends AutoSafeParcelable {
-    @SafeParceled(1)
-    private final String packageName;
-    @SafeParceled(2)
-    private final IBinder certDataBinder;
+@Hide
+@SafeParcelable.Class
+public class GoogleCertificatesQuery extends AbstractSafeParcelable {
+    @Field(value = 1, getterName = "getCallingPackage")
+    String callingPackage;
+    @Field(2)
+    IBinder certDataBinder;
     private CertData certData;
-    @SafeParceled(3)
-    private final boolean allowNonRelease;
+    @Field(3)
+    boolean allowTestKeys;
+    @Field(4)
+    boolean ignoreTestKeysOverride;
 
-    public GoogleCertificatesQuery(String packageName, IBinder certDataBinder, boolean allowNonRelease) {
-        this.packageName = packageName;
-        this.certDataBinder = certDataBinder;
-        this.allowNonRelease = allowNonRelease;
-    }
-
-    public String getPackageName() {
-        return packageName;
+    public String getCallingPackage() {
+        return callingPackage;
     }
 
     public CertData getCertData() {
@@ -77,5 +68,10 @@ public class GoogleCertificatesQuery extends AutoSafeParcelable {
         return certData;
     }
 
-    public static final Creator<GoogleCertificatesQuery> CREATOR = new AutoCreator<GoogleCertificatesQuery>(GoogleCertificatesQuery.class);
+    @Override
+    public void writeToParcel(@NonNull Parcel dest, int flags) {
+        CREATOR.writeToParcel(this, dest, flags);
+    }
+
+    public static final SafeParcelableCreatorAndWriter<GoogleCertificatesQuery> CREATOR = findCreator(GoogleCertificatesQuery.class);
 }

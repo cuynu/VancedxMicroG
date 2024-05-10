@@ -97,12 +97,9 @@ android {
         }
     }
 
-<<<<<<< HEAD
-=======
     lintOptions {
         disable 'MissingTranslation', 'GetLocales', 'BatteryLife', 'ImpliedQuantity', 'MissingQuantity', 'InvalidWakeLockTag', 'Range'
     }
->>>>>>> a907c391 (Build: Fix GetLocales lint https://github.com/microg/GmsCore/commit/f0b15d275a0c4ec3625033d651414d396e368320)
 
     buildTypes {
         release {
@@ -112,22 +109,16 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_17
-        targetCompatibility JavaVersion.VERSION_17
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
 
     packagingOptions {
+        exclude 'META-INF/ASL2.0'
         jniLibs {
             useLegacyPackaging true
         }
-        resources {
-            excludes += ['META-INF/ASL2.0']
-        }
     }
-    lint {
-        disable 'MissingTranslation', 'BatteryLife', 'ImpliedQuantity', 'MissingQuantity', 'InvalidWakeLockTag', 'Range'
-    }
-    namespace 'com.mgoogle.android.gms'
 }
 
 if (file('user.gradle').exists()) {

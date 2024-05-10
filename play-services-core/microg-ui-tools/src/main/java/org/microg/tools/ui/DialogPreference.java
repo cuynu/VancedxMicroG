@@ -24,7 +24,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
-import androidx.annotation.NonNull;
 import androidx.fragment.app.DialogFragment;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceDialogFragmentCompat;
@@ -60,21 +59,22 @@ public class DialogPreference extends androidx.preference.DialogPreference imple
      * Called when the dialog is dismissed and should be used to save data to
      * the {@link SharedPreferences}.
      *
+     * @param positiveResult Whether the positive button was clicked (true), or
+     *                       the negative button was clicked or the dialog was canceled (false).
      */
-    protected void onDialogClosed() {
+    protected void onDialogClosed(boolean positiveResult) {
     }
 
     @Override
-    public boolean onPreferenceDisplayDialog(@NonNull PreferenceFragmentCompat caller, @NonNull Preference pref) {
+    public boolean onPreferenceDisplayDialog(PreferenceFragmentCompat caller, Preference pref) {
         DialogPreferenceCompatDialogFragment fragment = new DialogPreferenceCompatDialogFragment();
         fragment.setTargetFragment(caller, 0);
-        assert caller.getFragmentManager() != null;
         fragment.show(caller.getFragmentManager(), DIALOG_FRAGMENT_TAG);
         return true;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull PreferenceViewHolder view) {
+    public void onBindViewHolder(PreferenceViewHolder view) {
         super.onBindViewHolder(view);
 
         ViewGroup.LayoutParams layoutParams = view.findViewById(R.id.icon_frame).getLayoutParams();
@@ -88,7 +88,7 @@ public class DialogPreference extends androidx.preference.DialogPreference imple
     public static class DialogPreferenceCompatDialogFragment extends PreferenceDialogFragmentCompat {
 
         @Override
-        protected View onCreateDialogView(@NonNull Context context) {
+        protected View onCreateDialogView(Context context) {
             if (getPreference() instanceof DialogPreference) {
                 View view = ((DialogPreference) getPreference()).onCreateDialogView();
                 if (view != null) return view;
@@ -99,7 +99,7 @@ public class DialogPreference extends androidx.preference.DialogPreference imple
         @Override
         public void onDialogClosed(boolean positiveResult) {
             if (getPreference() instanceof DialogPreference) {
-                ((DialogPreference) getPreference()).onDialogClosed();
+                ((DialogPreference) getPreference()).onDialogClosed(positiveResult);
             }
         }
 

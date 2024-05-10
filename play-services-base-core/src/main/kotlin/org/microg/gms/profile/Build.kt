@@ -5,6 +5,8 @@
 
 package org.microg.gms.profile
 
+import android.annotation.TargetApi
+
 object Build {
     @JvmField
     var BOARD: String? = null

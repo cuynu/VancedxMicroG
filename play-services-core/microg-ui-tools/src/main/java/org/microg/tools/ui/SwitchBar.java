@@ -116,10 +116,37 @@ public class SwitchBar extends LinearLayout implements CompoundButton.OnCheckedC
         mSwitch.setChecked(checked);
     }
 
+    public void setCheckedInternal(boolean checked) {
+        setTextViewLabel(checked);
+        mSwitch.setCheckedInternal(checked);
+    }
+
+    public boolean isChecked() {
+        return mSwitch.isChecked();
+    }
+
     public void setEnabled(boolean enabled) {
         super.setEnabled(enabled);
         mTextView.setEnabled(enabled);
         mSwitch.setEnabled(enabled);
+    }
+
+    public final ToggleSwitch getSwitch() {
+        return mSwitch;
+    }
+
+    public void show() {
+        if (!isShowing()) {
+            setVisibility(View.VISIBLE);
+            mSwitch.setOnCheckedChangeListener(this);
+        }
+    }
+
+    public void hide() {
+        if (isShowing()) {
+            setVisibility(View.GONE);
+            mSwitch.setOnCheckedChangeListener(null);
+        }
     }
 
     public boolean isShowing() {
@@ -149,6 +176,13 @@ public class SwitchBar extends LinearLayout implements CompoundButton.OnCheckedC
             throw new IllegalStateException("Cannot add twice the same OnSwitchChangeListener");
         }
         mSwitchChangeListeners.add(listener);
+    }
+
+    public void removeOnSwitchChangeListener(OnSwitchChangeListener listener) {
+        if (!mSwitchChangeListeners.contains(listener)) {
+            throw new IllegalStateException("Cannot remove OnSwitchChangeListener");
+        }
+        mSwitchChangeListeners.remove(listener);
     }
 
     static class SavedState extends BaseSavedState {

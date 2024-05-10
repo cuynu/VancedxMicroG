@@ -22,13 +22,8 @@
             android:title="@string/account_manager_title"
             android:summary="@string/manage_google_account_summary">
             <intent
-<<<<<<< HEAD
-                android:targetClass="org.microg.gms.ui.AccountSettingsActivity"
-                android:targetPackage="com.mgoogle.android.gms" />
-=======
-                android:targetClass="org.microg.gms.auth.login.LoginActivity"
+                android:targetClass="org.microg.gms.ui.GoogleMoreFragment$AsActivity"
                 android:targetPackage="@string/var_pref_start_gms_package" />
->>>>>>> 25329625 (Set basePackageName)
         </Preference>
         <Preference
             android:icon="@drawable/ic_device_login"
@@ -38,16 +33,6 @@
             android:icon="@drawable/ic_cloud_bell"
             android:key="pref_gcm"
             android:title="@string/service_name_mcs" />
-        <Preference
-            android:icon="@drawable/dots_horizontal"
-            android:key="pref_google_more"
-            android:title="@string/pref_more_settings"
-            android:summary="@string/miscellaneous_settings"
-            app:isPreferenceVisible="true">
-            <intent
-                android:targetClass="org.microg.gms.ui.GoogleMoreFragment$AsActivity"
-                android:targetPackage="@string/var_pref_start_gms_package" />
-        </Preference>
         <SwitchPreferenceCompat
             android:key="hideLauncherIcon"
             android:title="@string/hideLauncherIcon"

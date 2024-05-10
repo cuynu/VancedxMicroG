@@ -4,8 +4,8 @@
   ~ SPDX-License-Identifier: Apache-2.0
   -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="notification_service_name">電池の最適化 の警告</string>
+    <string name="notification_service_name">バッテリー節約の警告</string>
     <string name="small_notification_service_title">通知を展開する</string>
-    <string name="big_notification_service_title">Vanced microGをバックグラウンドで保持</string>
-    <string name="notification_service_content">ここをタップして、Vanced microGの[電池の最適化]を無効にし、デバイスを再起動して通知を削除してください。</string>
+    <string name="big_notification_service_title">microGをバックグラウンドで保持</string>
+    <string name="notification_service_content">こちらをタップして、microGのバッテリー最適化を無効にし、デバイスを再起動して通知を削除する</string>
 </resources>

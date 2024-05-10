@@ -17,8 +17,8 @@
 apply plugin: 'com.android.library'
 
 android {
-    compileSdk androidCompileSdk
-    buildToolsVersion '33.0.2'
+    compileSdkVersion androidCompileSdk
+    buildToolsVersion androidBuildVersionTools
 
     defaultConfig {
         minSdkVersion androidMinSdk
@@ -27,11 +27,7 @@ android {
 
     compileOptions {
         sourceCompatibility = 1.8
-        targetCompatibility = "1.8"
-    }
-    namespace 'org.microg.gms.api'
-    buildFeatures {
-        aidl true
+        targetCompatibility = 1.8
     }
 }
 

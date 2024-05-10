@@ -16,9 +16,6 @@
 
 package com.google.android.gms.common.api;
 
-<<<<<<< HEAD
-public interface PendingResult {
-=======
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -59,5 +56,4 @@ public interface PendingResult<R extends Result> {
     public void setResultCallback(ResultCallback<R> callback, long time, TimeUnit unit);
 
     public void setResultCallback(ResultCallback<R> callback);
->>>>>>> 49892e88 (Restructure modules https://github.com/microg/GmsCore/commit/18c3a6154dc41cebe1d4aeda5592b8f23928356f)
 }

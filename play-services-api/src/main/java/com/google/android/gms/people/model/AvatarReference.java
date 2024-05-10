@@ -17,11 +17,18 @@
 package com.google.android.gms.people.model;
 
 import org.microg.safeparcel.AutoSafeParcelable;
+import org.microg.safeparcel.SafeParceled;
 
 public class AvatarReference extends AutoSafeParcelable {
 
-    public static final Creator<AvatarReference> CREATOR = new AutoCreator<>(AvatarReference.class);
+    @SafeParceled(1000)
+    private int versionCode;
 
-    public AvatarReference() {
-    }
+    @SafeParceled(1)
+    public int source;
+
+    @SafeParceled(2)
+    public String location;
+
+    public static final Creator<AvatarReference> CREATOR = new AutoCreator<AvatarReference>(AvatarReference.class);
 }

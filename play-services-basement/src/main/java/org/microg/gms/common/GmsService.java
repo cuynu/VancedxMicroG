@@ -171,9 +171,9 @@ public enum GmsService {
     APP_ERRORS(334, "com.google.android.gms.apperrors.service.START_APP_ERROR"),
     ;
 
-    public final int SERVICE_ID;
-    public final String ACTION;
-    public final String[] SECONDARY_ACTIONS;
+    public int SERVICE_ID;
+    public String ACTION;
+    public String[] SECONDARY_ACTIONS;
 
     GmsService(int serviceId, String... actions) {
         this.SERVICE_ID = serviceId;
@@ -181,9 +181,23 @@ public enum GmsService {
         this.SECONDARY_ACTIONS = actions;
     }
 
+    public interface ADVERTISING_ID {
+        // Has no service id
+        String ACTION = "com.google.android.gms.ads.identifier.service.START";
+    }
+
     public static GmsService byServiceId(int serviceId) {
         for (GmsService service : values()) {
             if (service.SERVICE_ID == serviceId) return service;
+        }
+        return UNKNOWN;
+    }
+
+    public static GmsService byAction(String action) {
+        for (GmsService service : values()) {
+            for (String serviceAction : service.SECONDARY_ACTIONS) {
+                if (serviceAction.equals(action)) return service;
+            }
         }
         return UNKNOWN;
     }

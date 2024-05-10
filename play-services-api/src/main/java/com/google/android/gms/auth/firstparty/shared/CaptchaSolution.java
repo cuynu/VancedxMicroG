@@ -17,9 +17,13 @@
 package com.google.android.gms.auth.firstparty.shared;
 
 import org.microg.safeparcel.AutoSafeParcelable;
+import org.microg.safeparcel.SafeParceled;
 
 // TODO
 public class CaptchaSolution extends AutoSafeParcelable {
 
-    public static final Creator<CaptchaSolution> CREATOR = new AutoCreator<>(CaptchaSolution.class);
+    @SafeParceled(1)
+    private final int versionCode = 1;
+
+    public static final Creator<CaptchaSolution> CREATOR = new AutoCreator<CaptchaSolution>(CaptchaSolution.class);
 }

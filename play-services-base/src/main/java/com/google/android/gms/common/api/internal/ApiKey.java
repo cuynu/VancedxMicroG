@@ -5,8 +5,8 @@
 
 package com.google.android.gms.common.api.internal;
 
-public class ApiKey {
+import com.google.android.gms.common.api.Api;
 
-    public ApiKey() {
-    }
+public class ApiKey<O extends Api.ApiOptions> {
+    private Api<O> api;
 }

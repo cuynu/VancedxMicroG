@@ -55,12 +55,7 @@ public class AccountContentProvider extends ContentProvider {
     @Nullable
     @Override
     public Bundle call(String method, String arg, Bundle extras) {
-<<<<<<< HEAD
-        String suggestedPackageName;
-        suggestedPackageName = getCallingPackage();
-=======
         String suggestedPackageName = getCallingPackage();
->>>>>>> b20726b4 (Stop importing android.os.Build https://github.com/microg/GmsCore/commit/56b468ecbb450844c3e41a2b7d85ff979d98734b)
         String packageName = PackageUtils.getAndCheckCallingPackage(getContext(), suggestedPackageName);
         Log.d(TAG, "Call " + method + " from " + packageName + " with arg " + arg);
         if (!PackageUtils.callerHasExtendedAccess(Objects.requireNonNull(getContext()))) {
@@ -77,11 +72,7 @@ public class AccountContentProvider extends ContentProvider {
             if (arg != null && (arg.equals(DEFAULT_ACCOUNT_TYPE) || arg.startsWith(DEFAULT_ACCOUNT_TYPE + "."))) {
                 AccountManager am = AccountManager.get(getContext());
                 accounts = am.getAccountsByTypeForPackage(arg, packageName);
-<<<<<<< HEAD
-                if (accounts == null || accounts.length == 0) {
-=======
                 if (accounts.length == 0) {
->>>>>>> b20726b4 (Stop importing android.os.Build https://github.com/microg/GmsCore/commit/56b468ecbb450844c3e41a2b7d85ff979d98734b)
                     accounts = am.getAccountsByType(arg);
                 }
                 if (SDK_INT >= 26 && arg.equals(DEFAULT_ACCOUNT_TYPE)) {

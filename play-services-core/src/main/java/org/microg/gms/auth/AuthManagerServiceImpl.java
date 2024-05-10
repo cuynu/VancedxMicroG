@@ -16,23 +16,24 @@
 
 package org.microg.gms.auth;
 
-import static android.accounts.AccountManager.KEY_ACCOUNTS;
-import static android.accounts.AccountManager.KEY_ACCOUNT_NAME;
-import static android.accounts.AccountManager.KEY_ACCOUNT_TYPE;
-import static android.accounts.AccountManager.KEY_AUTHTOKEN;
-import static android.accounts.AccountManager.KEY_CALLER_PID;
-
 import android.accounts.Account;
 import android.accounts.AccountManager;
 import android.annotation.SuppressLint;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Parcel;
 import android.os.RemoteException;
+import android.util.Base64;
 import android.util.Log;
 
+import androidx.core.app.NotificationCompat;
+
 import com.google.android.auth.IAuthManagerService;
+import com.mgoogle.android.gms.R;
 import com.google.android.gms.auth.AccountChangeEventsRequest;
 import com.google.android.gms.auth.AccountChangeEventsResponse;
 import com.google.android.gms.auth.GetHubTokenInternalResponse;
@@ -45,15 +46,13 @@ import org.microg.gms.common.PackageUtils;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-<<<<<<< HEAD
-=======
 import static android.accounts.AccountManager.*;
 import static android.os.Build.VERSION.SDK_INT;
 
->>>>>>> 6f98f5aa (Asorted fixes https://github.com/microg/GmsCore/commit/80c1d9cf61baeec0692ec9efd3233305cda3c016)
 public class AuthManagerServiceImpl extends IAuthManagerService.Stub {
     private static final String TAG = "GmsAuthManagerSvc";
 
@@ -72,6 +71,7 @@ public class AuthManagerServiceImpl extends IAuthManagerService.Stub {
     public static final String KEY_DELEGATEE_USER_ID = "delegatee_user_id";
 
     public static final String KEY_ERROR = "Error";
+    public static final String KEY_USER_RECOVERY_INTENT = "userRecoveryIntent";
 
     private final Context context;
 
@@ -178,10 +178,6 @@ public class AuthManagerServiceImpl extends IAuthManagerService.Stub {
     }
 
     @Override
-<<<<<<< HEAD
-    public Bundle requestGoogleAccountsAccess(String packageName) {
-        Log.w(TAG, "Not implemented: requestGoogleAccountsAccess(" + packageName + ")");
-=======
     public Bundle requestGoogleAccountsAccess(String packageName) throws RemoteException {
         PackageUtils.assertExtendedAccess(context);
         if (SDK_INT >= 26) {
@@ -194,22 +190,17 @@ public class AuthManagerServiceImpl extends IAuthManagerService.Stub {
         } else {
             Log.w(TAG, "Not implemented: requestGoogleAccountsAccess(" + packageName + ")");
         }
->>>>>>> 6f98f5aa (Asorted fixes https://github.com/microg/GmsCore/commit/80c1d9cf61baeec0692ec9efd3233305cda3c016)
         return null;
     }
 
     @Override
-<<<<<<< HEAD
-    public int hasCapabilities(HasCababilitiesRequest request) {
-=======
     public int hasCapabilities(HasCapabilitiesRequest request) throws RemoteException {
         Log.w(TAG, "Not implemented: hasCapabilities(" + request.account + ", " + Arrays.toString(request.capabilities) + ")");
->>>>>>> d04e2718 (Auth: Forward UID/PID from IAuthManagerService.getTokenWithAccount https://github.com/microg/GmsCore/commit/4a7bac35f8eeb1bb3cb1607dc03b439b819abe40)
         return 1;
     }
 
     @Override
-    public GetHubTokenInternalResponse getHubToken(GetHubTokenRequest request, Bundle extras) {
+    public GetHubTokenInternalResponse getHubToken(GetHubTokenRequest request, Bundle extras) throws RemoteException {
         Log.w(TAG, "Not implemented: getHubToken()");
         return null;
     }

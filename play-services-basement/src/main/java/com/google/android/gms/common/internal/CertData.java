@@ -55,12 +55,12 @@ public class CertData extends ICertData.Stub {
     }
 
     @Override
-    public IObjectWrapper getWrappedBytes() {
+    public IObjectWrapper getWrappedBytes() throws RemoteException {
         return ObjectWrapper.wrap(getBytes());
     }
 
     @Override
-    public int remoteHashCode() {
+    public int remoteHashCode() throws RemoteException {
         return hashCode();
     }
 }

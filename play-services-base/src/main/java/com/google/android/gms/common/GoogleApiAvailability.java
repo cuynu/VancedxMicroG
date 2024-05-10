@@ -16,25 +16,65 @@
 
 package com.google.android.gms.common;
 
-import android.app.Dialog;
+import static com.google.android.gms.common.ConnectionResult.INTERNAL_ERROR;
+import static com.google.android.gms.common.ConnectionResult.INVALID_ACCOUNT;
+import static com.google.android.gms.common.ConnectionResult.NETWORK_ERROR;
+import static com.google.android.gms.common.ConnectionResult.RESOLUTION_REQUIRED;
+import static com.google.android.gms.common.ConnectionResult.SERVICE_DISABLED;
+import static com.google.android.gms.common.ConnectionResult.SERVICE_INVALID;
+import static com.google.android.gms.common.ConnectionResult.SERVICE_MISSING;
+import static com.google.android.gms.common.ConnectionResult.SERVICE_VERSION_UPDATE_REQUIRED;
+import static com.google.android.gms.common.ConnectionResult.SIGN_IN_REQUIRED;
+import static com.google.android.gms.common.ConnectionResult.SUCCESS;
 
+import android.app.Activity;
+import android.app.Dialog;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.os.Bundle;
+import android.util.Log;
+
+import androidx.fragment.app.FragmentActivity;
+
+import com.google.android.gms.common.api.GoogleApiClient.OnConnectionFailedListener;
+import com.google.android.gms.tasks.Task;
+import com.google.android.gms.tasks.Tasks;
+
+import org.microg.gms.common.Constants;
 import org.microg.gms.common.PublicApi;
 
 @PublicApi
 public class GoogleApiAvailability {
+    private static final String TAG = "GmsApiAvailability";
+
+    /**
+     * Package name for Google Play services.
+     */
+    public static final String GOOGLE_PLAY_SERVICES_PACKAGE = Constants.GMS_PACKAGE_NAME;
+
+    /**
+     * Google Play services client library version (declared in library's AndroidManifest.xml android:versionCode).
+     */
+    public static final int GOOGLE_PLAY_SERVICES_VERSION_CODE = Constants.GMS_VERSION_CODE;
+
+    private static GoogleApiAvailability instance;
 
     private GoogleApiAvailability() {
-    }
-
-    private static final class InstanceHolder {
-        static final GoogleApiAvailability instance = new GoogleApiAvailability();
     }
 
     /**
      * Returns the singleton instance of GoogleApiAvailability.
      */
     public static GoogleApiAvailability getInstance() {
-        return InstanceHolder.instance;
+        if (instance == null) {
+            synchronized (GoogleApiAvailability.class) {
+                if (instance == null) {
+                    instance = new GoogleApiAvailability();
+                }
+            }
+        }
+        return instance;
     }
 
 
@@ -44,14 +84,32 @@ public class GoogleApiAvailability {
      * to the Play Store if Google Play services is out of date or missing, or to system settings
      * if Google Play services is disabled on the device.
      *
+     * @param activity    parent activity for creating the dialog, also used for identifying language to display dialog in.
+     * @param errorCode   error code returned by {@link #isGooglePlayServicesAvailable(Context)} call.
+     *                    If errorCode is {@link ConnectionResult#SUCCESS} then null is returned.
+     * @param requestCode The requestCode given when calling startActivityForResult.
      */
-    public Dialog getErrorDialog() {
+    public Dialog getErrorDialog(Activity activity, int errorCode, int requestCode) {
+        return getErrorDialog(activity, errorCode, requestCode, null);
+    }
+
+    /**
+     * Returns a dialog to address the provided errorCode. The returned dialog displays a localized
+     * message about the error and upon user confirmation (by tapping on dialog) will direct them
+     * to the Play Store if Google Play services is out of date or missing, or to system settings
+     * if Google Play services is disabled on the device.
+     *
+     * @param activity       parent activity for creating the dialog, also used for identifying language to display dialog in.
+     * @param errorCode      error code returned by {@link #isGooglePlayServicesAvailable(Context)} call.
+     *                       If errorCode is {@link ConnectionResult#SUCCESS} then null is returned.
+     * @param requestCode    The requestCode given when calling startActivityForResult.
+     * @param cancelListener The {@link DialogInterface.OnCancelListener} to invoke if the dialog is canceled.
+     */
+    public Dialog getErrorDialog(Activity activity, int errorCode, int requestCode, DialogInterface.OnCancelListener cancelListener) {
         // TODO
         return null;
     }
 
-<<<<<<< HEAD
-=======
     /**
      * Returns a PendingIntent to address the provided connection failure.
      * <p/>
@@ -241,5 +299,4 @@ public class GoogleApiAvailability {
             // TODO
         }
     }
->>>>>>> 49892e88 (Restructure modules https://github.com/microg/GmsCore/commit/18c3a6154dc41cebe1d4aeda5592b8f23928356f)
 }

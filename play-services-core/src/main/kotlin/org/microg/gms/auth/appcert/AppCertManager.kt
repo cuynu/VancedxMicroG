@@ -7,6 +7,7 @@ package org.microg.gms.auth.appcert
 
 import android.content.Context
 import android.database.Cursor
+import android.os.SystemClock
 import android.util.Base64
 import android.util.Log
 import com.android.volley.NetworkResponse
@@ -62,7 +63,7 @@ class AppCertManager(private val context: Context) {
                 Log.w(TAG, "DeviceKeys for app certifications are experimental")
                 deviceKeyCacheTime = currentTime
                 val lastCheckinInfo = LastCheckinInfo.read(context)
-                val androidId = lastCheckinInfo?.androidId
+                val androidId = lastCheckinInfo.androidId
                 val sessionId = Random.nextLong()
                 val token = completeRegisterRequest(context, GcmDatabase(context), RegisterRequest().build(context)
                         .checkin(lastCheckinInfo)
@@ -75,7 +76,7 @@ class AppCertManager(private val context: Context) {
                         .extraParam("scope", REGISTER_SCOPE))
                         .getString(GcmConstants.EXTRA_REGISTRATION_ID)
                 val request = DeviceKeyRequest(
-                        androidId = lastCheckinInfo?.androidId,
+                        androidId = lastCheckinInfo.androidId,
                         sessionId = sessionId,
                         versionInfo = DeviceKeyRequest.VersionInfo(Build.VERSION.SDK_INT, BuildConfig.VERSION_CODE),
                         token = token
@@ -111,10 +112,10 @@ class AppCertManager(private val context: Context) {
 
                     override fun getHeaders(): Map<String, String> {
                         return mapOf(
-                            "User-Agent" to "GoogleAuth/1.4 (${Build.DEVICE} ${Build.ID}); gzip",
-                            "content-type" to "application/octet-stream",
-                            "app" to "com.google.android.gms",
-                            "device" to androidId!!.toString(16)
+                                "User-Agent" to "GoogleAuth/1.4 (${Build.DEVICE} ${Build.ID}); gzip",
+                                "content-type" to "application/octet-stream",
+                                "app" to "com.google.android.gms",
+                                "device" to androidId.toString(16)
                         )
                     }
                 })
@@ -153,14 +154,7 @@ class AppCertManager(private val context: Context) {
             )
         } else {
             Log.d(TAG, "Using fallback spatula header based on Android ID")
-<<<<<<< HEAD
-            val androidId = CheckIn.getContentUri(context)?.let {
-                getSettings(context,
-                    it, arrayOf(CheckIn.ANDROID_ID, CheckIn.SECURITY_TOKEN)) { cursor: Cursor -> cursor.getLong(0) }
-            }
-=======
             val androidId = getSettings(context, CheckIn.getContentUri(context), arrayOf(CheckIn.ANDROID_ID)) { cursor: Cursor -> cursor.getLong(0) }
->>>>>>> dc5ec8f7 (AppCert: Update for latest API https://github.com/microg/GmsCore/commit/3a42d956abb017e35d30204c556afcc29cb8a636)
             SpatulaHeaderProto(
                     packageInfo = SpatulaHeaderProto.PackageInfo(packageName, packageCertificateHash),
                     deviceId = androidId

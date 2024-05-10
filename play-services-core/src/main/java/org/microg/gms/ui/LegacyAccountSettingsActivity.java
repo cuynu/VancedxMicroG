@@ -45,7 +45,7 @@ public class LegacyAccountSettingsActivity extends AbstractSettingsActivity {
 
     public static class AccountSettingsFragment extends ResourceSettingsFragment {
         public AccountSettingsFragment() {
-            preferencesResource =  R.xml.preferences_account;
+            preferencesResource =  R.xml.preferences_google_more;
         }
 
         @Override

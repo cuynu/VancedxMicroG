@@ -16,13 +16,10 @@
 
 package org.microg.gms.common;
 
-<<<<<<< HEAD
-=======
 import static org.microg.gms.common.Constants.GMS_PACKAGE_NAME;
 import static org.microg.gms.common.Constants.GMS_PACKAGE_SIGNATURE_SHA1;
 
 import android.annotation.SuppressLint;
->>>>>>> 25329625 (Set basePackageName)
 import android.app.ActivityManager;
 import android.app.Application;
 import android.app.PendingIntent;
@@ -46,17 +43,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-import static android.os.Build.VERSION.SDK_INT;
-import static org.microg.gms.common.Constants.GMS_PACKAGE_NAME;
-import static org.microg.gms.common.Constants.GMS_PACKAGE_SIGNATURE_SHA1;
-import static org.microg.gms.common.Constants.GMS_SECONDARY_PACKAGE_SIGNATURE_SHA1;
-
 public class PackageUtils {
 
     private static final String GOOGLE_PLATFORM_KEY = GMS_PACKAGE_SIGNATURE_SHA1;
-    private static final String GOOGLE_PLATFORM_KEY_2 = GMS_SECONDARY_PACKAGE_SIGNATURE_SHA1;
-    private static final String GOOGLE_APP_KEY = "24bb24c05e47e0aefa68a58a766179d9b613a600";
-    private static final String[] GOOGLE_PRIMARY_KEYS = {GOOGLE_PLATFORM_KEY, GOOGLE_PLATFORM_KEY_2, GOOGLE_APP_KEY};
+    private static final String GOOGLE_LEGACY_KEY = "58e1c4133f7441ec3d2c270270a14802da47ba0e"; // Seems to be no longer used.
+    private static final String[] GOOGLE_PRIMARY_KEYS = {GOOGLE_PLATFORM_KEY, "24bb24c05e47e0aefa68a58a766179d9b613a600", "afb0fed5eeaebdd86f56a97742f4b6b33ef59875", "61226bdb57cc32c8a2a9ef71f7bc9548e95dcc0b", "3a82b5ee26bc46bf68113d920e610cd090198d4a"};
 
     public static final Map<String, String> KNOWN_GOOGLE_PACKAGES;
 
@@ -64,7 +55,6 @@ public class PackageUtils {
         KNOWN_GOOGLE_PACKAGES = new HashMap<>();
         KNOWN_GOOGLE_PACKAGES.put("com.google.android.apps.youtube", "24bb24c05e47e0aefa68a58a766179d9b613a600");
         KNOWN_GOOGLE_PACKAGES.put("com.google.android.apps.youtube.music", "afb0fed5eeaebdd86f56a97742f4b6b33ef59875");
-        KNOWN_GOOGLE_PACKAGES.put("com.google.android.youtube", "24bb24c05e47e0aefa68a58a766179d9b613a600");
     }
 
     public static boolean isGooglePackage(Context context, String packageName) {
@@ -126,7 +116,7 @@ public class PackageUtils {
         if (packageName.equals("com.google.android.youtube.tv") || packageName.contains("youtube.tv")) {
             return "61226bdb57cc32c8a2a9ef71f7bc9548e95dcc0b";
         }
-        if (packageName.equals("com.google.android.youtube") || packageName.contains("youtube")) {
+        if (packageName.equals("com.google.android.apps.photos") || packageName.contains("apps.photos") || packageName.equals("com.google.android.youtube") || packageName.contains("youtube")) {
             return "24bb24c05e47e0aefa68a58a766179d9b613a600";
         }
         final PackageInfo info;
@@ -298,10 +288,7 @@ public class PackageUtils {
             @SuppressLint("PrivateApi")
             Class<?> activityThread = Class.forName("android.app.ActivityThread");
             String methodName = "currentProcessName";
-<<<<<<< HEAD
-=======
             @SuppressLint("DiscouragedPrivateApi")
->>>>>>> 25329625 (Set basePackageName)
             Method getProcessName = activityThread.getDeclaredMethod(methodName);
             return (String) getProcessName.invoke(null);
         } catch (Exception e) {

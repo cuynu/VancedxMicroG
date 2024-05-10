@@ -1,10 +1,7 @@
 package org.microg.gms.common;
 
-<<<<<<< HEAD
-=======
 import static android.os.Build.VERSION.SDK_INT;
 
->>>>>>> b20726b4 (Stop importing android.os.Build https://github.com/microg/GmsCore/commit/56b468ecbb450844c3e41a2b7d85ff979d98734b)
 import android.annotation.SuppressLint;
 import android.app.Notification;
 import android.app.NotificationChannel;
@@ -89,11 +86,7 @@ public class ForegroundServiceContext extends ContextWrapper {
     }
 
     @SuppressLint("BatteryLife")
-<<<<<<< HEAD
-    private static Notification buildForegroundNotification(Context context, String serviceName) {
-=======
     private static Notification buildForegroundNotification(Context context) {
->>>>>>> b20726b4 (Stop importing android.os.Build https://github.com/microg/GmsCore/commit/56b468ecbb450844c3e41a2b7d85ff979d98734b)
         Intent notificationIntent = new Intent();
         if (SDK_INT >= 31) {
             notificationIntent.setAction(Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS);

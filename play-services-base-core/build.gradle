@@ -21,6 +21,7 @@ android {
     buildToolsVersion androidBuildVersionTools
 
     defaultConfig {
+        versionName version
         minSdkVersion androidMinSdk
         targetSdkVersion androidTargetSdk
 
@@ -32,8 +33,7 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility = 17
-        targetCompatibility = 17
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
     }
-    namespace 'org.microg.gms.base.core'
 }

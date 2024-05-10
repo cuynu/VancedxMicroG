@@ -41,37 +41,7 @@ public class ObjectWrapper<T> extends IObjectWrapper.Stub {
         }
 
         IBinder binder = obj.asBinder();
-<<<<<<< HEAD
-        Field[] fields = binder.getClass().getDeclaredFields();
-
-        if (fields.length < 1) {
-            throw new IllegalArgumentException("No fields were found");
-        }
-
-        // Ignore synthetic field(s) from JaCoCo or elsewhere
-        // https://www.jacoco.org/jacoco/trunk/doc/faq.html
-
-        @Nullable
-        Field field = null;
-
-        for (Field currentField : fields) {
-            if (currentField.isSynthetic()) {
-                continue;
-            }
-
-            if (field == null) {
-                field = currentField;
-            } else {
-                throw new IllegalArgumentException("Too many non-synthetic fields were found");
-            }
-        }
-
-        if (field == null) {
-            throw new IllegalArgumentException("No non-synthetic fields were found");
-        }
-=======
         Field field = getField(binder);
->>>>>>> 42253b04 (Allow synthetic field(s) in ObjectWrapper https://github.com/microg/GmsCore/commit/bc6bc583b9ebce160faab449cb62d947b5d791b9)
 
         if (!field.isAccessible()) {
             field.setAccessible(true);

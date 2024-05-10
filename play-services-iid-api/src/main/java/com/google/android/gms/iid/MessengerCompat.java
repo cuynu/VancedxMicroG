@@ -26,7 +26,7 @@ import android.os.Parcelable;
 import android.os.RemoteException;
 
 public class MessengerCompat implements Parcelable {
-    private final Messenger messenger;
+    private Messenger messenger;
     private IMessengerCompat messengerCompat;
 
     public MessengerCompat(IBinder binder) {
@@ -48,7 +48,7 @@ public class MessengerCompat implements Parcelable {
     }
 
     public IBinder getBinder() {
-        return messenger.getBinder();
+        return messenger != null ? messenger.getBinder() : messengerCompat.asBinder();
     }
 
     @Override
@@ -57,7 +57,8 @@ public class MessengerCompat implements Parcelable {
     }
 
     public void send(Message message) throws RemoteException {
-        messenger.send(message);
+        if (messenger != null) messenger.send(message);
+        else messengerCompat.send(message);
     }
 
     @Override

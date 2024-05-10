@@ -21,7 +21,6 @@ import android.os.IBinder;
 import android.os.RemoteException;
 import android.util.Log;
 
-import androidx.annotation.NonNull;
 import androidx.lifecycle.LifecycleService;
 
 import com.google.android.gms.common.internal.GetServiceRequest;
@@ -59,7 +58,7 @@ public abstract class BaseService extends LifecycleService {
     }
 
     @Override
-    public IBinder onBind(@NonNull Intent intent) {
+    public IBinder onBind(Intent intent) {
         super.onBind(intent);
         Log.d(TAG, "onBind: " + intent);
         return broker.asBinder();

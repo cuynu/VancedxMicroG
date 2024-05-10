@@ -20,30 +20,25 @@ import android.content.Context;
 import android.os.Bundle;
 import android.os.Looper;
 
-<<<<<<< HEAD
-=======
 import androidx.fragment.app.FragmentActivity;
 
 import android.util.Log;
 
 import com.google.android.gms.common.ConnectionResult;
->>>>>>> 49892e88 (Restructure modules https://github.com/microg/GmsCore/commit/18c3a6154dc41cebe1d4aeda5592b8f23928356f)
 import com.google.android.gms.common.api.Api;
 import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.common.api.PendingResult;
+import com.google.android.gms.common.api.Status;
 
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
 
 public class GoogleApiClientImpl implements GoogleApiClient {
     private static final String TAG = "GmsApiClientImpl";
 
-<<<<<<< HEAD
-    private final Map<Api, ApiClient> apiConnections = new HashMap<>();
-    private final Set<ConnectionCallbacks> connectionCallbacks = new HashSet<>();
-    private final Set<OnConnectionFailedListener> connectionFailedListeners = new HashSet<>();
-=======
     private final Context context;
     private final Looper looper;
     private final ApiClientSettings clientSettings;
@@ -80,50 +75,29 @@ public class GoogleApiClientImpl implements GoogleApiClient {
                 }
             };
     private int usageCounter = 0;
->>>>>>> 49892e88 (Restructure modules https://github.com/microg/GmsCore/commit/18c3a6154dc41cebe1d4aeda5592b8f23928356f)
     private boolean shouldDisconnect = false;
 
     public GoogleApiClientImpl(Context context, Looper looper, ApiClientSettings clientSettings,
                                Map<Api, Api.ApiOptions> apis,
                                Set<ConnectionCallbacks> connectionCallbacks,
-                               Set<OnConnectionFailedListener> connectionFailedListeners) {
+                               Set<OnConnectionFailedListener> connectionFailedListeners, int clientId) {
+        this.context = context;
+        this.looper = looper;
+        this.clientSettings = clientSettings;
+        this.apis.putAll(apis);
         this.connectionCallbacks.addAll(connectionCallbacks);
         this.connectionFailedListeners.addAll(connectionFailedListeners);
+        this.clientId = clientId;
 
         if (this.clientSettings.sessionId == null) {
             this.clientSettings.sessionId = hashCode();
         }
 
         for (Api api : apis.keySet()) {
-            ConnectionCallbacks baseConnectionCallbacks = new ConnectionCallbacks() {
-                @Override
-                public void onConnected(Bundle connectionHint) {
-                    Log.d(TAG, "ConnectionCallbacks : onConnected()");
-                    for (ConnectionCallbacks callback : connectionCallbacks) {
-                        callback.onConnected(connectionHint);
-                    }
-                }
-
-                @Override
-                public void onConnectionSuspended(int cause) {
-                    Log.d(TAG, "ConnectionCallbacks : onConnectionSuspended()");
-                    for (ConnectionCallbacks callback : connectionCallbacks) {
-                        callback.onConnectionSuspended(cause);
-                    }
-                }
-            };
-            OnConnectionFailedListener baseConnectionFailedListener = result -> {
-                Log.d(TAG, "OnConnectionFailedListener : onConnectionFailed()");
-                for (OnConnectionFailedListener listener : connectionFailedListeners) {
-                    listener.onConnectionFailed(result);
-                }
-            };
             apiConnections.put(api, api.getBuilder().build(apis.get(api), context, looper, clientSettings, baseConnectionCallbacks, baseConnectionFailedListener));
         }
     }
 
-<<<<<<< HEAD
-=======
     public synchronized void incrementUsageCounter() {
         usageCounter++;
     }
@@ -156,7 +130,6 @@ public class GoogleApiClientImpl implements GoogleApiClient {
         return null;
     }
 
->>>>>>> 49892e88 (Restructure modules https://github.com/microg/GmsCore/commit/18c3a6154dc41cebe1d4aeda5592b8f23928356f)
     @Override
     public synchronized void connect() {
         Log.d(TAG, "connect()");
@@ -177,12 +150,6 @@ public class GoogleApiClientImpl implements GoogleApiClient {
 
     @Override
     public synchronized void disconnect() {
-<<<<<<< HEAD
-        Log.d(TAG, "disconnect()");
-        for (ApiClient connection : apiConnections.values()) {
-            if (connection.isConnected()) {
-                connection.disconnect();
-=======
         if (usageCounter > 0) {
             shouldDisconnect = true;
         } else {
@@ -191,7 +158,6 @@ public class GoogleApiClientImpl implements GoogleApiClient {
                 if (connection.isConnected()) {
                     connection.disconnect();
                 }
->>>>>>> 49892e88 (Restructure modules https://github.com/microg/GmsCore/commit/18c3a6154dc41cebe1d4aeda5592b8f23928356f)
             }
         }
     }
@@ -224,6 +190,13 @@ public class GoogleApiClientImpl implements GoogleApiClient {
     }
 
     @Override
+    public synchronized void reconnect() {
+        Log.d(TAG, "reconnect()");
+        disconnect();
+        connect();
+    }
+
+    @Override
     public void registerConnectionCallbacks(ConnectionCallbacks listener) {
         connectionCallbacks.add(listener);
     }
@@ -234,8 +207,17 @@ public class GoogleApiClientImpl implements GoogleApiClient {
     }
 
     @Override
+    public void stopAutoManager(FragmentActivity lifecycleActivity) throws IllegalStateException {
+
+    }
+
+    @Override
     public void unregisterConnectionCallbacks(ConnectionCallbacks listener) {
         connectionCallbacks.remove(listener);
     }
 
+    @Override
+    public void unregisterConnectionFailedListener(OnConnectionFailedListener listener) {
+        connectionFailedListeners.remove(listener);
+    }
 }

@@ -16,8 +16,6 @@
 
 package com.google.android.gms.common.api;
 
-import androidx.annotation.NonNull;
-
 import org.microg.gms.common.PublicApi;
 import org.microg.safeparcel.AutoSafeParcelable;
 import org.microg.safeparcel.SafeParceled;
@@ -46,22 +44,20 @@ public class Scope extends AutoSafeParcelable {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Scope)) return false;
-        assert scopeUri != null;
-        return scopeUri.equals(((Scope) o).scopeUri);
+        return this == o || o instanceof Scope && scopeUri.equals(((Scope) o).scopeUri);
+    }
+
+    public String getScopeUri() {
+        return scopeUri;
     }
 
     @Override
     public int hashCode() {
-        assert scopeUri != null;
         return scopeUri.hashCode();
     }
 
-    @NonNull
     @Override
     public String toString() {
-        assert scopeUri != null;
         return scopeUri;
     }
 

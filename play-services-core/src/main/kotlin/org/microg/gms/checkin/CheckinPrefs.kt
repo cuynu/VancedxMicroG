@@ -12,40 +12,32 @@ import org.microg.gms.settings.SettingsContract.setSettings
 object CheckinPrefs {
 
     @JvmStatic
-    fun isEnabled(context: Context): Boolean? {
+    fun isEnabled(context: Context): Boolean {
         val projection = arrayOf(CheckIn.ENABLED)
-        return CheckIn.getContentUri(context)?.let {
-            SettingsContract.getSettings(context, it, projection) { c ->
-                c.getInt(0) != 0
-            }
+        return SettingsContract.getSettings(context, CheckIn.getContentUri(context), projection) { c ->
+            c.getInt(0) != 0
         }
     }
 
     @JvmStatic
-    fun isSpoofingEnabled(context: Context): Boolean? {
+    fun isSpoofingEnabled(context: Context): Boolean {
         val projection = arrayOf(CheckIn.BRAND_SPOOF)
-        return CheckIn.getContentUri(context)?.let {
-            SettingsContract.getSettings(context, it, projection) { c ->
-                c.getInt(0) != 0
-            }
+        return SettingsContract.getSettings(context, CheckIn.getContentUri(context), projection) { c ->
+            c.getInt(0) != 0
         }
     }
 
     @JvmStatic
     fun setSpoofingEnabled(context: Context, enabled: Boolean) {
-        CheckIn.getContentUri(context)?.let {
-            setSettings(context, it) {
-                put(CheckIn.BRAND_SPOOF, enabled)
-            }
+        setSettings(context, CheckIn.getContentUri(context)) {
+            put(CheckIn.BRAND_SPOOF, enabled)
         }
     }
 
     @JvmStatic
     fun hideLauncherIcon(context: Context, enabled: Boolean) {
-        CheckIn.getContentUri(context)?.let {
-            setSettings(context, it) {
-                put(CheckIn.HIDE_LAUNCHER_ICON, enabled)
-            }
+        setSettings(context, CheckIn.getContentUri(context)) {
+            put(CheckIn.HIDE_LAUNCHER_ICON, enabled)
         }
     }
 

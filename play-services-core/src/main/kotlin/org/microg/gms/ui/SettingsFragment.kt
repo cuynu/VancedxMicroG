@@ -105,9 +105,6 @@ class SettingsFragment : ResourceSettingsFragment() {
             findPreference<Preference>(PREF_GCM)?.setSummary(R.string.service_status_disabled_short)
         }
 
-<<<<<<< HEAD
-        findPreference<Preference>(PREF_CHECKIN)?.setSummary(if (CheckinPrefs.isEnabled(context) == true) R.string.service_status_enabled_short else R.string.service_status_disabled_short)
-=======
         findPreference<Preference>(PREF_CHECKIN)?.setSummary(if (CheckinPrefs.isEnabled(context)) R.string.service_status_enabled_short else R.string.service_status_disabled_short)
 
         lifecycleScope.launchWhenResumed {
@@ -121,7 +118,6 @@ class SettingsFragment : ResourceSettingsFragment() {
                 else entry.createPreference()
             }
         }
->>>>>>> 4018b660 (Build: Change system for optional components https://github.com/microg/GmsCore/commit/dd8c5601f5a521fbf48a2bdcaf4b5ccc13340753)
     }
 
     companion object {

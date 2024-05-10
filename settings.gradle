@@ -16,6 +16,3 @@ include ':play-services-core'
 
 include ':play-services-base'
 include ':play-services-base-core'
-
-include ':play-services-cast-framework'
-include ':play-services-cast'

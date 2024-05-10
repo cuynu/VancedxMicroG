@@ -6,7 +6,6 @@
 
 package org.microg.gms.settings
 
-import android.annotation.SuppressLint
 import android.content.ContentProvider
 import android.content.ContentValues
 import android.content.Context
@@ -30,7 +29,6 @@ private const val SETTINGS_PREFIX = "org.microg.gms.settings."
  * All settings access should go through this [ContentProvider],
  * because it provides safe access from different processes which normal [SharedPreferences] don't.
  */
-@SuppressLint("DiscouragedPrivateApi")
 class SettingsProvider : ContentProvider() {
 
     private val preferences: SharedPreferences by lazy {
@@ -170,15 +168,9 @@ class SettingsProvider : ContentProvider() {
             Gcm.NETWORK_ROAMING -> Integer.parseInt(preferences.getString(key, "0") ?: "0")
             Gcm.NETWORK_OTHER -> Integer.parseInt(preferences.getString(key, "0") ?: "0")
 
-<<<<<<< HEAD
-            Gcm.LEARNT_MOBILE -> preferences.getInt(key, INTERVAL)
-            Gcm.LEARNT_WIFI -> preferences.getInt(key, INTERVAL)
-            Gcm.LEARNT_OTHER -> preferences.getInt(key, INTERVAL)
-=======
             Gcm.LEARNT_MOBILE -> preferences.getInt(key, 300000)
             Gcm.LEARNT_WIFI -> preferences.getInt(key, 300000)
             Gcm.LEARNT_OTHER -> preferences.getInt(key, 300000)
->>>>>>> b0b92c8c (Set max auto heartbeat interval to 15min https://github.com/microg/GmsCore/commit/1e96dd137eae86bbf3be3ca72a6345fa837ad8ff)
 
             else -> throw IllegalArgumentException("Unknown key: $key")
         }
@@ -283,15 +275,13 @@ class SettingsProvider : ContentProvider() {
         return listOf(preferences, systemDefaultPreferences, metaDataPreferences).getBooleanAsInt(key, def)
     }
 
-<<<<<<< HEAD
-    private fun getSettingsString(key: String, def: String? = null): String? = listOf(preferences, systemDefaultPreferences).getString(key, def)
-=======
     private fun getSettingsString(key: String, def: String? = null): String? = listOf(preferences, systemDefaultPreferences, metaDataPreferences).getString(key, def)
     private fun getSettingsInt(key: String, def: Int): Int = listOf(preferences, systemDefaultPreferences, metaDataPreferences).getInt(key, def)
     private fun getSettingsLong(key: String, def: Long): Long = listOf(preferences, systemDefaultPreferences, metaDataPreferences).getLong(key, def)
->>>>>>> d2450feb (Base: Allow default settings to be provided in meta-data https://github.com/microg/GmsCore/commit/2c80de55d132a91c25036880517c5605c6753f71)
 
     private fun List<SharedPreferences?>.getString(key: String, def: String?): String? = foldRight(def) { preferences, defValue -> preferences?.getString(key, defValue) ?: defValue }
+    private fun List<SharedPreferences?>.getInt(key: String, def: Int): Int = foldRight(def) { preferences, defValue -> preferences?.getInt(key, defValue) ?: defValue }
+    private fun List<SharedPreferences?>.getLong(key: String, def: Long): Long = foldRight(def) { preferences, defValue -> preferences?.getLong(key, defValue) ?: defValue }
     private fun List<SharedPreferences?>.getBoolean(key: String, def: Boolean): Boolean = foldRight(def) { preferences, defValue -> preferences?.getBoolean(key, defValue) ?: defValue }
     private fun List<SharedPreferences?>.getBooleanAsInt(key: String, def: Boolean): Int = if (getBoolean(key, def)) 1 else 0
 }
