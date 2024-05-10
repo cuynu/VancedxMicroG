@@ -75,7 +75,7 @@
             android:title="@string/pref_auth_include_android_id_title"/>
     <Preference
         android:icon="@drawable/ic_info_outline"
-        android:selectable="true"
+        android:selectable="false"
         android:title="@string/back_to_vancedx_title"
         android:summary="@string/back_to_vancedx_summary">
     <intent
