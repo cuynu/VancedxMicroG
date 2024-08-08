@@ -28,7 +28,7 @@ buildscript {
     ext.wireVersion = '4.8.0'
 
 
-    ext.androidBuildGradleVersion = '7.4.2'
+    ext.androidBuildGradleVersion = '8.0.0'
     ext.androidBuildVersionTools = '33.0.2'
 
     ext.androidMinSdk = 23
