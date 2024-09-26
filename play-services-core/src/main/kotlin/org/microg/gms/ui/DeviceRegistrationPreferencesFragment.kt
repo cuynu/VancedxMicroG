@@ -153,7 +153,7 @@ class DeviceRegistrationPreferencesFragment : PreferenceFragmentCompat() {
                 androidId.summary = serviceInfo.androidId.toString(16)
             } else {
                 status.summary = getString(R.string.checkin_not_registered)
-                androidId.isVisible = false
+                androidId.isVisible = true
             }
         }
     }
