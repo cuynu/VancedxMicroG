@@ -13,16 +13,16 @@
             android:key="pref_device_profile"
             android:persistent="false"
             android:title="@string/profile_name"
-            tools:summary="Automatic (Google Pixel 3, Android 11)" />
+            tools:summary="Automatic" />
         <Preference
             android:key="pref_device_profile_import"
             android:summary="@string/import_profile_summary"
             android:title="@string/import_profile_name" />
         <Preference
-            android:enabled="false"
+            android:enabled="true"
             android:key="pref_device_serial"
             android:title="@string/serial_name"
-            tools:summary="123456" />
+            tools:summary="" />
     </PreferenceCategory>
     <PreferenceCategory
         android:key="prefcat_device_registration_status"
@@ -31,12 +31,12 @@
             android:enabled="false"
             android:key="pref_device_registration_status"
             android:title="@string/pref_info_status"
-            tools:summary="Last registration: 13 hours ago" />
+            tools:summary="Last registration: XX hours ago" />
         <Preference
             android:enabled="false"
             android:key="pref_device_registration_android_id"
             android:title="@string/pref_device_registration_android_id"
-            tools:summary="1953a59d1c1b7e4b" />
+            tools:summary="" />
     </PreferenceCategory>
     <PreferenceCategory android:layout="@layout/preference_category_no_label">
         <org.microg.gms.ui.TextPreference
