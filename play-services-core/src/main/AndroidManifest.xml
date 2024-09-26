@@ -25,14 +25,17 @@
         android:name="${basePackageName}.android.c2dm.permission.RECEIVE"
         android:label="@string/perm_c2dm_receive_label"
         android:permissionGroup="android.permission-group.NETWORK"
+        tools:node="remove"
         android:protectionLevel="normal" />
     <permission
         android:name="${basePackageName}.android.c2dm.permission.SEND"
         android:label="@string/perm_c2dm_send_label"
         android:permissionGroup="android.permission-group.NETWORK"
+        tools:node="remove"
         android:protectionLevel="privileged|signature" />
     <permission
         android:name="${basePackageName}.android.gtalkservice.permission.GTALK_SERVICE"
+        tools:node="remove"
         android:label="@string/perm_gtalk_svc_label"
         android:permissionGroup="android.permission-group.MESSAGES"
         android:protectionLevel="signature" />
@@ -53,7 +56,7 @@
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
@@ -62,7 +65,8 @@
     <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
     <uses-permission android:name="android.permission.USE_CREDENTIALS" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES" />
+    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES"
+        tools:ignore="QueryAllPackagesPermission" />
     <uses-permission android:name="android.permission.READ_SYNC_SETTINGS" />
     <uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS" />
     <uses-permission android:name="android.permission.READ_SYNC_STATS" />
@@ -116,13 +120,15 @@
 
         <!-- Device Checkin -->
 
-        <service android:name="org.microg.gms.checkin.CheckinService">
+        <service android:name="org.microg.gms.checkin.CheckinService"
+            android:exported="true">
             <intent-filter>
                 <action android:name="com.google.android.gms.checkin.BIND_TO_SERVICE" />
             </intent-filter>
         </service>
 
-        <receiver android:name="org.microg.gms.checkin.TriggerReceiver">
+        <receiver android:name="org.microg.gms.checkin.TriggerReceiver"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
                 <action android:name="android.intent.action.AIRPLANE_MODE" />
@@ -150,6 +156,7 @@
         <!-- Cloud Messaging -->
         <service
             android:name="org.microg.gms.gcm.PushRegisterService"
+            android:exported="true"
             android:process=":persistent">
             <intent-filter>
                 <action android:name="${basePackageName}.android.c2dm.intent.REGISTER" />
@@ -161,6 +168,7 @@
 
         <receiver
             android:name="org.microg.gms.gcm.PushRegisterReceiver"
+            android:exported="true"
             android:process=":persistent">
             <intent-filter>
                 <action android:name="${basePackageName}.iid.TOKEN_REQUEST" />
@@ -173,6 +181,7 @@
 
         <receiver
             android:name="org.microg.gms.gcm.SendReceiver"
+            android:exported="true"
             android:process=":persistent">
             <intent-filter>
                 <action android:name="com.google.android.gcm.intent.SEND" />
@@ -185,6 +194,7 @@
 
         <receiver
             android:name="org.microg.gms.gcm.TriggerReceiver"
+            android:exported="true"
             android:process=":persistent">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
@@ -208,6 +218,7 @@
 
         <receiver
             android:name="org.microg.gms.gcm.UnregisterReceiver"
+            android:exported="true"
             android:process=":persistent">
             <intent-filter>
                 <action android:name="android.intent.action.PACKAGE_DATA_CLEARED" />
@@ -220,7 +231,8 @@
 
         <!-- Auth -->
 
-        <service android:name="org.microg.gms.auth.loginservice.GoogleLoginService">
+        <service android:name="org.microg.gms.auth.loginservice.GoogleLoginService"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.accounts.AccountAuthenticator" />
             </intent-filter>
@@ -278,6 +290,7 @@
 
         <activity
             android:name="org.microg.gms.auth.credentials.CredentialPickerActivity"
+            android:exported="true"
             android:process=":ui">
             <intent-filter>
                 <action android:name="com.google.android.gms.auth.api.credentials.PICKER" />
@@ -285,19 +298,22 @@
             </intent-filter>
         </activity>
 
-        <service android:name="org.microg.gms.auth.credentials.CredentialsService">
+        <service android:name="org.microg.gms.auth.credentials.CredentialsService"
+            android:exported="true">
             <intent-filter>
                 <action android:name="com.google.android.gms.auth.api.credentials.service.START" />
             </intent-filter>
         </service>
 
-        <service android:name="org.microg.gms.auth.proxy.AuthProxyService">
+        <service android:name="org.microg.gms.auth.proxy.AuthProxyService"
+            android:exported="true">
             <intent-filter>
                 <action android:name="com.google.android.gms.auth.service.START" />
             </intent-filter>
         </service>
 
-        <service android:name="org.microg.gms.auth.appcert.AppCertService">
+        <service android:name="org.microg.gms.auth.appcert.AppCertService"
+            android:exported="true">
             <intent-filter>
                 <action android:name="com.google.android.gms.auth.be.appcert.AppCertService" />
             </intent-filter>
@@ -306,6 +322,7 @@
         <!-- microG Settings shown in Launcher -->
         <activity
             android:name="org.microg.gms.ui.SettingsActivity"
+            android:exported="true"
             android:icon="@mipmap/ic_launcher"
             android:label="@string/gms_settings_name"
             android:process=":ui"
@@ -336,6 +353,7 @@
         <!-- microG Settings embedded in System Settings on SDK 23 and newer -->
         <activity-alias
             android:name="org.microg.gms.ui.SettingsActivityLink"
+            android:exported="true"
             android:icon="@mipmap/ic_launcher"
             android:label="@string/gms_settings_name"
             android:process=":ui"
@@ -380,7 +398,8 @@
         <activity
             android:name="org.microg.gms.accountsettings.ui.MainActivity"
             android:process=":ui"
-            android:exported="false"
+            android:exported="true"
+            android:enabled="true"
             android:taskAffinity="org.microg.gms.settings"
             android:theme="@style/Theme.LoginBlue.Base">
             <intent-filter>
@@ -409,14 +428,16 @@
 
         <!-- Other -->
 
-        <service android:name="org.microg.gms.auth.SignInService">
+        <service android:name="org.microg.gms.auth.SignInService"
+            android:exported="true">
             <intent-filter>
                 <action android:name="com.google.android.gms.signin.service.START" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </service>
 
-        <service android:name="org.microg.gms.DummyService">
+        <service android:name="org.microg.gms.DummyService"
+            android:exported="true">
             <intent-filter>
                 <action android:name="com.google.android.gms.accounts.ACCOUNT_SERVICE" />
                 <action android:name="com.google.android.gms.identity.service.BIND" />
