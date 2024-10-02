@@ -6,9 +6,9 @@
 <manifest xmlns:tools="http://schemas.android.com/tools"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <permission android:name="org.microg.gms.permission.READ_SETTINGS"
+    <permission android:name="${applicationId}.permission.WRITE_SETTINGS"
         android:protectionLevel="normal" />
-    <permission android:name="org.microg.gms.permission.WRITE_SETTINGS"
+    <permission android:name="${applicationId}.permission.WRITE_SETTINGS"
         android:protectionLevel="normal" />
 
     <application>
