@@ -68,7 +68,7 @@
             android:key="auth_manager_visible"
             android:summary="@string/pref_auth_visible_summary"
             android:title="@string/pref_auth_visible_title"/>
-        <SwitchPreference
+        <SwitchPreferenceCompat
             android:defaultValue="true"
             android:key="auth_include_android_id"
             android:summary="@string/pref_auth_include_android_id_summary"

@@ -1,7 +1,6 @@
 package org.microg.gms.ui;
 
-import static android.os.Build.VERSION.SDK_INT;
-
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
@@ -11,10 +10,12 @@ import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
-import com.google.android.material.color.DynamicColors;
 import com.mgoogle.android.gms.R;
+import org.microg.gms.ui.settings.SettingsProvider;
 
-public class SettingsActivity extends AppCompatActivity {
+import static org.microg.gms.ui.settings.SettingsProviderKt.getAllSettingsProviders;
+
+public class MainSettingsActivity extends AppCompatActivity {
     private AppBarConfiguration appBarConfiguration;
 
     private NavController getNavController() {
@@ -24,10 +25,18 @@ public class SettingsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.settings_root_activity);
-        if (SDK_INT >= 31) {
-            DynamicColors.applyToActivityIfAvailable(this);
+
+        Intent intent = getIntent();
+        for (SettingsProvider settingsProvider : getAllSettingsProviders(this)) {
+            settingsProvider.preProcessSettingsIntent(intent);
         }
+
+        setContentView(R.layout.settings_root_activity);
+
+        for (SettingsProvider settingsProvider : getAllSettingsProviders(this)) {
+            settingsProvider.extendNavigation(getNavController());
+        }
+
         appBarConfiguration = new AppBarConfiguration.Builder(getNavController().getGraph()).build();
         NavigationUI.setupActionBarWithNavController(this, getNavController(), appBarConfiguration);
     }
