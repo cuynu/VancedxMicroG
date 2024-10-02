@@ -22,6 +22,7 @@ import org.microg.gms.settings.SettingsContract
 import org.microg.gms.ui.settings.SettingsProvider
 import org.microg.gms.ui.settings.getAllSettingsProviders
 import org.microg.tools.ui.ResourceSettingsFragment
+import org.microg.gms.play.PlayPreferences
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 
@@ -39,11 +40,17 @@ class SettingsFragment : ResourceSettingsFragment() {
             findNavController().navigate(requireContext(), R.id.openGcmSettings)
             true
         }
-        findPreference<Preference>(PREF_ABOUT)?.setOnPreferenceClickListener {
-            findNavController().navigate(requireContext(), R.id.openAbout)
+        findPreference<Preference>(PREF_PLAY)!!.onPreferenceClickListener = Preference.OnPreferenceClickListener {
+            findNavController().navigate(requireContext(), R.id.openPlaySettings)
             true
         }
-        findPreference<Preference>(PREF_ABOUT)?.summary = getString(R.string.about_version_str, AboutFragment.getSelfVersion(context))
+        findPreference<Preference>(PREF_ABOUT)!!.apply {
+            onPreferenceClickListener = Preference.OnPreferenceClickListener {
+                findNavController().navigate(requireContext(), R.id.openAbout)
+                true
+            }
+            summary = getString(org.microg.tools.ui.R.string.about_version_str, AboutFragment.getSelfVersion(context))
+        }
 
         findPreference<SwitchPreferenceCompat>(SettingsContract.CheckIn.HIDE_LAUNCHER_ICON)?.apply {
             setOnPreferenceChangeListener { _, newValue ->
@@ -106,6 +113,7 @@ class SettingsFragment : ResourceSettingsFragment() {
         }
 
         findPreference<Preference>(PREF_CHECKIN)?.setSummary(if (CheckinPrefs.isEnabled(context)) R.string.service_status_enabled_short else R.string.service_status_disabled_short)
+        findPreference<Preference>(PREF_PLAY)!!.setSummary(if (PlayPreferences.isLicensingEnabled(requireContext())) R.string.pref_play_summary_licensing_on else R.string.pref_play_summary_licensing_off)
 
         lifecycleScope.launchWhenResumed {
             val entries = getAllSettingsProviders(requireContext()).flatMap { it.getEntriesDynamic(requireContext()) }
@@ -124,6 +132,7 @@ class SettingsFragment : ResourceSettingsFragment() {
         const val PREF_ABOUT = "pref_about"
         const val PREF_GCM = "pref_gcm"
         const val PREF_CHECKIN = "pref_checkin"
+        const val PREF_PLAY = "pref_play"
     }
 
     init {

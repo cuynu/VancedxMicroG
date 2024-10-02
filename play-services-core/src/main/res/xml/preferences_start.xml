@@ -38,6 +38,11 @@
             android:title="@string/hideLauncherIcon"
             android:icon="@drawable/ic_baseline_hide_source_24"
             android:defaultValue="true"/>
+        <Preference
+            android:key="pref_play"
+            android:icon="@drawable/ic_play"
+            android:title="@string/service_name_play" />
+
     </PreferenceCategory>
     <PreferenceCategory android:layout="@layout/preference_category_no_label" android:key="prefcat_footer">
         <Preference

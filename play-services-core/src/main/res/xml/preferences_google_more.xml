@@ -86,7 +86,7 @@
             android:selectable="true"
             android:icon="@drawable/ic_info_outline"
             android:title="@string/build_date"
-            android:summary="DD MM YYYY - monthly">
+            android:summary="27 September 2024 - monthly">
             <intent
                 android:action="android.intent.action.VIEW"
                 android:data="https://gitlab.com/cuynu/VancedxMicroG/-/commits/master/?ref_type=HEADS" />
