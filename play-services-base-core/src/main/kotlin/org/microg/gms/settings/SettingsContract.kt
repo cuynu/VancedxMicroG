@@ -22,7 +22,6 @@ object SettingsContract {
         const val SECURITY_TOKEN = "securityToken"
         const val VERSION_INFO = "versionInfo"
         const val DEVICE_DATA_VERSION_INFO = "deviceDataVersionInfo"
-
         const val BRAND_SPOOF = "brandSpoof"
 
         const val HIDE_LAUNCHER_ICON = "hideLauncherIcon"

@@ -5,16 +5,21 @@
 package org.microg.gms.checkin
 
 import android.content.Context
+import android.content.Intent
 import org.microg.gms.settings.SettingsContract
 import org.microg.gms.settings.SettingsContract.CheckIn
 import org.microg.gms.settings.SettingsContract.setSettings
 
-object CheckinPrefs {
+object CheckinPreferences {
 
     @JvmStatic
     fun isEnabled(context: Context): Boolean {
         val projection = arrayOf(CheckIn.ENABLED)
-        return SettingsContract.getSettings(context, CheckIn.getContentUri(context), projection) { c ->
+        return SettingsContract.getSettings(
+            context,
+            CheckIn.getContentUri(context),
+            projection
+        ) { c ->
             c.getInt(0) != 0
         }
     }
@@ -22,7 +27,11 @@ object CheckinPrefs {
     @JvmStatic
     fun isSpoofingEnabled(context: Context): Boolean {
         val projection = arrayOf(CheckIn.BRAND_SPOOF)
-        return SettingsContract.getSettings(context, CheckIn.getContentUri(context), projection) { c ->
+        return SettingsContract.getSettings(
+            context,
+            CheckIn.getContentUri(context),
+            projection
+        ) { c ->
             c.getInt(0) != 0
         }
     }
@@ -41,4 +50,13 @@ object CheckinPrefs {
         }
     }
 
+    @JvmStatic
+    fun setEnabled(context: Context, enabled: Boolean) {
+        SettingsContract.setSettings(context, CheckIn.getContentUri(context)) {
+            put(CheckIn.ENABLED, enabled)
+        }
+        if (enabled) {
+            context.sendOrderedBroadcast(Intent(context, TriggerReceiver::class.java), null)
+        }
+    }
 }

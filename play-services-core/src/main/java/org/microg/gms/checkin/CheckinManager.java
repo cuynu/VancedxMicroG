@@ -16,7 +16,7 @@
 
 package org.microg.gms.checkin;
 
-import static org.microg.gms.checkin.CheckinPrefs.isSpoofingEnabled;
+import static org.microg.gms.checkin.CheckinPreferences.isSpoofingEnabled;
 
 import android.accounts.Account;
 import android.accounts.AccountManager;
@@ -43,7 +43,7 @@ public class CheckinManager {
         LastCheckinInfo info = LastCheckinInfo.read(context);
         if (!force && info.getLastCheckin() > System.currentTimeMillis() - MIN_CHECKIN_INTERVAL)
             return null;
-        if (!CheckinPrefs.isEnabled(context))
+        if (!CheckinPreferences.isEnabled(context))
             return null;
         List<CheckinClient.Account> accounts = new ArrayList<>();
         AccountManager accountManager = AccountManager.get(context);

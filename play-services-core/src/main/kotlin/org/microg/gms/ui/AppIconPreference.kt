@@ -11,8 +11,9 @@ import android.util.DisplayMetrics
 import android.widget.ImageView
 import androidx.preference.Preference
 import androidx.preference.PreferenceViewHolder
+import android.content.pm.ApplicationInfo
 
-class AppIconPreference : Preference {
+class AppIconPreference : AppPreference {
     constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int, defStyleRes: Int) : super(context, attrs, defStyleAttr, defStyleRes)
     constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr)
     constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)

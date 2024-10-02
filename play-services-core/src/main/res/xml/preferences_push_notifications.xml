@@ -7,6 +7,11 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:title="Push notifications">
+    <org.microg.gms.ui.SwitchBarPreference
+        android:title="Enable GCM"
+        android:key="pref_push_enabled"
+        android:persistent="false" />
+
     <PreferenceCategory
         android:key="prefcat_push_apps"
         android:title="@string/prefcat_push_apps_title">
