@@ -75,7 +75,6 @@
             android:title="@string/pref_auth_include_android_id_title"/>
     <Preference
         android:icon="@drawable/ic_info_outline"
-        android:enabled="false"
         android:title="@string/back_to_vancedx_title"
         android:summary="@string/back_to_vancedx_summary">
     <intent
@@ -86,7 +85,7 @@
             android:selectable="true"
             android:icon="@drawable/ic_info_outline"
             android:title="@string/build_date"
-            android:summary="27 September 2024 - monthly">
+            android:summary="DD MM YYYY - monthly">
             <intent
                 android:action="android.intent.action.VIEW"
                 android:data="https://gitlab.com/cuynu/VancedxMicroG/-/commits/master/?ref_type=HEADS" />
