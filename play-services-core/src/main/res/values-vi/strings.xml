@@ -141,9 +141,4 @@ Hãy thử lại sau."</string>
     <string name="manage_googleaccount_title">Quản lý tài khoản Google đã đăng nhập</string>
     <string name="manage_googleaccount_summary">Điều này sẽ mở cài đặt thiết bị của bạn !</string>
     <string name="miscellaneous_settings">Cài đặt khác</string>
-    <string name="pref_play_summary_licensing_off">Tự động cấp phép đang tắt</string>
-    <string name="pref_play_summary_licensing_on">Tự động cấp phép đang bật</string>
-    <string name="pref_play_licensing_enable_switch">Tự động cấp phép</string>
-    <string name="pref_play_license_enable_summary">Một số ứng dụng có thể yêu cầu xác minh rằng bạn đã mua từ Google Play hay không. Khi ứng dụng đó yêu cầu, Vanced+ microG có thể chứng minh là bạn đã mua ứng dụng đó từ Google Play. Điều này sẽ không áp dụng nếu tùy chọn này được tắt hoặc không có tài khoản Google nào được thêm vào.</string>
-    <string name="service_name_play">Dịch vụ Play</string>
 </resources>

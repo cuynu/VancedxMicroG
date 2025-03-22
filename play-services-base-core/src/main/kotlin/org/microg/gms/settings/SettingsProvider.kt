@@ -14,7 +14,6 @@ import android.content.SharedPreferences
 import android.database.Cursor
 import android.database.MatrixCursor
 import android.net.Uri
-import org.microg.gms.settings.SettingsContract.Play
 import android.preference.PreferenceManager
 import org.microg.gms.common.PackageUtils.warnIfNotMainProcess
 import org.microg.gms.settings.SettingsContract.Auth
@@ -69,7 +68,6 @@ class SettingsProvider : ContentProvider() {
         Gcm.getContentUri(context!!) -> queryGcm(projection ?: Gcm.PROJECTION)
         Auth.getContentUri(context!!) -> queryAuth(projection ?: Auth.PROJECTION)
         Profile.getContentUri(context!!) -> queryProfile(projection ?: Profile.PROJECTION)
-        Play.getContentUri(context!!) -> queryPlay(projection ?: Play.PROJECTION)
         else -> null
     }
 
@@ -86,28 +84,9 @@ class SettingsProvider : ContentProvider() {
             Gcm.getContentUri(context!!) -> updateGcm(values)
             Auth.getContentUri(context!!) -> updateAuth(values)
             Profile.getContentUri(context!!) -> updateProfile(values)
-            Play.getContentUri(context!!) -> updatePlay(values)
             else -> return 0
         }
         return 1
-    }
-
-    private fun queryPlay(p: Array<out String>): Cursor = MatrixCursor(p).addRow(p) { key ->
-        when (key) {
-            Play.LICENSING -> getSettingsBoolean(key, false)
-            else -> throw IllegalArgumentException("Unknown key: $key")
-        }
-    }
-    private fun updatePlay(values: ContentValues) {
-        if (values.size() == 0) return
-        val editor = preferences.edit()
-        values.valueSet().forEach { (key, value) ->
-            when (key) {
-                Play.LICENSING -> editor.putBoolean(key, value as Boolean)
-                else -> throw IllegalArgumentException("Unknown key: $key")
-            }
-        }
-        editor.apply()
     }
 
     private fun queryCheckIn(p: Array<out String>): Cursor = MatrixCursor(p).addRow(p) { key ->

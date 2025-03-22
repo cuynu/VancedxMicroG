@@ -136,9 +136,4 @@ Ini bisa berlangsung beberapa menit."</string>
     <string name="manage_googleaccount_title">Manage signed in Google accounts</string>
     <string name="manage_googleaccount_summary">This will open your device settings !</string>
     <string name="miscellaneous_settings">Miscellaneous settings</string>
-    <string name="pref_play_summary_licensing_off">Licensing off</string>
-    <string name="pref_play_summary_licensing_on">Licensing on</string>
-    <string name="pref_play_licensing_enable_switch">Answer license verification requests</string>
-    <string name="pref_play_license_enable_summary">Some apps require verification that you have purchased them on Google Play. When requested by an app, Vanced+ microG can download a proof of purchase from Google. If disabled, or if no Google account is added, requests for license verification are ignored.</string>
-    <string name="service_name_play">Play Store services</string>
 </resources>

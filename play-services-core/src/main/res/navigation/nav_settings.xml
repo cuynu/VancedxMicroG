@@ -11,9 +11,6 @@
         <action android:id="@+id/openCheckinSettings" app:destination="@id/checkinFragment" />
         <action android:id="@+id/openGcmSettings" app:destination="@id/gcmFragment" />
         <action android:id="@+id/openAbout" app:destination="@id/aboutFragment" />
-        <action
-            android:id="@+id/openPlaySettings"
-            app:destination="@id/playFragment" />
     </fragment>
 
     <fragment
@@ -35,9 +32,6 @@
         <action
             android:id="@+id/openGcmAdvancedSettings"
             app:destination="@id/gcmAdvancedFragment" />
-        <action
-            android:id="@+id/openPlaySettings"
-            app:destination="@id/playFragment" />
     </fragment>
     <fragment
         android:id="@+id/gcmAllAppsFragment"
@@ -65,8 +59,4 @@
         android:id="@+id/aboutFragment"
         android:name="org.microg.gms.ui.AboutFragment"
         android:label="@string/prefcat_about" />
-    <fragment
-        android:id="@+id/playFragment"
-        android:name="org.microg.gms.ui.PlayFragment"
-        android:label="@string/service_name_play" />
 </navigation>
